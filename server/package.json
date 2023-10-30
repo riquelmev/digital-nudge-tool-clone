@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "mongodb": "^6.1.0",
+    "sqlite3": "^5.1.6"
+  }
+}
