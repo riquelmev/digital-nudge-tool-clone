@@ -140,8 +140,8 @@ function App({ chatgpt, popup }) {
     console.log(history);
 
     console.log("api call")
-
-    const response = await fetch('/api/sql', {
+    const api_base_url='https://server-8r2n.onrender.com'
+    const response = await fetch(`${api_base_url}/api/sql`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
