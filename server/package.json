@@ -3,11 +3,11 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "mongodb": "^6.1.0",
     "sqlite3": "^5.1.6"
   },
   "engines": {
-
     "node": ">=14 <18.17.1"
   }
 }

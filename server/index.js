@@ -3,6 +3,7 @@ const sqlite3 = require('sqlite3').verbose();
 const password = encodeURIComponent("mzRtKCb9bUe7hzH0");
 const username = encodeURIComponent("realizelab");
 var bodyParser = require('body-parser')
+const cors = require("cors");
 
 
 
@@ -54,6 +55,7 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json())
 
 app.use(express.static('build'));
