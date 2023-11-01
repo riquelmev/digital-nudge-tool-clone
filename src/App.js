@@ -140,7 +140,7 @@ function App({ chatgpt, popup }) {
     console.log(history);
 
     console.log("api call")
-    const api_base_url='https://server-8r2n.onrender.com'
+    const api_base_url='https://digital-nudge-server.onrender.com'
     const response = await fetch(`${api_base_url}/api/sql`, {
       method: 'POST',
       headers: {
