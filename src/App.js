@@ -1,4 +1,4 @@
-import React, { useState, setState, Component } from "react";
+import React, { useState, setState, Component, useEffect } from "react";
 // import { View, FlatList, StyleSheet, Text, Dimensions } from "react-native";
 // import * as React from 'react';  
 import styles from "./App.css";
@@ -62,7 +62,7 @@ function App({ chatgpt, popup }) {
 
   const scrollToTop = () => {
     console.log("scrolled")
-    window.scrollTo({ top: 0});
+    window.scrollTo({ top: 0, behavior: "instant"});
     onClickNext()
   };
 
@@ -70,18 +70,20 @@ function App({ chatgpt, popup }) {
   const onClickNext = () => {
     console.log({ question_id: currentQuestion, answer_key: selectedAnswerIndex });
     localStorage.setItem(questions[currentQuestion].code, questions[currentQuestion].options[selectedAnswerIndex].text);
-    // window.scrollTo({ top: 0});
 
-    // scrollToTop();
     if (currentQuestion + 1 < prompts.length) {
       setCurrentQuestion(currentQuestion + 1);
       handleShow();
       setSelectedAnswerIndex(null);
-      // console.log(showPopups);
+  
     } else {
       setShowResults(true);
     }
   }
+
+  // const handleScrollToTop = () => {
+  //   window.scrollTo(0,0);
+  // }
 
   class AnswerButton extends Component {
     onAnswerSelected() {
@@ -100,6 +102,22 @@ function App({ chatgpt, popup }) {
         </li>);
 
     }
+  }
+
+  class MultiLineText extends Component {
+    render() {
+      return (
+      <div>
+          {this.props.text.map((i,key) => {
+
+              if (UseChatGPTDisclaimer && this.props.text.length - 1 === key && showEndScreen) {
+                // TODO: Add padding
+                return <div className="text-chunk" key={key}>{i}{disclaimer}</div>;
+              }
+              return <div className="text-chunk" key={key}>{i}</div>;
+          })}
+      </div>);
+  }
   }
 
   /* Resets the game back to default */
@@ -163,6 +181,7 @@ function App({ chatgpt, popup }) {
     <div className="App">
       {/* 1. Header  */}
       <div className="title-box" id="title">
+
         <h1 className='title'> AI Reading Survey </h1>
       </div>
 
@@ -184,13 +203,11 @@ function App({ chatgpt, popup }) {
             </div>
           ):(
             <div className="disclaimer-box">
-            <h2 className="disclaimer-text" style={{fontWeight: "bold"}}>
-            Please don't believe anything we just showed you. 
+            <h2 className="disclaimer-text" style={{fontSize: 30}}>
+            Please read the following in its entirety. 
             <br/><br/>
             </h2>
-            <h3 className="disclaimer-text">
-            {post_disclaimer}
-            </h3>
+            <MultiLineText className="disclaimer-text" text={post_disclaimer} endScreen={true}></MultiLineText>
         <button className="restart-button accept-button" onClick={() => acceptedRestart()}>I accept</button>
         <button className="restart-button reject-button" onClick={() => declinedRestart()}>I don't accept </button>
         </div>
@@ -214,8 +231,11 @@ function App({ chatgpt, popup }) {
                 <div className="answer-box">
                   <div className="medical-text-box">
                     <div className="gpt-image"> <img src={require("./GPT-logo.jpeg")} alt="gpt Logo" style={{ maxWidth: 50 }}></img></div>
-                    {UseChatGPTDisclaimer ? (<h3 className="gpt-text">{prompts[currentQuestion].text}{disclaimer} </h3>) : (<h3 className="gpt-text">{prompts[currentQuestion].text}</h3>)}
-
+                    {/* {UseChatGPTDisclaimer ? (<h3 className="gpt-text">{prompts[currentQuestion].text}{disclaimer} </h3>) : (<h3 className="gpt-text">{prompts[currentQuestion].text}</h3>)} */}
+                    <div>
+                      <MultiLineText className="text-chunk" text={prompts[currentQuestion].text} endScreen={false}/>
+                      <div className="text-chunk">{disclaimer}</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -228,6 +248,7 @@ function App({ chatgpt, popup }) {
             <h2 className="question-text">
               Question: {currentQuestion + 1} out of {prompts.length}
             </h2>
+            {/* EDIT HERE TO ADD PARARGRAPHS FOR EACH STR IN ARR */}
             <h3 className="question-text">{questions[currentQuestion].text}</h3>
 
             {/* List of possible answers  */}
@@ -239,8 +260,7 @@ function App({ chatgpt, popup }) {
               })}
             </ul>
             <div className="button-box">
-              <button className="next-button" onClick={onClickNext} disabled={selectedAnswerIndex === null}> Next </button>
-              <button onClick={scrollToTop}>Scroll to top</button>
+              <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null}> Next </button>
             </div>
           </div>
         ])}

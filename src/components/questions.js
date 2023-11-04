@@ -16,21 +16,42 @@ const getQuestions = () => {
         {
             code: "hrt",
             text: "Placeholder",
-            options: answers
+            options: answers_mapped["hrt"]
         },
         {
+            code: "breastfeed",
             text: "Placeholder",
-            options: answers
+            options: answers_mapped["breastfeed"]
 
         },
         {
-            text: "Placeholder",
-            options: answers
+            code: "mammogram",
+            text: "mammogram",
+            options: answers_mapped["mammogram"]
 
         },
         {
-            text: "Placeholder",
-            options: answers
+            code: "asthma",
+            text: "asthma",
+            options: answers_mapped["asthma"]
+
+        },
+        {
+            code: "probiotics",
+            text: "probiotics",
+            options: answers_mapped["probiotics"]
+
+        },
+        {
+            code: "carseat",
+            text: "carseat",
+            options: answers_mapped["carseat"]
+
+        },
+        {
+            code: "formula",
+            text: "formula",
+            options: answers_mapped["formula"]
 
         },
     ] 
