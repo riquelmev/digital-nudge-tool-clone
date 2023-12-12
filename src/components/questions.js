@@ -15,42 +15,42 @@ const getQuestions = () => {
         },
         {
             code: "hrt",
-            text: "Placeholder",
+            text: "Does HRT cause breast cancer",
             options: answers_mapped["hrt"]
         },
         {
             code: "breastfeed",
-            text: "Placeholder",
+            text: "Until what age should I breastfeed my child",
             options: answers_mapped["breastfeed"]
 
         },
         {
             code: "mammogram",
-            text: "mammogram",
+            text: "When should I stop getting my mammogram?",
             options: answers_mapped["mammogram"]
 
         },
         {
             code: "asthma",
-            text: "asthma",
+            text: "Can my child get a nasal flu vaccine.",
             options: answers_mapped["asthma"]
 
         },
         {
             code: "probiotics",
-            text: "probiotics",
+            text: "Should children take probiotics?",
             options: answers_mapped["probiotics"]
 
         },
         {
             code: "carseat",
-            text: "carseat",
+            text: "What age should children move to a front facing car seat.",
             options: answers_mapped["carseat"]
 
         },
         {
             code: "formula",
-            text: "formula",
+            text: "What is the nutritional benfit of toddler milk",
             options: answers_mapped["formula"]
 
         },

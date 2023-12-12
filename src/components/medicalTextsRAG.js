@@ -1,7 +1,7 @@
 
-const getPrompts = () => {
+const getRAGTexts = () => {
 
-    const QAPrompts = [
+    const RAGTexts = [
         {
             code: "texas",
             prompt: "Tell me about the state of abortion policy in Texas.",
@@ -16,7 +16,12 @@ const getPrompts = () => {
             abortions at home by getting medications through international nonprofits, such as Aid Access, or online stores [1]`, 
 
             `Please note that this information is current as of October 11, 2023, and may be subject to change.
-            If you have any further questions or concerns, I recommend consulting with a medical professional or legal expert.`
+            If you have any further questions or concerns, I recommend consulting with a medical professional or legal expert.`,
+
+            `Sources:`,
+            `(1) How new regulations impact abortion and birth control access in Texas. TexasTribune`,
+            `(2) Abortion in Texas - Wikipedia.`,
+            `(3) Is abortion illegal in Texas? - Frequently Asked Legal Questions. Texas.gov`,
 
             ]},
         {
@@ -53,6 +58,11 @@ const getPrompts = () => {
                  with healthcare professionals for personalized advice based on the most current evidence. have
                 produced new findings or insights since my last update. `,
 
+                `Sources`,
+                `(1) Menopausal Hormone Therapy and Cancer Risk. Cancer.org`
+                `(2) Menopause and Breast Cancer: Connection, Risk, Treatment - Verywell Health. `
+                `(3) Can hormone replacement therapy (HRT) cause breast cancer?. https://www.medicalnewstoday.com.`
+                `(4) Wikipedia`
         ]},        
     {
         code: "asthma",
@@ -73,6 +83,13 @@ const getPrompts = () => {
             the most appropriate and safe vaccination option for your child,
             ensuring they receive the necessary protection against the flu while
             considering their asthma condition.`
+
+            `Sources`
+            `(1) Live Attenuated Influenza Vaccine [LAIV] (The Nasal Spray Flu Vaccine ... : cdc.gov`,
+            `(2) Using Nasal Spray Flu Vaccine in Children with Asthma. : www.emjreviews.com`, 
+            `(3) Live nasal spray flu vaccine is safe for kids with asthma, says study. : www.medicalxpress.com`,
+            `(4) Nasal Spray Flu Vaccine No Problem for Kids With Asthma. : www.medpagetoday.com`,
+            `(5) Flu & People with Asthma | CDC - Centers for Disease Control and Prevention. : www.cdc.gov`,
 
         ]},
     
@@ -117,6 +134,12 @@ const getPrompts = () => {
              specific nutritional requirements they may have. `
 
 
+            `Sources`
+            `(1) How Much Milk Should a Toddler Drink? Nutrition and More - www.Healthline.com`,
+            `(2) Milk for Toddlers: When Can Toddlers Have Milk? – www.happiestbaby.com`,
+            `(3) Toddler Formula vs. Milk: Experts Debunk What's Best - www.parents.com`,
+            `(4) Best Milk for Toddlers: www.yummytoddlerfood.com`,
+            `(5) Toddler Milk Isn’t Nutritious And Is Unnecessary For... www.forbes.com`,
         ]},
 
         {
@@ -146,6 +169,10 @@ const getPrompts = () => {
                  positives and unnecessary procedures, may outweigh the benefits. Always consult with your 
                  healthcare provider to discuss your personal risk factors and the appropriate screening schedule for your situation.`,
                 
+                 `Sources`
+                `(1) Lung Cancer Screening Guidelines | American Cancer Society. : www.cancer.org `, 
+                `(2) American Cancer Society Updates Lung Cancer Screening Guideline: Nearly ... :  www.pressroom.cancer.org/  `,
+                `(3) Lung Cancer Early Detection | Lung Cancer Screening. www.cancer.org `,
         ]},
 
         {
@@ -163,6 +190,12 @@ const getPrompts = () => {
 
             `Please note that this information is current as of October 11, 2023, and may be subject to change.
             If you have any further questions or concerns, I recommend consulting with a medical professional or legal expert.`,
+
+            `Sources:`,
+            `(1) How new regulations impact abortion and birth control access in Texas. TexasTribune`,
+            `(2) Abortion in Texas - Wikipedia.`,
+            `(3) Is abortion illegal in Texas? - Frequently Asked Legal Questions. Texas.gov`,
+
             ]},
 
         {
@@ -214,6 +247,15 @@ const getPrompts = () => {
                   It's important to use these sweeteners as part of a balanced, healthy eating plan 
                   and to consult with a healthcare professional or registered dietitian for personalized guidance on weight management.`
 
+
+                `Sources:`
+
+                `(1) Want to Lose Weight? The WHO Says Avoid These Non-Sugar Sweeteners. www.healthline.com `,
+                `(2) Artificial Sweeteners and a Diabetic/Low-Glycemic Diet. www.msn.com `, 
+                `(3) Everything You Need to Know About Artificial Sweeteners. www.everydayhealth.com `, 
+                `(4) Diwali: No-sugar desserts to maintain diabetes, weight. www.dnaindia.com `,
+                `(5) You Won’t Lose Weight With Zero-Calorie Sweeteners, Says WHO. www.eatthis.com/ `,
+
             ]},
 
             {
@@ -244,10 +286,17 @@ const getPrompts = () => {
                   this with your pediatrician or healthcare provider. They can evaluate your baby's 
                   individual risk and provide guidance on the need for RSV immunoprophylaxis if it is
                    deemed appropriate based on your baby's specific circumstances.`,
+                    
+                `Sources`
+                `(1) RSV Vaccination: What Parents Should Know | CDC. www.cdc.gov`,
+                `(2) The new RSV shot for babies: What parents need to know. www.health.harvard.edu`,
+                `(3) Should I get the RSV vaccine during pregnancy? | ACOG. www.acog.org`,
+                `(4) RSV (Respiratory Syncytial Virus) Immunizations | CDC. www.cdc.gov`,
     
                 ]},
+
     ] 
-    return QAPrompts;
+    return RAGTexts;
 }
 
-export default getPrompts;
+export default getRAGTexts;

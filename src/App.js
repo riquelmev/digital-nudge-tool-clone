@@ -9,11 +9,17 @@ import getPrompts from "./components/medicalTexts";
 import PopupAlert from "./components/popupAlert";
 import { useParams } from "react-router-dom"
 import getDisclaimer from "./components/disclaimer.js";
-
+import getDemographicQuestions from "./components/demographic_questions";
+import getStartPage from "./components/startPage";
+import useIsTabVisible from "./components/tracker";
+import { isVisible } from "dom-helpers";
+import getRAGTexts from "./components/medicalTextsRAG";
+import getTrialQuestions from "./components/trialQuestion";
+import getAnswersMapped from "./components/answers_mapped";
 // import { BrowserRouter as Router } from 'react-router-dom';
 
 
-function App({ chatgpt, popup }) {
+function App({ chatgpt, popup, rag}) {
 
 
   const [UsePopups, setUsePopups] = useState(popup);
@@ -40,50 +46,196 @@ function App({ chatgpt, popup }) {
   const [showResults, setShowResults] = useState(false);
   const [showEndScreen, setShowEndScreen] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentDemoQuestion, setCurrentDemoQuestion] = useState(0);
   const [showPopups, setShowPopup] = useState(true);
-  const [key] = useState(0);
-  const responses = [];
-  const [score, setScore] = useState(0);
+  // const [key] = useState(0);
+  // const responses = [];
+  // const [score, setScore] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
+  const [selectedAnswerIndex2, setSelectedAnswerIndex2] = useState(null)
+
   const [acceptedOrNot, setAcceptedOrNot] = useState(false)
 
   const questions = getQuestions();
-  const prompts = getPrompts();
+  const trial_questions = getTrialQuestions();
+  const answers_mapped = getAnswersMapped();
+
+  // const prompts = getRAGTexts();
+  // const prompts = getPrompts();
+
+  const whichPrompt = (rag) => {
+    if (rag){
+      return getRAGTexts();
+    }
+    else{
+      return getPrompts();
+    }
+  }
+  const prompts = whichPrompt(rag);
 
   const post_disclaimer = getDisclaimer();
 
   // Helper Functions
   const handleClose = () => setShowPopup(false);
   const handleShow = () => setShowPopup(true);
-  
 
+
+  const [demographics, setDemographics] = useState(true)
+  const [showStartPage, setShowStartPage] = useState(true)
+  const [showMiddlePage, setShowMiddlePage] = useState(false)
+  const [endEarly, setShowEndEarly] = useState(false)
+  const [showSecondPage, setShowSecondPage] = useState(false)
+  const [leftTab, setLeftTab] = useState(false)
+  const [trialQuestion, setShowTrialQuestion] = useState(false)
+  const [useTrialPopup, setUseTrialPopup] = useState(false)
+  const [showFirstConfirmationPopup, setFirstConfirmationPopup] = useState(false)
+  const [showSecondConfirmationPopup, setSecondConfirmationPopup] = useState(false)
+  const [currentTrialQuestion, setCurrentTrialQuestion] = useState(0)
+
+  const handleCloseTrial = () => setUseTrialPopup(false);
+  const handleCloseSecond = () =>  setDemographics(false);
+  const handleCloseFirst = () => {
+    setCurrentTrialQuestion(currentTrialQuestion + 1)
+    setFirstConfirmationPopup(false)
+  }
+
+  const trialQuestions = getTrialQuestions();
+
+
+  const completionCode = "46934"
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array
+  }
+
+  const order = Array.from(Array(prompts.length).keys())
+  const [randomArray, setRandomArray] = React.useState([])
+    React.useEffect(function() {
+    setRandomArray(shuffleArray(order))
+    }, [])
+
+  const likert_questions = 
+    {
+        code: "likert",
+        text: "How trustworthy would you rate this answer?",
+        options: answers_mapped["likert"]
+    };
+
+  
+  console.log(randomArray)
+  
   const disclaimer = " ChatGPT should not be used to make medical decisions."
+
+
+  const demo_questions = getDemographicQuestions();
 
 
   const scrollToTop = () => {
     console.log("scrolled")
-    window.scrollTo({ top: 0, behavior: "instant"});
+    window.scrollTo({ top: 0, behavior: "instant" });
     onClickNext()
   };
 
   // TODO: Change this func to record string of answer instead of id.
   const onClickNext = () => {
-    console.log({ question_id: currentQuestion, answer_key: selectedAnswerIndex });
-    localStorage.setItem(questions[currentQuestion].code, questions[currentQuestion].options[selectedAnswerIndex].text);
-
+    console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
+    console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
+    localStorage.setItem(questions[randomArray[currentQuestion]].code, [questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text,likert_questions.options[selectedAnswerIndex2].text]);
+    
     if (currentQuestion + 1 < prompts.length) {
       setCurrentQuestion(currentQuestion + 1);
+
       handleShow();
       setSelectedAnswerIndex(null);
-  
+      setSelectedAnswerIndex2(null);
+
     } else {
       setShowResults(true);
     }
   }
 
-  // const handleScrollToTop = () => {
-  //   window.scrollTo(0,0);
-  // }
+  function CheckVisible() {
+    const visible = useIsTabVisible()
+    if (!visible && !leftTab){
+      setLeftTab(true)
+    }
+    // setLeftTab([...leftTab,visible])
+    // console.log(leftTab)
+    // console.log(visible)
+  }
+  CheckVisible()
+
+  /// Add local storage logging to checkvisable at very end of survey
+
+
+
+  const scrollToTopDemo = () => {
+    console.log("scrolled")
+    window.scrollTo({ top: 0, behavior: "instant" });
+    onClickNextDemo()
+  };
+
+  // TODO: Change this func to record string of answer instead of id.
+  const onClickNextDemo = () => {
+    console.log({ question_id: demo_questions[currentDemoQuestion].code, answer_key: demo_questions[currentDemoQuestion].options[selectedAnswerIndex].text });
+    localStorage.setItem(demo_questions[currentDemoQuestion].code, demo_questions[currentDemoQuestion].options[selectedAnswerIndex].text);
+
+    if (currentDemoQuestion + 1 < demo_questions.length) {
+      setCurrentDemoQuestion(currentDemoQuestion + 1);
+      handleShow();
+      setSelectedAnswerIndex(null);
+      setSelectedAnswerIndex2(null);
+
+
+    } else {
+      setShowMiddlePage(true);
+      setSelectedAnswerIndex(null);
+      setSelectedAnswerIndex2(null);
+    }
+  } 
+
+
+  const showSurvey = (answer) => {
+    console.log("scrolled")
+    window.scrollTo({ top: 0, behavior: "instant" });
+    if (answer===true){
+      if (currentTrialQuestion === 0){
+        setFirstConfirmationPopup(true)
+      }
+      else{
+        setSecondConfirmationPopup(true)
+      }
+    }
+    else{
+      setUseTrialPopup(true)
+    }
+    setSelectedAnswerIndex(null)
+    setSelectedAnswerIndex2(null);
+  }
+
+  const showTrialQuestion = () => {
+    setShowTrialQuestion(true)
+    setSelectedAnswerIndex(null)
+    setSelectedAnswerIndex2(null);
+  }
+
+
+  const beginSurvey = () => {
+    setShowStartPage(false)
+    setSelectedAnswerIndex(null)
+    setSelectedAnswerIndex2(null);
+  }
+  const endSurvey = () => {
+    setShowEndEarly(true)
+    setSelectedAnswerIndex(null)
+    setSelectedAnswerIndex2(null);
+
+  }
+
 
   class AnswerButton extends Component {
     onAnswerSelected() {
@@ -104,20 +256,39 @@ function App({ chatgpt, popup }) {
     }
   }
 
+  class AnswerButtonLikert extends Component {
+    onAnswerSelected2() {
+      setSelectedAnswerIndex2(this.props.option.id)
+    }
+
+    render() {
+
+      return (
+        <li
+          key={this.props.option.id}
+          onClick={() => this.onAnswerSelected2()}
+          className={selectedAnswerIndex2 === this.props.option.id ? 'selected-answer' : null}
+        >
+          {this.props.option.text}
+        </li>);
+
+    }
+  }
+
   class MultiLineText extends Component {
     render() {
       return (
-      <div>
-          {this.props.text.map((i,key) => {
+        <div>
+          {this.props.text.map((i, key) => {
 
-              if (UseChatGPTDisclaimer && this.props.text.length - 1 === key && showEndScreen) {
-                // TODO: Add padding
-                return <div className="text-chunk" key={key}>{i}{disclaimer}</div>;
-              }
-              return <div className="text-chunk" key={key}>{i}</div>;
+            if (UseChatGPTDisclaimer && this.props.text.length - 1 === key && this.props.medText) {
+              // TODO: Add padding
+              return <div className={this.props.className} key={key}>{i}{disclaimer}</div>;
+            }
+            return <div className={this.props.className} key={key}>{i}</div>;
           })}
-      </div>);
-  }
+        </div>);
+    }
   }
 
   /* Resets the game back to default */
@@ -149,23 +320,25 @@ function App({ chatgpt, popup }) {
     setShowEndScreen(true)
   };
 
-  
+
 
 
 
   const storeHistory = async () => {
-    const history = {...localStorage};
+
+    localStorage.setItem("leftTab", leftTab);
+
+    const history = { ...localStorage };
     console.log(history);
 
     console.log("api call")
-    const api_base_url='https://digital-nudge-server.onrender.com'
-    const response = await fetch(`${api_base_url}/api/sql`, {
+
+    const response = await fetch('/api/sql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify([id,history])
+      body: JSON.stringify([id, history])
     });
 
     console.log(response)
@@ -181,93 +354,280 @@ function App({ chatgpt, popup }) {
     <div className="App">
       {/* 1. Header  */}
       <div className="title-box" id="title">
-
         <h1 className='title'> AI Reading Survey </h1>
       </div>
 
 
-      {/* 2. Show finished page or show the question game  */}
+      {/* Show Start page  */}
+
+      {/* Show Questions page  */}
 
 
 
+      {showStartPage ? (
+        <div>
 
-      {showResults ? (
-        // storeHistory(),
-        /* 3. Final Results */
-        <div className="final-results">
-          {showEndScreen ? (
-            <div> 
-           <h1>Thank you for taking the survey!</h1>
-           {acceptedOrNot ? (<h1>You have chosen to accept the terms and your response has been recorded.</h1>
-):(<h1>You have chosen to not accept the terms. Your answers have not been recorded.</h1>)}
+          {endEarly ? (
+            // End Screen
+            <div>
+              <h2 className="page-subtitle">You have chosen to not participate. Good day.</h2>
             </div>
-          ):(
-            <div className="disclaimer-box">
-            <h2 className="disclaimer-text" style={{fontSize: 30}}>
-            Please read the following in its entirety. 
-            <br/><br/>
-            </h2>
-            <MultiLineText className="disclaimer-text" text={post_disclaimer} endScreen={true}></MultiLineText>
-        <button className="restart-button accept-button" onClick={() => acceptedRestart()}>I accept</button>
-        <button className="restart-button reject-button" onClick={() => declinedRestart()}>I don't accept </button>
-        </div>
+          ) : (
+
+            <div>
+              {showSecondPage ? (
+                // Explantion page
+                [
+                  <div className="page-box mini-box">
+                    <h2 className="page-subtitle"> The following section of the survey consists of a couple demographic questions.</h2>
+                    <div>
+                      <button className="next-button" style={{ margin: 0 }} onClick={() => beginSurvey()}>Next</button>
+                    </div>
+                  </div>
+                ]
+              ) : (
+                [
+                  // Start screen
+                  <div>
+                    <h1 className="page-title">INFORMATION SHEET FOR DIGITAL NUDGE SURVEY</h1>
+                    <h2 className="page-subtitle">HUM#00243219</h2>
+
+                    <div className="page-box">
+                      <div className="page-text-box">
+                        <MultiLineText className="page-body-text" text={getStartPage()} medText={false}></MultiLineText>
+                      </div>
+                    </div>
+                  </div>,
+                  <div>
+                    <button className="restart-button accept-button" onClick={() => setShowSecondPage(true)}>I accept</button>
+                    <button className="restart-button reject-button" onClick={() => endSurvey()}>I don't accept </button>
+                  </div>
+
+                ]
+              )}
+
+            </div>
+
+
           )}
 
         </div>
-      ) : (
-        [
-          <div className="Main">
-            <div className="main-box">
-              <div className={styles.gptBox}>
-                <div className="scenario-box">
-                  <h2 className="scenario-text">Scenario {currentQuestion + 1} out of {prompts.length}:</h2>
-                </div>
-                <div className="prompt-box">
-                  <div className="text-box">
-                    <h2 className="gpt-text">{prompts[currentQuestion].prompt}</h2>
-                  </div>
-                  <div className="gpt-image"> <img src={require("./Person-bubble.jpeg")} alt="Person" style={{ maxWidth: 60 }}></img></div>
-                </div>
-                <div className="answer-box">
-                  <div className="medical-text-box">
-                    <div className="gpt-image"> <img src={require("./GPT-logo.jpeg")} alt="gpt Logo" style={{ maxWidth: 50 }}></img></div>
-                    {/* {UseChatGPTDisclaimer ? (<h3 className="gpt-text">{prompts[currentQuestion].text}{disclaimer} </h3>) : (<h3 className="gpt-text">{prompts[currentQuestion].text}</h3>)} */}
+      ) :
+
+        (
+          <div>
+            {demographics ? (
+              <div>
+                {showMiddlePage ? (
+                  <div>
+                  {trialQuestion ? (
+                    // Trial Question
+                  [
+                    <div className="Main">
+                      <div className="main-box">
+                        <div className={styles.gptBox}>
+                          <div className="scenario-box">
+                            <h2 className="scenario-text">Trial Question {currentTrialQuestion+1} out of 2</h2>
+                          </div>
+                          <div className="prompt-box">
+                            <div className="text-box">
+                              <h2 className="gpt-text">{trial_questions[currentTrialQuestion].prompt}</h2>
+                            </div>
+                            <div className="gpt-image"> <img src={require("./Person-bubble.jpeg")} alt="Person" style={{ maxWidth: 60 }}></img></div>
+                          </div>
+                          <div className="answer-box">
+                            <div className="medical-text-box">
+                              <div className="gpt-image"> <img src={require("./GPT-logo.jpeg")} alt="gpt Logo" style={{ maxWidth: 50 }}></img></div>
+                              {/* {UseChatGPTDisclaimer ? (<h3 className="gpt-text">{prompts[currentQuestion].text}{disclaimer} </h3>) : (<h3 className="gpt-text">{prompts[currentQuestion].text}</h3>)} */}
+                              <div>
+                                <MultiLineText className="text-chunk" text={trial_questions[currentTrialQuestion].chatGPT_answer} medText={true} />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>,
+
+                    /* 5. Question Card  */
+                    <div className="question-card">
+                      {/* Current Question  */}
+                      <h2 className="question-text">
+                        Question: {currentTrialQuestion + 1} out of {trial_questions.length}
+                      </h2>
+                      {/* EDIT HERE TO ADD PARARGRAPHS FOR EACH STR IN ARR */}
+                      <h3 className="question-text">{"What is the source of that statement ____"}</h3>
+
+                      {/* List of possible answers  */}
+                      <ul>
+                        {trial_questions[currentTrialQuestion].options.map((option) => {
+                          return (
+                            <AnswerButton option={option} />
+                          );
+                        })}
+                      </ul>
+                      <h3 className="question-text">{"How would you rate the trustworthyness of the above passage?"}</h3>
+
+                      <ul>
+                        {likert_questions.options.map((option) => {
+                          return (
+                            <AnswerButtonLikert id={"trust"} option={option} />
+                          );
+                        })}
+                      </ul>
+                      <div className="button-box">
+                        <button className="next-button" onClick={() => showSurvey(selectedAnswerIndex === 2)} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null}> Next </button>
+                      </div>
+                    
+                      <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again."}></PopupAlert>
+
+                        
+                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. There's one more trial question."} ></PopupAlert>
+  
+                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. Click next to begin the survey. Please note there will be no confirmation pop up in the actual survey."} ></PopupAlert>
+
+                    </div>
+                   
+                  ]
+
+                  ) : (
+                    // Finished Demographics
+                  <div className="page-box mini-box">
+                    <h2 className="page-subtitle">Thank you for filling out the demographic portion of the survey. In the following section, you'll see a paragraph
+                      followed by a question. The text shown may or may not contain misinformation. Please fill out the question to the best of your ability and outside knowledge. There will be 2 practice questions to help you get aclimated.</h2>
                     <div>
-                      <MultiLineText className="text-chunk" text={prompts[currentQuestion].text} endScreen={false}/>
-                      <div className="text-chunk">{disclaimer}</div>
+                      <button className="next-button" style={{ margin: 0 }} onClick={showTrialQuestion} > Next </button>
+                    </div>
+                  </div>) }
+
+                  </div>
+                
+                ) : (
+                  // Demographic Questions
+
+                  <div className="question-card">
+                    {/* Current Question  */}
+                    <h2 className="question-text">
+                      Question: {currentDemoQuestion + 1} out of {demo_questions.length}
+                    </h2>
+                    {/* EDIT HERE TO ADD PARARGRAPHS FOR EACH STR IN ARR */}
+                    <h3 className="question-text">{demo_questions[currentDemoQuestion].text}</h3>
+
+                    {/* List of possible answers  */}
+                    <ul>
+                      {demo_questions[currentDemoQuestion].options.map((option) => {
+                        return (
+                          <AnswerButton option={option} />
+                        );
+                      })}
+                    </ul>
+                    <div className="button-box">
+                      <button className="next-button" onClick={scrollToTopDemo} disabled={selectedAnswerIndex === null}> Next </button>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
-            </div>
-          </div>,
 
-          /* 5. Question Card  */
-          <div className="question-card">
-            {/* Current Question  */}
-            <h2 className="question-text">
-              Question: {currentQuestion + 1} out of {prompts.length}
-            </h2>
-            {/* EDIT HERE TO ADD PARARGRAPHS FOR EACH STR IN ARR */}
-            <h3 className="question-text">{questions[currentQuestion].text}</h3>
+            ) : (
 
-            {/* List of possible answers  */}
-            <ul>
-              {questions[currentQuestion].options.map((option) => {
-                return (
-                  <AnswerButton option={option} />
-                );
-              })}
-            </ul>
-            <div className="button-box">
-              <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null}> Next </button>
-            </div>
-          </div>
-        ])}
+              <div>
+                {showResults ? (
+                  // storeHistory(),
+                  /* 3. Final Results */
+                  <div /* className="final-results"*/ >
+                    {showEndScreen ? (
+                      <div className="page-box">
+                        <h1 className="page-title">Thank you for taking the survey!</h1>
+                        {acceptedOrNot ? (<h2 className="page-subtitle"> You have chosen to accept the terms and your response has been recorded.</h2>
+                        ) : (<h2 className="page-subtitle">You have chosen to not accept the terms. Your answers have not been recorded. Your completion code is {completionCode}</h2>)}
+                      </div>
+                    ) : (
+                      <div>
+                        <div className="page-box">
+                          <h2 className="page-subtitle">
+                            Please read the following in its entirety.
+                          </h2>
+                          <div className="page-text-box">
+                            <MultiLineText className="page-body-text" text={post_disclaimer} medText={false}></MultiLineText>
+                          </div>
+                        </div>
+                        <button className="restart-button accept-button" onClick={() => acceptedRestart()}>I accept</button>
+                        <button className="restart-button reject-button" onClick={() => declinedRestart()}>I don't accept </button>
+                      </div>
+                    )}
 
-      {UsePopups ?
-        (<PopupAlert showPopupMode={showPopups} closeModal={handleClose} openModal={handleShow} />
-        ) : (null)}
+                  </div>
+                ) : (
+                  [
+                    <div className="Main">
+                      <div className="main-box">
+                        <div className={styles.gptBox}>
+                          <div className="scenario-box">
+                            <h2 className="scenario-text">Scenario {currentQuestion + 1} out of {prompts.length}:</h2>
+                          </div>
+                          <div className="prompt-box">
+                            <div className="text-box">
+                              <h2 className="gpt-text">{prompts[randomArray[currentQuestion]].prompt}</h2>
+                            </div>
+                            <div className="gpt-image"> <img src={require("./Person-bubble.jpeg")} alt="Person" style={{ maxWidth: 60 }}></img></div>
+                          </div>
+                          <div className="answer-box">
+                            <div className="medical-text-box">
+                              <div className="gpt-image"> <img src={require("./GPT-logo.jpeg")} alt="gpt Logo" style={{ maxWidth: 50 }}></img></div>
+                              {/* {UseChatGPTDisclaimer ? (<h3 className="gpt-text">{prompts[currentQuestion].text}{disclaimer} </h3>) : (<h3 className="gpt-text">{prompts[currentQuestion].text}</h3>)} */}
+                              <div>
+                                <MultiLineText className="text-chunk" text={prompts[randomArray[currentQuestion]].text} medText={true} />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>,
+
+                    /* 5. Question Card  */
+                    <div className="question-card">
+                      {/* Current Question  */}
+                      <h2 className="question-text">
+                        Question: {currentQuestion + 1} out of {prompts.length}
+                      </h2>
+                      {/* EDIT HERE TO ADD PARARGRAPHS FOR EACH STR IN ARR */}
+                      <h3 className="question-text">{questions[randomArray[currentQuestion]].text}</h3>
+
+                      {/* List of possible answers  */}
+                      <ul>
+                        {questions[randomArray[currentQuestion]].options.map((option) => {
+                          return (
+                            <AnswerButton id={"comp"} option={option} />
+                          );
+                        })}
+                      </ul>
+                      <h3 className="question-text">{"How would you rate the trustworthyness of the above passage?"}</h3>
+
+                      <ul>
+                        {likert_questions.options.map((option) => {
+                          return (
+                            <AnswerButtonLikert id={"trust"} option={option} />
+                          );
+                        })}
+                      </ul>
+                      <div className="button-box">
+                        <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null}> Next </button>
+                      </div>
+                    </div>
+                  ])}
+
+                {UsePopups ?
+                  (<PopupAlert showPopupMode={showPopups} closeModal={handleClose} openModal={handleShow} text={"ChatGPT sometimes writes plausible-sounding but incorrect answers. Does this information seem accurate?"} />
+                  ) : (null)}
+              </div>
+
+            )
+
+            }
+
+          </div>)}
+
+
+
 
     </div>
 

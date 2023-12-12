@@ -5,21 +5,12 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import styles from "./popupstyles.css"
 
-function PopupAlert({showPopupMode, closeModal, openModal}) {
-  // let [show, setShow] = useState({showPopupMode});
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
+function PopupAlert({showPopupMode, closeModal, openModal, text}) {
 
-  // if (show) {
-  //     handleShow();
-  // }
-
-  // console.log(show)
 
   return (
     <>
-      {/* <div onClick={handleShow}>
-      </div> */}
+
 
       <Modal
         show={showPopupMode}
@@ -33,7 +24,7 @@ function PopupAlert({showPopupMode, closeModal, openModal}) {
           <Modal.Title style={{color: 'black'}}>Alert</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p style={{color: 'black'}}>ChatGPT sometimes writes plausible-sounding but incorrect answers. Does this information seem accurate?</p>
+          <p style={{color: 'black'}}>{text}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={closeModal}>
