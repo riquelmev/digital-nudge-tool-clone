@@ -73,6 +73,8 @@ function App({ chatgpt, popup, rag}) {
   }
   const prompts = whichPrompt(rag);
 
+  console.log(prompts)
+
   const post_disclaimer = getDisclaimer();
 
   // Helper Functions
@@ -145,7 +147,8 @@ function App({ chatgpt, popup, rag}) {
     console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
     console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
     localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
-    localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndex2].text);    
+    localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndex2].text);
+    
     if (currentQuestion + 1 < prompts.length) {
       setCurrentQuestion(currentQuestion + 1);
 
@@ -333,15 +336,12 @@ function App({ chatgpt, popup, rag}) {
 
     console.log("api call")
 
-    console.log("api call")
-    const api_base_url='https://digital-nudge-server.onrender.com'
-    const response = await fetch(`${api_base_url}/api/sql`, {
+    const response = await fetch('/api/sql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify([id,history])
+      body: JSON.stringify([id, history])
     });
 
     console.log(response)
@@ -458,7 +458,7 @@ function App({ chatgpt, popup, rag}) {
                         Question: {currentTrialQuestion + 1} out of {trial_questions.length}
                       </h2>
                       {/* EDIT HERE TO ADD PARARGRAPHS FOR EACH STR IN ARR */}
-                      <h3 className="question-text">{"What is the source of that statement ____"}</h3>
+                      <h3 className="question-text">{trial_questions[currentTrialQuestion].text}</h3>
 
                       {/* List of possible answers  */}
                       <ul>
@@ -540,7 +540,7 @@ function App({ chatgpt, popup, rag}) {
                     {showEndScreen ? (
                       <div className="page-box">
                         <h1 className="page-title">Thank you for taking the survey!</h1>
-                        {acceptedOrNot ? (<h2 className="page-subtitle"> You have chosen to accept the terms and your response has been recorded.</h2>
+                        {acceptedOrNot ? (<h2 className="page-subtitle"> You have chosen to accept the terms and your response has been recorded. Your completion code is {completionCode}</h2>
                         ) : (<h2 className="page-subtitle">You have chosen to not accept the terms. Your answers have not been recorded. Your completion code is {completionCode}</h2>)}
                       </div>
                     ) : (
