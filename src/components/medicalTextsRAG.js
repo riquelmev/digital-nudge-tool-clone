@@ -287,7 +287,7 @@ const getRAGTexts = () => {
                   individual risk and provide guidance on the need for RSV immunoprophylaxis if it is
                    deemed appropriate based on your baby's specific circumstances.`,
                     
-                `Sources`
+                `Sources`,
                 `(1) RSV Vaccination: What Parents Should Know | CDC. www.cdc.gov`,
                 `(2) The new RSV shot for babies: What parents need to know. www.health.harvard.edu`,
                 `(3) Should I get the RSV vaccine during pregnancy? | ACOG. www.acog.org`,
