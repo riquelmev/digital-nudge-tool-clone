@@ -144,8 +144,8 @@ function App({ chatgpt, popup, rag}) {
   const onClickNext = () => {
     console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
     console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
-    localStorage.setItem(questions[randomArray[currentQuestion]].code, [questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text,likert_questions.options[selectedAnswerIndex2].text]);
-    
+    localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
+    localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndex2].text);    
     if (currentQuestion + 1 < prompts.length) {
       setCurrentQuestion(currentQuestion + 1);
 
