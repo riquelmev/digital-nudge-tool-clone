@@ -333,7 +333,7 @@ function App({ chatgpt, popup, rag}) {
 
     console.log("api call")
 
-    const response = await fetch('/api/sql', {
+    const response = await fetch('https://digital-nudge-server.onrender.com/api/sql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
