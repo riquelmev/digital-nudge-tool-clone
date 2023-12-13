@@ -37,7 +37,7 @@ const getPrompts = () => {
                 `Estrogen-only therapy, particularly when started close to the onset of menopause, 
                 did not show a significant increase in breast cancer risk in the WHI study and some 
                 subsequent research. In fact, in some cases, estrogen-only HRT was associated with a lower 
-                risk of breast cancer.`,
+                risk of breast cancer.`,    
                 
                 `It's crucial to note that individual health factors and medical history play a significant role in determining 
                 the appropriateness of hormone therapy. Before starting any hormone treatment, women should have a thorough
@@ -72,7 +72,7 @@ const getPrompts = () => {
             relevant health considerations. The healthcare provider will determine 
             the most appropriate and safe vaccination option for your child,
             ensuring they receive the necessary protection against the flu while
-            considering their asthma condition.`
+            considering their asthma condition.`,
 
         ]},
     
@@ -150,19 +150,25 @@ const getPrompts = () => {
 
         {
             code: "covid-vax",
-            prompt: "Tell me about the state of abortion policy in Texas.",
+            prompt: "Can a 6-month old child get a covid vaccine?",
             text: [
                 
-            `According to the Texas Tribune, Texas is currently the largest state in the US to ban nearly all abortions[1]. 
-            It is illegal to perform an abortion in Texas, including by dispensing or mailing the abortion-inducing 
-            medications mifepristone and misoprostol, in most circumstances. Texas’ laws have narrow exceptions 
-            only to save the life or prevent “substantial impairment of major bodily function” of a pregnant patient[1].`, 
+                `As of my last knowledge update in January 2022, COVID-19 vaccines were not authorized for
+                 children as young as 6 months old. At that time, COVID-19 vaccines were typically authorized
+                  for emergency use or approved for individuals aged 12 and older, with some vaccines having 
+                  emergency use authorization for those as young as 5 years old, depending on the country and the
+                   vaccine in question.`,
 
-            `However, some Texans have found ways to get abortions by traveling to other states or Mexico, or self-managing 
-            abortions at home by getting medications through international nonprofits, such as Aid Access, or online stores [1]`, 
-
-            `Please note that this information is current as of October 11, 2023, and may be subject to change.
-            If you have any further questions or concerns, I recommend consulting with a medical professional or legal expert.`,
+                `However, please note that guidelines and recommendations regarding COVID-19 vaccines 
+                can change over time as more research is conducted and additional data becomes available.
+                 It's crucial to consult with your healthcare provider and stay up to date with guidance from 
+                 public health authorities, such as the Centers for Disease Control and Prevention (CDC) in the 
+                 United States, or the relevant health agencies in your country, to learn about the most current 
+                 recommendations for COVID-19 vaccination, especially for children.`,
+                
+                `Since information and recommendations regarding COVID-19 are subject to change, 
+                it's important to rely on the latest guidance from authoritative sources to make informed 
+                decisions about vaccinations for children.`,
             ]},
 
         {

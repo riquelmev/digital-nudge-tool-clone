@@ -15,45 +15,46 @@ const getQuestions = () => {
         },
         {
             code: "hrt",
-            text: "Does HRT cause breast cancer",
+            text: "What is the effect of combined HRT on breast cancer?",
             options: answers_mapped["hrt"]
         },
         {
-            code: "breastfeed",
-            text: "Until what age should I breastfeed my child",
-            options: answers_mapped["breastfeed"]
-
-        },
-        {
-            code: "mammogram",
-            text: "When should I stop getting my mammogram?",
-            options: answers_mapped["mammogram"]
-
-        },
-        {
             code: "asthma",
-            text: "Can my child get a nasal flu vaccine.",
+            text: "Can my child get a nasal flu vaccine if they have asthma?",
             options: answers_mapped["asthma"]
 
         },
         {
-            code: "probiotics",
-            text: "Should children take probiotics?",
-            options: answers_mapped["probiotics"]
-
-        },
-        {
-            code: "carseat",
-            text: "What age should children move to a front facing car seat.",
-            options: answers_mapped["carseat"]
-
-        },
-        {
             code: "formula",
-            text: "What is the nutritional benfit of toddler milk",
+            text: "What is the nutritional benfit of toddler milk?",
             options: answers_mapped["formula"]
 
         },
+        {
+            code: "lung",
+            text: "How often should I get screened for lung cancer?",
+            options: answers_mapped["lung"]
+
+        },
+        {
+            code: "covid-vax",
+            text: "What is the youngest age a child can get a covid-19 vaccine?",
+            options: answers_mapped["covid-vax"]
+
+        },
+        {
+            code: "sweets",
+            text: "What role do non-sugar sweetners play in weight-loss?",
+            options: answers_mapped["sweets"]
+
+        },
+        {
+            code: "rsv",
+            text: "Is there an RSV vaccine available for my newborn?",
+            options: answers_mapped["rsv"]
+
+        },
+        
     ] 
     return questions;
 }

@@ -10,28 +10,13 @@ const getAnswersMapped = () => {
               { id: 4, text: "Unsure", }
                 ],
             "hrt": [
-                { id: 0, text: "Slightly increase risk of dementia",},
-                { id: 1, text: "Greatly increase risk of dementia",},
-                { id: 2, text: "Slightly decrease risk of dementia"},
-                { id: 3, text: "Greatly decrease risk of dementia",},
-                { id: 4, text: "No such effect exists",},
+                { id: 0, text: "No effect",},
+                { id: 1, text: "Slightly increase risk of  cancer",},
+                { id: 2, text: "Greatly increase risk of cancer"},
+                { id: 3, text: "Slightly decrease risk of cancer,"},
+                { id: 4, text: "NGreatly decrease risk of cancer",},
                 { id: 5, text: "Unsure", }
                     ],
-            "breastfeed": [
-                { id: 0, text: "6 months",},
-                { id: 1, text: "12 months",},
-                { id: 2, text: "18 months"},
-                { id: 3, text: "24 months",},
-                { id: 4, text: "36 months", }
-                    ],
-            "mammogram": [
-                { id: 0, text: "Every year",},
-                { id: 1, text: "Every two years",},
-                { id: 2, text: "If expecting to live more than 10 years, every 5 years"},
-                { id: 3, text: "There is recommended guidance, please consult your doctor",},
-                { id: 4, text: "Unsure", }
-                    ],
-
             "asthma": [
                 { id: 0, text: "No, they cannot due to the fact they have Athsma",},
                 { id: 1, text: "Yes, there is no issue",},
@@ -40,24 +25,19 @@ const getAnswersMapped = () => {
                 { id: 4, text: "No, the children should not recieve that nasal spray ever.",},
                 { id: 5, text: "Unsure", }
                     ],
-            "probiotics": [
-                { id: 0, text: "Babies should consume probiotics to help reduce mental illness in their child."},
-                { id: 1, text: "Parents should not add probiotics, breastmilk and approved formula is sufficiant",},
-                { id: 2, text: "Parents should add probiotics to support a healthy immune system"},
-                { id: 3, text: "Unsure", }
-                    ],
-            "carseat": [
-                { id: 0, text: "When they no longer comfortably fit in their old seat."},
-                { id: 1, text: "When they are over the age of 4,"},
-                { id: 2, text: "When they outgrow their current seat's maximum height and weight"},
-                { id: 3, text: "Anytime between the ages of 2 - 4", },
-                { id: 4, text: "Unsure", }
-                    ],
+            
             "formula": [
                 { id: 0, text: "After one year of age"},
                 { id: 1, text: "If your child is smaller than expect by year one of age"},
                 { id: 2, text: "One your child begins to teeth, between 1-3 years of age"},
                 { id: 3, text: "Never", },
+                { id: 4, text: "Unsure", }
+                    ],
+            "lung": [
+                { id: 0, text: "Anyone aged 50 - 80."},
+                { id: 1, text: "Anyone who's smoked at least 20 pack years of cigarettes and are between 50 -80 years of age."},
+                { id: 2, text: "People aged 50-80, who've smoked 20 pack years, and are either currently smoking or have quit in the past 15 years"},
+                { id: 3, text: "People aged 50-80, who have smoked 20 pack years, regardless of when they quit." },
                 { id: 4, text: "Unsure", }
                     ],
             "likert": [
@@ -66,6 +46,26 @@ const getAnswersMapped = () => {
                 { id: 2, text: "Unsure"},
                 { id: 3, text: "Somewhat Untrustworthy", },
                 { id: 4, text: "Not Trustworthy", }
+                    ],
+            "rsv": [
+                { id: 0, text: "There is no routeinly recommended RSV vaccine for infants."},
+                { id: 1, text: "There is an emergancy use RSV immunoprophylaxis for babies deemed at risk"},
+                { id: 2, text: "There is an RSV vaccine recommended for all babies under 8 months "},
+                { id: 3, text: "Unsure", },
+                    ],
+            "covid-vax": [
+                { id: 0, text: "6 Months"},
+                { id: 1, text: "12 Months"},
+                { id: 2, text: "5 years"},
+                { id: 3, text: "10 years", },
+                { id: 4, text: "12 years", },
+                { id: 5, text: "Unsure", }
+                    ],
+            "sweets": [
+                { id: 0, text: "Non-sugar sweetners help achieve weight-loss since it replaces sugar, which has more calories"},
+                { id: 1, text: "Non-sugar sweetners help achieve weight-loss since they reduce cravings for sugar."},
+                { id: 2, text: "Unsure"},
+                { id: 3, text: "Non-sugar sweetners should not be used for weight-loss", },
                     ],
             }
     return answers_mapped

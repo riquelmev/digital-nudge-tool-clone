@@ -24,46 +24,46 @@ const getRAGTexts = () => {
             `(3) Is abortion illegal in Texas? - Frequently Asked Legal Questions. Texas.gov`,
 
             ]},
-        {
-            code: "hrt",
-            prompt: "Do hormone treatments for menopause cause breast cancer?",
-            text: [
-                `The relationship between hormone replacement therapy (HRT) and the risk of breast cancer in menopausal
-                 women has been a topic of extensive research and discussion. The findings have evolved over time, 
-                 and the association appears to depend on various factors, including the type of hormones used, 
-                 the duration of use, and individual health considerations.`,
+        // {
+        //     code: "hrt",
+        //     prompt: "Do hormone treatments for menopause cause breast cancer?",
+        //     text: [
+        //         `The relationship between hormone replacement therapy (HRT) and the risk of breast cancer in menopausal
+        //          women has been a topic of extensive research and discussion. The findings have evolved over time, 
+        //          and the association appears to depend on various factors, including the type of hormones used, 
+        //          the duration of use, and individual health considerations.`,
 
-                `The Women's Health Initiative (WHI) study, one of the largest clinical trials on HRT,
-                 found that women taking a combination of estrogen and progestin had an increased 
-                 risk of breast cancer compared to those not taking HRT. However, this increased risk was
-                  primarily observed in women using the combined form of HRT, not estrogen alone. The risk also
-                   seemed to be higher in women who had been using HRT for an extended period.`,
+        //         `The Women's Health Initiative (WHI) study, one of the largest clinical trials on HRT,
+        //          found that women taking a combination of estrogen and progestin had an increased 
+        //          risk of breast cancer compared to those not taking HRT. However, this increased risk was
+        //           primarily observed in women using the combined form of HRT, not estrogen alone. The risk also
+        //            seemed to be higher in women who had been using HRT for an extended period.`,
                 
-                `Estrogen-only therapy, particularly when started close to the onset of menopause, 
-                did not show a significant increase in breast cancer risk in the WHI study and some 
-                subsequent research. In fact, in some cases, estrogen-only HRT was associated with a lower 
-                risk of breast cancer.`,
+        //         `Estrogen-only therapy, particularly when started close to the onset of menopause, 
+        //         did not show a significant increase in breast cancer risk in the WHI study and some 
+        //         subsequent research. In fact, in some cases, estrogen-only HRT was associated with a lower 
+        //         risk of breast cancer.`,
                 
-                `It's crucial to note that individual health factors and medical history play a significant role in determining 
-                the appropriateness of hormone therapy. Before starting any hormone treatment, women should have a thorough
-                 discussion with their healthcare providers to assess the potential risks and benefits based on their
-                  specific circumstances.`,
+        //         `It's crucial to note that individual health factors and medical history play a significant role in determining 
+        //         the appropriateness of hormone therapy. Before starting any hormone treatment, women should have a thorough
+        //          discussion with their healthcare providers to assess the potential risks and benefits based on their
+        //           specific circumstances.`,
                 
-                `Regular breast cancer screenings, such as mammograms and clinical breast exams, are important for
-                 women on HRT to detect any potential issues early. Additionally, lifestyle factors such as maintaining 
-                 a healthy weight, regular exercise, and avoiding smoking and excessive alcohol intake can also influence
-                  breast cancer risk.`,
+        //         `Regular breast cancer screenings, such as mammograms and clinical breast exams, are important for
+        //          women on HRT to detect any potential issues early. Additionally, lifestyle factors such as maintaining 
+        //          a healthy weight, regular exercise, and avoiding smoking and excessive alcohol intake can also influence
+        //           breast cancer risk.`,
                 
-                `As research in this area is ongoing, it's essential to stay informed about the latest findings and consult
-                 with healthcare professionals for personalized advice based on the most current evidence. have
-                produced new findings or insights since my last update. `,
+        //         // `As research in this area is ongoing, it's essential to stay informed about the latest findings and consult
+        //         //  with healthcare professionals for personalized advice based on the most current evidence. have
+        //         // produced new findings or insights since my last update. `,
 
-                `Sources`,
-                `(1) Menopausal Hormone Therapy and Cancer Risk. Cancer.org`,
-                `(2) Menopause and Breast Cancer: Connection, Risk, Treatment - Verywell Health. `,
-                `(3) Can hormone replacement therapy (HRT) cause breast cancer?. https://www.medicalnewstoday.com.`,
-                `(4) Wikipedia`,
-        ]},        
+        //         // `Sources`,
+        //         // `(1) Menopausal Hormone Therapy and Cancer Risk. Cancer.org ` ,
+        //         // `(2) Menopause and Breast Cancer: Connection, Risk, Treatment - Verywell Health. `,
+        //         // `(3) Can hormone replacement therapy (HRT) cause breast cancer?. https://www.medicalnewstoday.com.`,
+        //         // `(4) Wikipedia`,
+        // ]},        
     {
         code: "asthma",
         prompt: "My child has asthma, can they get the nasal flu spray?",
@@ -177,25 +177,34 @@ const getRAGTexts = () => {
 
         {
             code: "covid-vax",
-            prompt: "Tell me about the state of abortion policy in Texas.",
+            prompt: "Can a 6-month old child get a covid vaccine?",
             text: [
                 
-            `According to the Texas Tribune, Texas is currently the largest state in the US to ban nearly all abortions[1]. 
-            It is illegal to perform an abortion in Texas, including by dispensing or mailing the abortion-inducing 
-            medications mifepristone and misoprostol, in most circumstances. Texas’ laws have narrow exceptions 
-            only to save the life or prevent “substantial impairment of major bodily function” of a pregnant patient[1].`, 
+                `As of my last knowledge update in January 2022, COVID-19 vaccines were not authorized for
+                children as young as 6 months old. At that time, COVID-19 vaccines were typically authorized
+                 for emergency use or approved for individuals aged 12 and older, with some vaccines having 
+                 emergency use authorization for those as young as 5 years old, depending on the country and the
+                  vaccine in question.`,
 
-            `However, some Texans have found ways to get abortions by traveling to other states or Mexico, or self-managing 
-            abortions at home by getting medications through international nonprofits, such as Aid Access, or online stores [1]`, 
+               `However, please note that guidelines and recommendations regarding COVID-19 vaccines 
+               can change over time as more research is conducted and additional data becomes available.
+                It's crucial to consult with your healthcare provider and stay up to date with guidance from 
+                public health authorities, such as the Centers for Disease Control and Prevention (CDC) in the 
+                United States, or the relevant health agencies in your country, to learn about the most current 
+                recommendations for COVID-19 vaccination, especially for children.`,
+               
+               `Since information and recommendations regarding COVID-19 are subject to change, 
+               it's important to rely on the latest guidance from authoritative sources to make informed 
+               decisions about vaccinations for children.`,
 
-            `Please note that this information is current as of October 11, 2023, and may be subject to change.
-            If you have any further questions or concerns, I recommend consulting with a medical professional or legal expert.`,
 
-            `Sources:`,
-            `(1) How new regulations impact abortion and birth control access in Texas. TexasTribune`,
-            `(2) Abortion in Texas - Wikipedia.`,
-            `(3) Is abortion illegal in Texas? - Frequently Asked Legal Questions. Texas.gov`,
-
+               `Sources`,
+               `(1) COVID-19 vaccines for kids: What you need to know - Mayo Clinic. https://www.mayoclinic.org`,
+                `(2) Can Kids Under 5 Get the COVID Vaccine at a Pharmacy? - Verywell Health. https://www.verywellhealth.com`,
+                `(3) CDC approves coronavirus vaccine for kids 6 months to 5 years. https://med.stanford.edu/`,
+                `(4) 6-Month Vaccines: What You Should Know - Verywell Health. https://www.verywellhealth.com`,
+                `(5) 6 Things to Know about COVID-19 Vaccination for Children. https://www.cdc.gov/ `,
+                `(6) Getty Images. https://www.gettyimages.com `,
             ]},
 
         {
