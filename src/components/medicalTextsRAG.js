@@ -59,10 +59,10 @@ const getRAGTexts = () => {
                 produced new findings or insights since my last update. `,
 
                 `Sources`,
-                `(1) Menopausal Hormone Therapy and Cancer Risk. Cancer.org`
-                `(2) Menopause and Breast Cancer: Connection, Risk, Treatment - Verywell Health. `
-                `(3) Can hormone replacement therapy (HRT) cause breast cancer?. https://www.medicalnewstoday.com.`
-                `(4) Wikipedia`
+                `(1) Menopausal Hormone Therapy and Cancer Risk. Cancer.org`,
+                `(2) Menopause and Breast Cancer: Connection, Risk, Treatment - Verywell Health. `,
+                `(3) Can hormone replacement therapy (HRT) cause breast cancer?. https://www.medicalnewstoday.com.`,
+                `(4) Wikipedia`,
         ]},        
     {
         code: "asthma",
@@ -82,9 +82,9 @@ const getRAGTexts = () => {
             relevant health considerations. The healthcare provider will determine 
             the most appropriate and safe vaccination option for your child,
             ensuring they receive the necessary protection against the flu while
-            considering their asthma condition.`
+            considering their asthma condition.`,
 
-            `Sources`
+            `Sources`,
             `(1) Live Attenuated Influenza Vaccine [LAIV] (The Nasal Spray Flu Vaccine ... : cdc.gov`,
             `(2) Using Nasal Spray Flu Vaccine in Children with Asthma. : www.emjreviews.com`, 
             `(3) Live nasal spray flu vaccine is safe for kids with asthma, says study. : www.medicalxpress.com`,
@@ -131,10 +131,10 @@ const getRAGTexts = () => {
             `In summary, whether or not to feed your toddler toddler milk is a decision that
              should be made in consultation with your child's healthcare provider. The 
              choice should take into account your child's age, dietary needs, and any 
-             specific nutritional requirements they may have. `
+             specific nutritional requirements they may have. `,
 
 
-            `Sources`
+            `Sources`,
             `(1) How Much Milk Should a Toddler Drink? Nutrition and More - www.Healthline.com`,
             `(2) Milk for Toddlers: When Can Toddlers Have Milk? – www.happiestbaby.com`,
             `(3) Toddler Formula vs. Milk: Experts Debunk What's Best - www.parents.com`,
@@ -169,7 +169,7 @@ const getRAGTexts = () => {
                  positives and unnecessary procedures, may outweigh the benefits. Always consult with your 
                  healthcare provider to discuss your personal risk factors and the appropriate screening schedule for your situation.`,
                 
-                 `Sources`
+                 `Sources`,
                 `(1) Lung Cancer Screening Guidelines | American Cancer Society. : www.cancer.org `, 
                 `(2) American Cancer Society Updates Lung Cancer Screening Guideline: Nearly ... :  www.pressroom.cancer.org/  `,
                 `(3) Lung Cancer Early Detection | Lung Cancer Screening. www.cancer.org `,
@@ -245,10 +245,10 @@ const getRAGTexts = () => {
                  weight loss varies from person to person and may depend on various factors,
                   including individual preferences, dietary habits, and psychological factors. 
                   It's important to use these sweeteners as part of a balanced, healthy eating plan 
-                  and to consult with a healthcare professional or registered dietitian for personalized guidance on weight management.`
+                  and to consult with a healthcare professional or registered dietitian for personalized guidance on weight management.`,
 
 
-                `Sources:`
+                `Sources:`,
 
                 `(1) Want to Lose Weight? The WHO Says Avoid These Non-Sugar Sweeteners. www.healthline.com `,
                 `(2) Artificial Sweeteners and a Diabetic/Low-Glycemic Diet. www.msn.com `, 
