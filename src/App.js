@@ -164,7 +164,7 @@ function App({ chatgpt, popup, rag}) {
   // TODO: Change this func to record string of answer instead of id.
   const onClickNext = () => {
     console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
-    console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
+    // console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
     localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
     localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndexLikert].text);
     if (selectedAnswerIndex2 != null){
