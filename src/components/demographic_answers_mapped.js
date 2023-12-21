@@ -59,11 +59,11 @@ const getDemoAnswersMapped = () => {
                 { id: 4, text: "Other", }
                             ],
             "breast": [
-                { id: 0, text: "Strongly Agree",},
-                { id: 1, text: "Agree",},
-                { id: 2, text: "Neither Agree Nor Disagree"},
-                { id: 3, text: "Strongly Disagree",},
-                { id: 4, text: "Disagree", }
+                { id: 0, text: "Yes, self",},
+                { id: 1, text: "Yes, family",},
+                { id: 2, text: "Yes, friends"},
+                { id: 3, text: "No",},
+                { id: 4, text: "Other", }
                             ],
             "diet": [
                 { id: 0, text: "Strongly Agree",},
