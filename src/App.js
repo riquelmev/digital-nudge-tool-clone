@@ -473,8 +473,8 @@ function App({ chatgpt, popup, rag}) {
                 [
                   // Start screen
                   <div>
-                    <h1 className="page-title">INFORMATION SHEET FOR DIGITAL NUDGE SURVEY</h1>
-                    <h2 className="page-subtitle">HUM#00243219</h2>
+                    <h1 className="page-title">CONSENT SHEET</h1>
+                    <h2 className="page-subtitle">University of Michigan HUM#00243219</h2>
 
                     <div className="page-box">
                       <div className="page-text-box">
