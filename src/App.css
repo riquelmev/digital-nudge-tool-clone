@@ -68,6 +68,7 @@
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   min-height: 50px;
   justify-content: center;
+
 }
 
 .scenario-text {
@@ -112,7 +113,7 @@
   font-weight: normal;
   max-width: 70%;
   align-self: center;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .answer-box {

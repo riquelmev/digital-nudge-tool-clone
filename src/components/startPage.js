@@ -1,20 +1,23 @@
 const getStartPage = () => {
     const startPage = 
 
-    [   `Thank you for registering to participate in our survey. Please read the following before proceeding.`,
-`Principal Investigator: Elizabeth Bondi-Kelly, Assistant Professor, University of Michigan`,
-`Co-investigator: Vicente Bobadilla Riquelme, Ph.D Student, University of Michigan`,
+    [   
+`Thank you for registering to participate in our survey. Please read the following before proceeding.`,
+`Faculty Advisor: Elizabeth Bondi-Kelly, Assistant Professor, University of Michigan`,
+`Principal Investigator: Vicente Bobadilla Riquelme, Ph.D Student, University of Michigan`,
 ``,``,``,
 
-`You are invited to participate in a research study about users' perception of AI recommendations changes under certain contexts.`,
+`You are invited to participate in a research study about users' perception of AI recommendations in different contexts.`,
 
-`If you agree to be part of the research study, you will be asked to read a given passage and answer how strongly you agree or disagree with a given statement about the passage.`,
+`If you agree to be part of the research study, you will be asked to read a short
+ conversation between a user and an AI Agent and answer a few questions. `,
 
-`- Benefits of the research: This study will hopefully illuminate how trustworthy AI generated content is perceived. `,
+`Benefits of the research. This study will hopefully illuminate how AI generated content is perceived.`,
 
-`- Risks and discomforts: None.`,
+`Risks and discomforts None.`,
 
-`- Compensation: $3 for taking the survey.`,
+`Compensation: $4 for taking the survey. Roughly $12 an hour based on a 20 minute survey completion time.`,
+
 
 `Participating in this study is completely voluntary.  Even if you decide to participate now, you may change your mind 
 and stop at any time. You may choose not to not continue with the survey or ask

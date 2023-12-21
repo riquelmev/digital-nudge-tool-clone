@@ -7,31 +7,31 @@ const getDemographicQuestions = () => {
 
     const demo_questions = [
         {
-            code: "ethnicity",
-            text: "What is your ethnicity?",
-            options: demo_answers_mapped["ethnicity"]
-        },
-        {
             code: "gender",
             text: "What is your gender?",
             options: demo_answers_mapped["gender"]
         },
         {
-            code: "kids",
-            text: "How many kids do you have?",
-            options: demo_answers_mapped["kids"]
-
-        },
-        {
-            code: "tech",
-            text: "What do you think of the following statement: AI and Tech have made society better",
-            options: demo_answers_mapped["tech"]
-
+            code: "ethnicity",
+            text: "What do you consider to be your race?",
+            options: demo_answers_mapped["ethnicity"]
         },
         {
             code: "hispanic",
             text: "Are you of Hispanic, Latino, or Spanish origin?",
             options: demo_answers_mapped["hispanic"]
+
+        },
+        {
+            code: "kids",
+            text: "Do you have any kids? If so, how many?",
+            options: demo_answers_mapped["kids"]
+
+        },
+        {
+            code: "tech",
+            text: "How much do you agree with the following statement: Artificial intelligence can have a beneficial impact in medicine",
+            options: demo_answers_mapped["tech"]
 
         },
         {
@@ -42,7 +42,7 @@ const getDemographicQuestions = () => {
         },
         {
             code: "media",
-            text: "What mediums do you normally use for receiving health information? ",
+            text: "What media do you normally use for receiving health information? ",
             options: demo_answers_mapped["media"]
 
         },

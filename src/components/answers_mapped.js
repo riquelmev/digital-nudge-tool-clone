@@ -14,8 +14,9 @@ const getAnswersMapped = () => {
                 { id: 1, text: "Slightly increase risk of  cancer",},
                 { id: 2, text: "Greatly increase risk of cancer"},
                 { id: 3, text: "Slightly decrease risk of cancer,"},
-                { id: 4, text: "NGreatly decrease risk of cancer",},
-                { id: 5, text: "Unsure", }
+                { id: 4, text: "Greatly decrease risk of cancer",},
+                { id: 5, text: "No effect", },
+                { id: 6, text: "Unsure", }
                     ],
             "asthma": [
                 { id: 0, text: "No, they cannot due to the fact they have Athsma",},
@@ -67,6 +68,72 @@ const getAnswersMapped = () => {
                 { id: 2, text: "Unsure"},
                 { id: 3, text: "Non-sugar sweetners should not be used for weight-loss", },
                     ],
+            "texas2": [
+                { id: 0, text: "Immigration",},
+                { id: 1, text: "Abortion",},
+                { id: 2, text: "Cancer"},
+                { id: 3, text: "Contraceptives",},
+                { id: 4, text: "Unsure", }
+                    ],  
+            "hrt2": [
+                { id: 0, text: "No effect",},
+                { id: 1, text: "Slightly increase risk of  cancer",},
+                { id: 2, text: "Greatly increase risk of cancer"},
+                { id: 3, text: "Slightly decrease risk of cancer,"},
+                { id: 4, text: "Greatly decrease risk of cancer",},
+                { id: 5, text: "No effect", },
+                { id: 6, text: "Unsure", }
+                    ],
+            "asthma2": [
+                { id: 0, text: "Activated flu viruses",},
+                { id: 1, text: "Inactivated flu viruses",},
+                { id: 2, text: "A mixture of active and inactive flu viruses"},
+                { id: 3, text: "Unsure",},
+                    ],
+
+            
+            "formula2": [
+                { id: 0, text: "Includes vitamins and minerals "},
+                { id: 1, text: "Has no nutritional benefit"},
+                { id: 2, text: "Unsure", }
+                    ],
+            "lung2": [
+                { id: 0, text: "Yes, every year."},
+                { id: 1, text: "Yes, every few years"},
+                { id: 2, text: "No, they should wait until 25 years since quitting to begin "},
+                { id: 3, text: "Unsure", }
+                    ],
+            "likert2": [
+                { id: 0, text: "Very Trustworthy"},
+                { id: 1, text: "Somewhat Trustworthy"},
+                { id: 2, text: "Unsure"},
+                { id: 3, text: "Somewhat Untrustworthy", },
+                { id: 4, text: "Not Trustworthy", }
+                    ],
+            "rsv2": [
+                { id: 0, text: "27 weeks"},
+                { id: 1, text: "28 weeks"},
+                { id: 2, text: "29 weeks"},
+                { id: 3, text: "30 weeks", },
+                { id: 4, text: "31 weeks", },
+                { id: 5, text: "Unsure", },
+
+                    ],
+            "covid-vax2": [
+                { id: 0, text: "6 Months"},
+                { id: 1, text: "12 Months"},
+                { id: 2, text: "5 years"},
+                { id: 3, text: "10 years", },
+                { id: 4, text: "12 years", },
+                { id: 5, text: "Unsure", }
+                    ],
+            "sweets2": [
+                { id: 0, text: "Increases the risk"},
+                { id: 1, text: "Decreases the risk"},
+                { id: 2, text: "Unsure"},
+                { id: 3, text: "No known effect", },
+                    ],
+                
             }
     return answers_mapped
 }

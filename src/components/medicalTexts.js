@@ -7,17 +7,23 @@ const getPrompts = () => {
             prompt: "Tell me about the state of abortion policy in Texas.",
             text: [
                 
-            `According to the Texas Tribune, Texas is currently the largest state in the US to ban nearly all abortions[1]. 
-            It is illegal to perform an abortion in Texas, including by dispensing or mailing the abortion-inducing 
-            medications mifepristone and misoprostol, in most circumstances. Texas’ laws have narrow exceptions 
-            only to save the life or prevent “substantial impairment of major bodily function” of a pregnant patient[1].`, 
+            `As of my last update in September 2021, the legal status of abortion in Texas was subject to change.
+             However, based on the information
+            available up to that point, abortion was legal in Texas under the land-
+            mark Supreme Court decision in Roe v. Wade, which established a
+            woman’s constitutional right to choose to have an abortion. The Roe
+            v. Wade decision allowed abortions to be performed in the United
+            States up until the point of viability, which is generally considered to
+            be around 24 weeks of pregnancy.`,
 
-            `However, some Texans have found ways to get abortions by traveling to other states or Mexico, or self-managing 
-            abortions at home by getting medications through international nonprofits, such as Aid Access, or online stores [1]`, 
+            `However, it’s important to note that individual states can enact their
+            own laws and regulations related to abortion. As of September 2021,
+            Texas had implemented several restrictions on abortion access, in-
+            cluding mandatory waiting periods, parental consent requirements
+            for minors seeking abortion, and limitations on abortion after 20
+            weeks of pregnancy.`,
 
-            `Please note that this information is current as of October 11, 2023, and may be subject to change.
-            If you have any further questions or concerns, I recommend consulting with a medical professional or legal expert.`
-
+            ``,
             ]},
         {
             code: "hrt",
@@ -49,9 +55,7 @@ const getPrompts = () => {
                  a healthy weight, regular exercise, and avoiding smoking and excessive alcohol intake can also influence
                   breast cancer risk.`,
                 
-                `As research in this area is ongoing, it's essential to stay informed about the latest findings and consult
-                 with healthcare professionals for personalized advice based on the most current evidence. have
-                produced new findings or insights since my last update. `,
+                  ``,
 
         ]},        
     {
@@ -66,13 +70,7 @@ const getPrompts = () => {
             in the form of an injectable flu shot. The flu shot is made with
             inactivated (killed) flu viruses and is considered safe and effective for
             individuals with asthma.`,
-            `It's crucial to discuss your child's specific situation with their healthcare provider. 
-            They can provide personalized recommendations and
-            guidance based on your child's asthma management and any other
-            relevant health considerations. The healthcare provider will determine 
-            the most appropriate and safe vaccination option for your child,
-            ensuring they receive the necessary protection against the flu while
-            considering their asthma condition.`,
+            ``,
 
         ]},
     
@@ -106,16 +104,7 @@ const getPrompts = () => {
             `Quantity: Pay attention to the recommended daily serving size and
              avoid overfeeding your toddler with milk, as it can displace other
               important foods in their diet.`,
-            
-            `Consultation with a Pediatrician: It's always a good idea to discuss your 
-            child's specific nutritional needs and any concerns with their pediatrician.
-             They can provide personalized guidance based on your child's growth and development.`,
-            
-            `In summary, whether or not to feed your toddler toddler milk is a decision that
-             should be made in consultation with your child's healthcare provider. The 
-             choice should take into account your child's age, dietary needs, and any 
-             specific nutritional requirements they may have. `
-
+              ``,
 
         ]},
 
@@ -143,33 +132,24 @@ const getPrompts = () => {
                 
                 `It's important to note that lung cancer screening is not recommended for
                  individuals who do not meet these specific criteria, as the potential risks of screening, such as false 
-                 positives and unnecessary procedures, may outweigh the benefits. Always consult with your 
-                 healthcare provider to discuss your personal risk factors and the appropriate screening schedule for your situation.`,
-                
+                 positives and unnecessary procedures, may outweigh the benefits.`,
+                 ``,
+
         ]},
 
-        {
-            code: "covid-vax",
-            prompt: "Can a 6-month old child get a covid vaccine?",
-            text: [
+        // {
+        //     code: "covid-vax",
+        //     prompt: "Can a 6-month old child get a covid vaccine?",
+        //     text: [
                 
-                `As of my last knowledge update in January 2022, COVID-19 vaccines were not authorized for
-                 children as young as 6 months old. At that time, COVID-19 vaccines were typically authorized
-                  for emergency use or approved for individuals aged 12 and older, with some vaccines having 
-                  emergency use authorization for those as young as 5 years old, depending on the country and the
-                   vaccine in question.`,
+        //         `As of my last knowledge update in January 2022, COVID-19 vaccines were not authorized for
+        //          children as young as 6 months old. At that time, COVID-19 vaccines were typically authorized
+        //           for emergency use or approved for individuals aged 12 and older, with some vaccines having 
+        //           emergency use authorization for those as young as 5 years old, depending on the country and the
+        //            vaccine in question.`,
+        //            ``,
 
-                `However, please note that guidelines and recommendations regarding COVID-19 vaccines 
-                can change over time as more research is conducted and additional data becomes available.
-                 It's crucial to consult with your healthcare provider and stay up to date with guidance from 
-                 public health authorities, such as the Centers for Disease Control and Prevention (CDC) in the 
-                 United States, or the relevant health agencies in your country, to learn about the most current 
-                 recommendations for COVID-19 vaccination, especially for children.`,
-                
-                `Since information and recommendations regarding COVID-19 are subject to change, 
-                it's important to rely on the latest guidance from authoritative sources to make informed 
-                decisions about vaccinations for children.`,
-            ]},
+        //     ]},
 
         {
             code: "sweets",
@@ -216,9 +196,9 @@ const getPrompts = () => {
                 and sugar intake in the short term, which can contribute to weight loss.
                  However, the long-term effectiveness of artificial sweeteners in maintaining 
                  weight loss varies from person to person and may depend on various factors,
-                  including individual preferences, dietary habits, and psychological factors. 
-                  It's important to use these sweeteners as part of a balanced, healthy eating plan 
-                  and to consult with a healthcare professional or registered dietitian for personalized guidance on weight management.`
+                  including individual preferences, dietary habits, and psychological factors.`,
+                
+                  ``,
 
             ]},
 
@@ -245,11 +225,10 @@ const getPrompts = () => {
                  congenital heart disease, or certain immunodeficiencies, can increase the risk of severe RSV infection.`,
                     
                 `The decision to use RSV immunoprophylaxis is typically made on a case-by-case basis,
-                 taking into consideration the infant's specific risk factors and health status.
-                  If you have concerns about RSV and your newborn, it's essential to discuss 
-                  this with your pediatrician or healthcare provider. They can evaluate your baby's 
-                  individual risk and provide guidance on the need for RSV immunoprophylaxis if it is
-                   deemed appropriate based on your baby's specific circumstances.`,
+                 taking into consideration the infant's specific risk factors and health status.`,
+
+                 ``,
+
     
                 ]},
     ] 

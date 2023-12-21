@@ -7,6 +7,7 @@ import getPrompts from "./components/medicalTexts";
 // import getPopup from "./components/popup";
 // import alertMode from "./components/alertMode";
 import PopupAlert from "./components/popupAlert";
+import PopupConfirm from "./components/popupConfirm";
 import { useParams } from "react-router-dom"
 import getDisclaimer from "./components/disclaimer.js";
 import getDemographicQuestions from "./components/demographic_questions";
@@ -48,11 +49,15 @@ function App({ chatgpt, popup, rag}) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [currentDemoQuestion, setCurrentDemoQuestion] = useState(0);
   const [showPopups, setShowPopup] = useState(true);
+  const [showConfirmPopupAccept, setShowConfirmPopupAccept] = useState(false);
+  const [showConfirmPopupDecline, setShowConfirmPopupDecline] = useState(false);
+
   // const [key] = useState(0);
   // const responses = [];
   // const [score, setScore] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
   const [selectedAnswerIndex2, setSelectedAnswerIndex2] = useState(null)
+  const [selectedAnswerIndexLikert, setSelectedAnswerIndexLikert] = useState(null)
 
   const [acceptedOrNot, setAcceptedOrNot] = useState(false)
 
@@ -80,6 +85,16 @@ function App({ chatgpt, popup, rag}) {
   // Helper Functions
   const handleClose = () => setShowPopup(false);
   const handleShow = () => setShowPopup(true);
+
+
+  const [showConfirmPopupAccept2, setShowConfirmPopupAccept2] = useState(false);
+  const [showConfirmPopupDecline2, setShowConfirmPopupDecline2] = useState(false);
+
+  const handleConfirmOpenAccept = () => setShowConfirmPopupAccept2(true);
+  const handleConfirmCloseAccept = () => setShowConfirmPopupAccept2(false);
+
+  const handleConfirmOpenDecline = () => setShowConfirmPopupDecline2(true);
+  const handleConfirmCloseDecline = () => setShowConfirmPopupDecline2(false);
 
 
   const [demographics, setDemographics] = useState(true)
@@ -130,7 +145,11 @@ function App({ chatgpt, popup, rag}) {
   
   console.log(randomArray)
   
-  const disclaimer = " ChatGPT should not be used to make medical decisions."
+  const start_disclaimer = `I am not a doctor, but I can offer some general information that may help you learn more about the subject 
+   and perhaps make an informed decision`
+  const disclaimer = `Keep in mind that guidelines and recommendations can change, and healthcare decisions 
+  should be made in consultation with a qualified medical professional who is familiar with your specific health profile. ChatGPT is not a 
+  a medical provider and is not qualified to give medical advice.`
 
 
   const demo_questions = getDemographicQuestions();
@@ -147,14 +166,17 @@ function App({ chatgpt, popup, rag}) {
     console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
     console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
     localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
-    localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndex2].text);
-    
+    localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndexLikert].text);
+    if (selectedAnswerIndex2 != null){
+      localStorage.setItem(questions[randomArray[currentQuestion]].code + "_2", questions[randomArray[currentQuestion]].options2[selectedAnswerIndex2].text);
+    }
     if (currentQuestion + 1 < prompts.length) {
       setCurrentQuestion(currentQuestion + 1);
 
       handleShow();
       setSelectedAnswerIndex(null);
       setSelectedAnswerIndex2(null);
+      setSelectedAnswerIndexLikert(null);
 
     } else {
       setShowResults(true);
@@ -192,12 +214,15 @@ function App({ chatgpt, popup, rag}) {
       handleShow();
       setSelectedAnswerIndex(null);
       setSelectedAnswerIndex2(null);
+      setSelectedAnswerIndexLikert(null);
 
 
     } else {
       setShowMiddlePage(true);
       setSelectedAnswerIndex(null);
       setSelectedAnswerIndex2(null);
+      setSelectedAnswerIndexLikert(null);
+
     }
   } 
 
@@ -218,12 +243,16 @@ function App({ chatgpt, popup, rag}) {
     }
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
+    setSelectedAnswerIndexLikert(null);
+
   }
 
   const showTrialQuestion = () => {
     setShowTrialQuestion(true)
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
+    setSelectedAnswerIndexLikert(null);
+
   }
 
 
@@ -231,11 +260,15 @@ function App({ chatgpt, popup, rag}) {
     setShowStartPage(false)
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
+    setSelectedAnswerIndexLikert(null);
+
   }
   const endSurvey = () => {
     setShowEndEarly(true)
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
+    setSelectedAnswerIndexLikert(null);
+
 
   }
 
@@ -260,6 +293,25 @@ function App({ chatgpt, popup, rag}) {
   }
 
   class AnswerButtonLikert extends Component {
+    onAnswerSelectedLikert() {
+      setSelectedAnswerIndexLikert(this.props.option.id)
+    }
+    render() {
+
+      return (
+        <li
+          key={this.props.option.id}
+          onClick={() => this.onAnswerSelectedLikert()}
+          className={selectedAnswerIndexLikert === this.props.option.id ? 'selected-answer' : null}
+        >
+          {this.props.option.text}
+        </li>);
+
+    }
+  }
+
+  
+  class AnswerButtonSecond extends Component {
     onAnswerSelected2() {
       setSelectedAnswerIndex2(this.props.option.id)
     }
@@ -283,8 +335,11 @@ function App({ chatgpt, popup, rag}) {
       return (
         <div>
           {this.props.text.map((i, key) => {
-
-            if (UseChatGPTDisclaimer && this.props.text.length - 1 === key && this.props.medText) {
+             if (UseChatGPTDisclaimer && 0 === key && this.props.medText) {
+              // TODO: Add padding
+              return <div className={this.props.className} key={key}>{start_disclaimer}{i}</div>;
+            }
+            else if (UseChatGPTDisclaimer && this.props.text.length - 1 === key && this.props.medText) {
               // TODO: Add padding
               return <div className={this.props.className} key={key}>{i}{disclaimer}</div>;
             }
@@ -324,12 +379,35 @@ function App({ chatgpt, popup, rag}) {
   };
 
 
+  const declinedstoreHistort = async () => {
+    localStorage.clear();
+
+    localStorage.setItem("id", id);
+    localStorage.setItem("accepted", false)
+
+    const history = { ...localStorage };
+
+
+    const api_base_url='https://digital-nudge-server.onrender.com'
+    const response = await fetch(`${api_base_url}/api/sql`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify([id, history])
+    });
+  }
+
 
 
 
   const storeHistory = async () => {
 
     localStorage.setItem("leftTab", leftTab);
+    localStorage.setItem("id", id);
+    localStorage.setItem("accepted", true)
+
 
     const history = { ...localStorage };
     console.log(history);
@@ -354,12 +432,13 @@ function App({ chatgpt, popup, rag}) {
 
     // Push history to database
 
+
   }
   return (
     <div className="App">
       {/* 1. Header  */}
       <div className="title-box" id="title">
-        <h1 className='title'> AI Reading Survey </h1>
+        <h1 className='title'> AI for Medical Information Study </h1>
       </div>
 
 
@@ -480,7 +559,7 @@ function App({ chatgpt, popup, rag}) {
                         })}
                       </ul>
                       <div className="button-box">
-                        <button className="next-button" onClick={() => showSurvey(selectedAnswerIndex === 2)} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null}> Next </button>
+                        <button className="next-button" onClick={() => showSurvey(selectedAnswerIndex === 2)} disabled={selectedAnswerIndex === null || selectedAnswerIndexLikert === null}> Next </button>
                       </div>
                     
                       <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again."}></PopupAlert>
@@ -546,6 +625,7 @@ function App({ chatgpt, popup, rag}) {
                         ) : (<h2 className="page-subtitle">You have chosen to not accept the terms. Your answers have not been recorded. Your completion code is {completionCode}</h2>)}
                       </div>
                     ) : (
+
                       <div>
                         <div className="page-box">
                           <h2 className="page-subtitle">
@@ -555,8 +635,12 @@ function App({ chatgpt, popup, rag}) {
                             <MultiLineText className="page-body-text" text={post_disclaimer} medText={false}></MultiLineText>
                           </div>
                         </div>
-                        <button className="restart-button accept-button" onClick={() => acceptedRestart()}>I accept</button>
-                        <button className="restart-button reject-button" onClick={() => declinedRestart()}>I don't accept </button>
+                        <button className="restart-button accept-button" onClick={handleConfirmOpenAccept}>I accept</button>
+                        <button className="restart-button reject-button" onClick={handleConfirmOpenDecline}>I don't accept </button>
+
+                        <PopupConfirm showPopupMode={showConfirmPopupAccept2} acceptModal={acceptedRestart} closeModal={handleConfirmCloseAccept} text={"You have clicked to particapte in this study. Is this correct?"}></PopupConfirm>
+                        <PopupConfirm showPopupMode={showConfirmPopupDecline2} acceptModal={declinedRestart} closeModal={handleConfirmCloseDecline} text={"You have clicked to NOT particapte in this study. Is this correct?"}></PopupConfirm>
+
                       </div>
                     )}
 
@@ -594,7 +678,9 @@ function App({ chatgpt, popup, rag}) {
                       <h2 className="question-text">
                         Question: {currentQuestion + 1} out of {prompts.length}
                       </h2>
-                      {/* EDIT HERE TO ADD PARARGRAPHS FOR EACH STR IN ARR */}
+
+
+                      {/* Question 1 */}
                       <h3 className="question-text">{questions[randomArray[currentQuestion]].text}</h3>
 
                       {/* List of possible answers  */}
@@ -602,6 +688,16 @@ function App({ chatgpt, popup, rag}) {
                         {questions[randomArray[currentQuestion]].options.map((option) => {
                           return (
                             <AnswerButton id={"comp"} option={option} />
+                          );
+                        })}
+                      </ul>
+                  
+                      {/* Question 2 */}
+                      <h3 className="question-text">{questions[randomArray[currentQuestion]].text2}</h3>
+                      <ul>
+                        {questions[randomArray[currentQuestion]].options2.map((option) => {
+                          return (
+                            <AnswerButtonSecond id={"comp"} option={option} />
                           );
                         })}
                       </ul>
@@ -615,7 +711,7 @@ function App({ chatgpt, popup, rag}) {
                         })}
                       </ul>
                       <div className="button-box">
-                        <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null}> Next </button>
+                        <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null || selectedAnswerIndexLikert === null}> Next </button>
                       </div>
                     </div>
                   ])}
