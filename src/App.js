@@ -567,7 +567,7 @@ function App({ chatgpt, popup, rag}) {
                         
                       <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. There's one more trial question."} ></PopupAlert>
   
-                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. Click next to begin the survey. Please note there will be no confirmation pop up in the actual survey."} ></PopupAlert>
+                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey."} ></PopupAlert>
 
                     </div>
                    
@@ -576,8 +576,8 @@ function App({ chatgpt, popup, rag}) {
                   ) : (
                     // Finished Demographics
                   <div className="page-box mini-box">
-                    <h2 className="page-subtitle">Thank you for filling out the demographic portion of the survey. In the following section, you'll see a paragraph
-                      followed by a question. The text shown may or may not contain misinformation. Please fill out the question to the best of your ability and outside knowledge. There will be 2 practice questions to help you get aclimated.</h2>
+                    <h2 className="page-subtitle">Thank you for filling out the demographic portion of the survey. In the following section, you'll see conversation with an AI Agent,
+                      followed by some questions. The conversation shown contains AI generated information. Please fill out the questions to the best of your ability and outside knowledge. There will be 2 practice questions to help you get acclimated.</h2>
                     <div>
                       <button className="next-button" style={{ margin: 0 }} onClick={showTrialQuestion} > Next </button>
                     </div>

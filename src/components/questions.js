@@ -20,14 +20,14 @@ const getQuestions = () => {
             text: "What is the effect of combined HRT on breast cancer?",
             options: answers_mapped["hrt"],
             text2: "What is the effect of estrogen-only HRT on breast cancer?",
-            options2: answers_mapped["texas2"],
+            options2: answers_mapped["hrt2"],
         },
         {
             code: "asthma",
             text: "Can my child get a nasal flu vaccine if they have asthma?",
             options: answers_mapped["asthma"],
             text2: "The nasal flu vaccine contains what distinction compared to an injectable flu vaccine?",
-            options2: answers_mapped["texas2"],
+            options2: answers_mapped["asthma2"],
 
         },
         {
@@ -35,7 +35,7 @@ const getQuestions = () => {
             text: "When should parents start giving their child toddler milk to ensure a balanced diet?",
             options: answers_mapped["formula"],
             text2: "What nutritional benefit does toddler milk contain? ",
-            options2: answers_mapped["texas2"],
+            options2: answers_mapped["formula2"],
 
         },
         {
@@ -43,7 +43,7 @@ const getQuestions = () => {
             text: "How often should I get screened for lung cancer?",
             options: answers_mapped["lung"],
             text2: "Should smokers who quit 20 years ago get screened for lung cancer?",
-            options2: answers_mapped["texas2"],
+            options2: answers_mapped["lung2"],
 
         },
         // {
@@ -59,7 +59,7 @@ const getQuestions = () => {
             text: "What role do non-sugar sweetners play in weight-loss?",
             options: answers_mapped["sweets"],
             text2: "What is the effect of non-sugar sweetners on type 2 diabetes and cardiovascular diseases?",
-            options2: answers_mapped["texas2"],
+            options2: answers_mapped["sweets2"],
 
         },
         {
@@ -67,7 +67,7 @@ const getQuestions = () => {
             text: "Is there an RSV vaccine available for my newborn?",
             options: answers_mapped["rsv"],
             text2: "Very premature babies, are at higher risk of severe RSV infection. At what boundry is a very premature defined?",
-            options2: answers_mapped["texas2"], 
+            options2: answers_mapped["rsv2"], 
 
         },
         

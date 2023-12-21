@@ -36,6 +36,7 @@ const getDemoAnswersMapped = () => {
                 { id: 0, text:  "Employed for wages"},
                 { id: 1, text: "Self-employed"},
                 { id: 2, text: "Homemaker"},
+                { id: 6, text: "Student", },
                 { id: 3, text: "Unemployed",},
                 { id: 4, text: "Retired", },
                 { id: 5, text: "Unable to work", }
@@ -43,9 +44,11 @@ const getDemoAnswersMapped = () => {
             "media": [
                 { id: 0, text: "Radio",},
                 { id: 1, text: "TV",},
-                { id: 2, text: "WebMD"},
-                { id: 3, text: "Social Media",},
-                { id: 4, text: "TikTok", }
+                { id: 2, text: "Internet Search: Personal Blogs"},
+                { id: 3, text: "Internet Search: Government Websites"},
+                { id: 4, text: "Internet Search: Medical Speciality Group Websites"},
+                { id: 5, text: "Social Media",},
+                { id: 6, text: "TikTok", }
                     ],
             "lung": [
                 { id: 0, text: "Yes, self",},

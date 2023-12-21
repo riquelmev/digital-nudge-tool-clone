@@ -5,7 +5,7 @@ const getTrialAnswersMapped = () => {
             "trial1": [
               { id: 0, text: "The flu",},
               { id: 1, text: "RSV",},
-              { id: 2, text: "When to switch to a front facing carseat."},
+              { id: 2, text: "Proper Carseat Usage"},
               { id: 3, text: "Postpartum care",},
               { id: 4, text: "Infertility", },
                 ],
