@@ -48,7 +48,8 @@ const getDemoAnswersMapped = () => {
                 { id: 3, text: "Internet Search: Government Websites"},
                 { id: 4, text: "Internet Search: Medical Speciality Group Websites"},
                 { id: 5, text: "Social Media",},
-                { id: 6, text: "TikTok", }
+                { id: 6, text: "TikTok", },
+                { id: 7, text: "Other", }
                     ],
             "lung": [
                 { id: 0, text: "Yes, self",},
