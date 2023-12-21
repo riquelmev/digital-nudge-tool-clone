@@ -12,9 +12,9 @@ const getStartPage = () => {
 `If you agree to be part of the research study, you will be asked to read a short
  conversation between a user and an AI Agent and answer a few questions. `,
 
-`Benefits of the research. This study will hopefully illuminate how AI generated content is perceived.`,
+`Benefits of the research: This study will hopefully illuminate how AI generated content is perceived.`,
 
-`Risks and discomforts None.`,
+`Risks and discomforts: None.`,
 
 `Compensation: $4 for taking the survey. Roughly $12 an hour based on a 20 minute survey completion time.`,
 
