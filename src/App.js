@@ -187,6 +187,8 @@ function App({group, chatgpt, popup, rag}) {
 
     setTime(time => [...time, Date.now()]);
     console.log(time);
+    console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
+    // console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
     localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
     localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndexLikert].text);
     if (selectedAnswerIndex2 != null){
