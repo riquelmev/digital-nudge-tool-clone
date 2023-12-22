@@ -10,10 +10,10 @@ const getTrialAnswersMapped = () => {
               { id: 4, text: "Infertility", },
                 ],
             "trial2": [
-                { id: 0, text: "The vaccine was pulled due to confirmed studies that proved it caused artheritis ",},
-                { id: 1, text: "The vaccine was pulled due to the possilibty of causing artheritis in hamsters",},
+                { id: 0, text: "The vaccine was pulled due to confirmed studies that proved it caused arteritis ",},
+                { id: 1, text: "The vaccine was pulled due to the possilibty of causing arteritis in hamsters",},
                 { id: 3, text: "The vaccine was pulled due to negative backlash since confirmed side effects were shown in humans."},
-                { id: 2, text: "The vaccine was pulled due to negative backlash from concerns realted to possibly causing artheritis in humans"},
+                { id: 2, text: "The vaccine was pulled due to negative backlash from concerns realted to possibly causing arteritis in humans"},
                     ],
             }
     return trial_answers_mapped

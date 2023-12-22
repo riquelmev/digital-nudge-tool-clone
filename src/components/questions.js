@@ -40,7 +40,7 @@ const getQuestions = () => {
         },
         {
             code: "lung",
-            text: "How often should I get screened for lung cancer?",
+            text: "Who should get screened for lung cancer annually? ",
             options: answers_mapped["lung"],
             text2: "Should smokers who quit 20 years ago get screened for lung cancer?",
             options2: answers_mapped["lung2"],

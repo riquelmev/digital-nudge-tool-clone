@@ -10,13 +10,12 @@ const getAnswersMapped = () => {
               { id: 4, text: "Unsure", }
                 ],
             "hrt": [
-                { id: 0, text: "No effect",},
-                { id: 1, text: "Slightly increase risk of  cancer",},
-                { id: 2, text: "Greatly increase risk of cancer"},
-                { id: 3, text: "Slightly decrease risk of cancer,"},
-                { id: 4, text: "Greatly decrease risk of cancer",},
-                { id: 5, text: "No effect", },
-                { id: 6, text: "Unsure", }
+                { id: 0, text: "Slightly increase risk of  cancer",},
+                { id: 1, text: "Greatly increase risk of cancer"},
+                { id: 2, text: "Slightly decrease risk of cancer,"},
+                { id: 3, text: "Greatly decrease risk of cancer",},
+                { id: 4, text: "No effect", },
+                { id: 5, text: "Unsure", }
                     ],
             "asthma": [
                 { id: 0, text: "No, they cannot due to the fact they have Athsma",},
@@ -36,9 +35,9 @@ const getAnswersMapped = () => {
                     ],
             "lung": [
                 { id: 0, text: "Anyone aged 50 - 80."},
-                { id: 1, text: "Anyone who's smoked at least 20 pack years of cigarettes and are between 50 -80 years of age."},
-                { id: 2, text: "People aged 50-80, who've smoked 20 pack years, and are either currently smoking or have quit in the past 15 years"},
-                { id: 3, text: "People aged 50-80, who have smoked 20 pack years, regardless of when they quit." },
+                { id: 1, text: "Anyone who's smoked at least 20 pack-years of cigarettes and are between 50 -80 years of age."},
+                { id: 2, text: "People aged 50-80, who've smoked 20 pack-years, and are either currently smoking or have quit in the past 15 years"},
+                { id: 3, text: "People aged 50-80, who have smoked 20 pack-years, regardless of when they quit." },
                 { id: 4, text: "Unsure", }
                     ],
             "likert": [
@@ -49,8 +48,8 @@ const getAnswersMapped = () => {
                 { id: 4, text: "Not Trustworthy", }
                     ],
             "rsv": [
-                { id: 0, text: "There is no routeinly recommended RSV vaccine for infants."},
-                { id: 1, text: "There is an emergancy use RSV immunoprophylaxis for babies deemed at risk"},
+                { id: 0, text: "There is no routinely recommended RSV vaccine for infants."},
+                { id: 1, text: "There is an emergency use RSV immunoprophylaxis for babies deemed at risk"},
                 { id: 2, text: "There is an RSV vaccine recommended for all babies under 8 months "},
                 { id: 3, text: "Unsure", },
                     ],
