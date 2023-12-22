@@ -7,12 +7,13 @@ import { Route, Routes, useParams} from "react-router-dom"
 function Main() {
     // console.log(useParams())
 
+
     return (
         <Routes>
-        <Route path="/1/:id" element={<App chatgpt={false} popup={false} rag={false} />} />
-        <Route path="/2/:id" element={<App chatgpt={true} popup={false} rag={false} />} />  
-        <Route path="/3/:id" element={<App chatgpt={false} popup={true} rag={false} />} />
-        <Route path="/4/:id" element={<App chatgpt={false} popup={false} rag={true} />}/>
+        <Route path="/1/" element={<App group={1} chatgpt={false} popup={false} rag={false} />} />
+        <Route path="/2/" element={<App group={2} chatgpt={true} popup={false} rag={false} />} />  
+        <Route path="/3/" element={<App group={3} chatgpt={false} popup={true} rag={false} />} />
+        <Route path="/4/" element={<App group={4} chatgpt={false} popup={false} rag={true} />}/>
       </Routes>
       );
   }

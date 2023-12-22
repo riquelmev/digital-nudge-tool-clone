@@ -20,7 +20,7 @@ const getStartPage = () => {
 
 
 `Participating in this study is completely voluntary.  Even if you decide to participate now, you may change your mind 
-and stop at any time. You may choose not to not continue with the survey or ask
+and stop at any time. You may choose not to continue with the survey or ask
  for your answers to not be used for data analysis for any reason.`,
 
 `As part of the research, we may mislead you or we may not tell you everything 

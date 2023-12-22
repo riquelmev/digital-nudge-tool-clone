@@ -8,7 +8,7 @@ import getPrompts from "./components/medicalTexts";
 // import alertMode from "./components/alertMode";
 import PopupAlert from "./components/popupAlert";
 import PopupConfirm from "./components/popupConfirm";
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import getDisclaimer from "./components/disclaimer.js";
 import getDemographicQuestions from "./components/demographic_questions";
 import getStartPage from "./components/startPage";
@@ -20,7 +20,7 @@ import getAnswersMapped from "./components/answers_mapped";
 // import { BrowserRouter as Router } from 'react-router-dom';
 
 
-function App({ chatgpt, popup, rag}) {
+function App({group, chatgpt, popup, rag}) {
 
 
   const [UsePopups, setUsePopups] = useState(popup);
@@ -38,7 +38,12 @@ function App({ chatgpt, popup, rag}) {
   // }
 
 
-  let { id } = useParams()
+  // let { id } = useParams()
+  const [searchParams] = useSearchParams();
+  // console.log(searchParams.get("name"));
+  const id = searchParams.get("PROLIFIC_PID")
+
+  console.log(id, group)
 
   // console.log(id)
 
@@ -110,7 +115,13 @@ function App({ chatgpt, popup, rag}) {
   const [currentTrialQuestion, setCurrentTrialQuestion] = useState(0)
 
   const handleCloseTrial = () => setUseTrialPopup(false);
-  const handleCloseSecond = () =>  setDemographics(false);
+  const handleCloseSecond = () =>  {
+    setTime(time => [...time, Date.now()]);
+    setDemographics(false);
+    setSelectedAnswerIndex(null); 
+    setSelectedAnswerIndex2(null);
+    setSelectedAnswerIndexLikert(null);
+  }
   const handleCloseFirst = () => {
     setCurrentTrialQuestion(currentTrialQuestion + 1)
     setFirstConfirmationPopup(false)
@@ -129,11 +140,19 @@ function App({ chatgpt, popup, rag}) {
     return array
   }
 
+  const [startTime, setStartTime] = useState([]);
+  const [time, setTime] = useState([]);
+
   const order = Array.from(Array(prompts.length).keys())
   const [randomArray, setRandomArray] = React.useState([])
     React.useEffect(function() {
     setRandomArray(shuffleArray(order))
+    setStartTime([Date.now()])
+    console.log(startTime)
     }, [])
+
+
+
 
   const likert_questions = 
     {
@@ -163,8 +182,11 @@ function App({ chatgpt, popup, rag}) {
 
   // TODO: Change this func to record string of answer instead of id.
   const onClickNext = () => {
-    console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
-    console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
+    // console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
+    // console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndexLikert].text });
+
+    setTime(time => [...time, Date.now()]);
+    console.log(time);
     localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
     localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndexLikert].text);
     if (selectedAnswerIndex2 != null){
@@ -172,9 +194,9 @@ function App({ chatgpt, popup, rag}) {
     }
     if (currentQuestion + 1 < prompts.length) {
       setCurrentQuestion(currentQuestion + 1);
-
+ 
       handleShow();
-      setSelectedAnswerIndex(null);
+      setSelectedAnswerIndex(null); 
       setSelectedAnswerIndex2(null);
       setSelectedAnswerIndexLikert(null);
 
@@ -375,15 +397,18 @@ function App({ chatgpt, popup, rag}) {
     // setShowResults(false);
     setSelectedAnswerIndex(null);
     // handleShow();
-    setShowEndScreen(true)
+    setShowEndScreen(true);
+    declinedstoreHistory();
   };
 
 
-  const declinedstoreHistort = async () => {
+  const declinedstoreHistory = async () => {
     localStorage.clear();
 
     localStorage.setItem("id", id);
     localStorage.setItem("accepted", false)
+    localStorage.setItem("group", group )
+
 
     const history = { ...localStorage };
 
@@ -406,7 +431,12 @@ function App({ chatgpt, popup, rag}) {
 
     localStorage.setItem("leftTab", leftTab);
     localStorage.setItem("id", id);
-    localStorage.setItem("accepted", true)
+    localStorage.setItem("accepted", true);
+    localStorage.setItem("group", group );
+    localStorage.setItem("start_time",startTime);
+    localStorage.setItem("question times", time);
+    localStorage.setItem("order", randomArray);
+
 
 
     const history = { ...localStorage };
