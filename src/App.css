@@ -231,9 +231,27 @@ li:hover {
   justify-content: right;
   flex-direction: row;
 }
+.button-box2 {
+  display: flex;
+  width: 90%;
+  justify-content: left;
+  flex-direction: row;
+}
 
 .next-button {
   margin-right: 10%;
+  background-color: #212121;
+  padding: 16px;
+  /* border: 3px solid white; */
+  border-radius: 20px;
+  font-size: 20px;
+  /* color: #424242; */
+  color: white;
+  width: 15%;
+  opacity: 0.8;
+}
+.instruction-button {
+  margin-right: 35%;
   background-color: #212121;
   padding: 16px;
   /* border: 3px solid white; */

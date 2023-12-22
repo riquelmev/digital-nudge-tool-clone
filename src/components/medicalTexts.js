@@ -76,7 +76,7 @@ const getPrompts = () => {
     
         {
             code: "formula",
-            prompt: "Should I be feeding my toddler toddler milk?",
+            prompt: "Should I be feeding my 1 year old toddler formula?",
             text: [
             `The decision of whether to feed your toddler toddler milk, 
             which is typically a term used for milk designed for children aged 1 to 3 years, depends on several

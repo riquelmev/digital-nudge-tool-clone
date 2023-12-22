@@ -132,6 +132,13 @@ const getAnswersMapped = () => {
                 { id: 2, text: "Unsure"},
                 { id: 3, text: "No known effect", },
                     ],
+            "outside": [
+                { id: 0, text: "Relied entirely on outside knowledge"},
+                { id: 1, text: "Relied mostly on outside knowledge to answer"},
+                { id: 2, text: "Relied on outside knowledge and the AI recommendation equally"},
+                { id: 3, text: "Relied mostly on the AI recommendation", },
+                { id: 4, text: "Relied entirely on the AI recommendation", }
+                    ],
                 
             }
     return answers_mapped

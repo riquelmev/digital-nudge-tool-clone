@@ -63,6 +63,8 @@ function App({group, chatgpt, popup, rag}) {
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
   const [selectedAnswerIndex2, setSelectedAnswerIndex2] = useState(null)
   const [selectedAnswerIndexLikert, setSelectedAnswerIndexLikert] = useState(null)
+  const [selectedAnswerIndexOutside, setSelectedAnswerIndexOutside] = useState(null)
+
 
   const [acceptedOrNot, setAcceptedOrNot] = useState(false)
 
@@ -90,6 +92,12 @@ function App({group, chatgpt, popup, rag}) {
   // Helper Functions
   const handleClose = () => setShowPopup(false);
   const handleShow = () => setShowPopup(true);
+
+  const [showInstructions, setShowInstructions] = useState(false);
+  const handleShowInstructions = () => setShowInstructions(true);
+  const handleCloseInstructions = () => setShowInstructions(false);
+
+
 
 
   const [showConfirmPopupAccept2, setShowConfirmPopupAccept2] = useState(false);
@@ -121,6 +129,8 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex(null); 
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
+    setSelectedAnswerIndexOutside(null);
+
   }
   const handleCloseFirst = () => {
     setCurrentTrialQuestion(currentTrialQuestion + 1)
@@ -161,6 +171,13 @@ function App({group, chatgpt, popup, rag}) {
         options: answers_mapped["likert"]
     };
 
+  const outside_knowledge_questions = 
+  {
+      code: "outside",
+      text: "When answering questions related to this text, how much did you rely on previous outside knowledge?",
+      options: answers_mapped["outside"]
+  };
+
   
   console.log(randomArray)
   
@@ -191,6 +208,8 @@ function App({group, chatgpt, popup, rag}) {
     // console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
     localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
     localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndexLikert].text);
+    localStorage.setItem(questions[randomArray[currentQuestion]].code + "_outside", outside_knowledge_questions.options[selectedAnswerIndexOutside].text);
+
     if (selectedAnswerIndex2 != null){
       localStorage.setItem(questions[randomArray[currentQuestion]].code + "_2", questions[randomArray[currentQuestion]].options2[selectedAnswerIndex2].text);
     }
@@ -201,6 +220,7 @@ function App({group, chatgpt, popup, rag}) {
       setSelectedAnswerIndex(null); 
       setSelectedAnswerIndex2(null);
       setSelectedAnswerIndexLikert(null);
+      setSelectedAnswerIndexOutside(null);
 
     } else {
       setShowResults(true);
@@ -239,6 +259,7 @@ function App({group, chatgpt, popup, rag}) {
       setSelectedAnswerIndex(null);
       setSelectedAnswerIndex2(null);
       setSelectedAnswerIndexLikert(null);
+      setSelectedAnswerIndexOutside(null);
 
 
     } else {
@@ -246,6 +267,7 @@ function App({group, chatgpt, popup, rag}) {
       setSelectedAnswerIndex(null);
       setSelectedAnswerIndex2(null);
       setSelectedAnswerIndexLikert(null);
+      setSelectedAnswerIndexOutside(null);
 
     }
   } 
@@ -268,6 +290,8 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
+    setSelectedAnswerIndexOutside(null);
+
 
   }
 
@@ -276,6 +300,8 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
+    setSelectedAnswerIndexOutside(null);
+
 
   }
 
@@ -285,6 +311,7 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
+    setSelectedAnswerIndexOutside(null);
 
   }
   const endSurvey = () => {
@@ -292,6 +319,7 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
+    setSelectedAnswerIndexOutside(null);
 
 
   }
@@ -327,6 +355,24 @@ function App({group, chatgpt, popup, rag}) {
           key={this.props.option.id}
           onClick={() => this.onAnswerSelectedLikert()}
           className={selectedAnswerIndexLikert === this.props.option.id ? 'selected-answer' : null}
+        >
+          {this.props.option.text}
+        </li>);
+
+    }
+  }
+
+  class AnswerButtonOutside extends Component {
+    onAnswerSelectedOutside() {
+      setSelectedAnswerIndexOutside(this.props.option.id)
+    }
+    render() {
+
+      return (
+        <li
+          key={this.props.option.id}
+          onClick={() => this.onAnswerSelectedOutside()}
+          className={selectedAnswerIndexOutside === this.props.option.id ? 'selected-answer' : null}
         >
           {this.props.option.text}
         </li>);
@@ -590,6 +636,7 @@ function App({group, chatgpt, popup, rag}) {
                           );
                         })}
                       </ul>
+
                       <div className="button-box">
                         <button className="next-button" onClick={() => showSurvey(selectedAnswerIndex === 2)} disabled={selectedAnswerIndex === null || selectedAnswerIndexLikert === null}> Next </button>
                       </div>
@@ -733,8 +780,19 @@ function App({group, chatgpt, popup, rag}) {
                           );
                         })}
                       </ul>
+
+                      <h3 className="question-text">{"To what extent did you rely on prior knowledge when answering the above questions?"}</h3>
+
+                      <ul>
+                        {outside_knowledge_questions.options.map((option) => {
+                          return (
+                            <AnswerButtonOutside id={"outside"} option={option} />
+                          );
+                        })}
+                      </ul>
                       <h3 className="question-text">{"How would you rate the trustworthyness of the above passage?"}</h3>
 
+          
                       <ul>
                         {likert_questions.options.map((option) => {
                           return (
@@ -742,14 +800,21 @@ function App({group, chatgpt, popup, rag}) {
                           );
                         })}
                       </ul>
+                      
+                      <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
+                      In this section section, you'll see conversation with an AI Agent,
+                      followed by some questions. The conversation shown contains AI generated information. 
+                      Please answer the questions to the best of your ability and outside knowledge.`} ></PopupAlert>
+
                       <div className="button-box">
-                        <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null || selectedAnswerIndexLikert === null}> Next </button>
+                      <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>
+                        <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null || selectedAnswerIndexLikert === null || selectedAnswerIndexOutside === null}> Next </button>
                       </div>
                     </div>
                   ])}
 
                 {UsePopups ?
-                  (<PopupAlert showPopupMode={showPopups} closeModal={handleClose} openModal={handleShow} text={"ChatGPT sometimes writes plausible-sounding but incorrect answers. Does this information seem accurate?"} />
+                  (<PopupAlert title={"Alert"}  showPopupMode={showPopups} closeModal={handleClose} openModal={handleShow} text={"ChatGPT sometimes writes plausible-sounding but incorrect answers. Does this information seem accurate?"} />
                   ) : (null)}
               </div>
 

@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import styles from "./popupstyles.css"
 
-function PopupAlert({showPopupMode, closeModal, openModal, text}) {
+function PopupAlert({title, showPopupMode, closeModal, openModal, text}) {
 
 
   return (
@@ -21,7 +21,7 @@ function PopupAlert({showPopupMode, closeModal, openModal, text}) {
         dialogClassName="popup-modal"
       >
         <Modal.Header closeButton>
-          <Modal.Title style={{color: 'black'}}>Alert</Modal.Title>
+          <Modal.Title style={{color: 'black'}}>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p style={{color: 'black'}}>{text}</p>
