@@ -42,7 +42,7 @@ const getDemographicQuestions = () => {
         },
         {
             code: "media",
-            text: "What media do you normally use for receiving health information? ",
+            text: "What medium do you most normally use for receiving health information? ",
             options: demo_answers_mapped["media"]
 
         },

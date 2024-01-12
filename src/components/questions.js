@@ -10,23 +10,23 @@ const getQuestions = () => {
     const questions = [
         {
             code: "texas",
-            text: "Until what milestone is abortion legal in Texas?",
+            text: "What is the latest week that it is legal to get an abortion in Texas?",
             options: answers_mapped["texas"],
             text2: "What is this passage about?",
             options2: answers_mapped["texas2"],
         },
         {
             code: "hrt",
-            text: "What is the effect of combined HRT on breast cancer?",
+            text: "How does combined HRT affect your chance of developing breast cancer?",
             options: answers_mapped["hrt"],
-            text2: "What is the effect of estrogen-only HRT on breast cancer?",
+            text2: "How does estrogen only HRT affect your chance of developing breast cancer?",
             options2: answers_mapped["hrt2"],
         },
         {
             code: "asthma",
-            text: "Can my child get a nasal flu vaccine if they have asthma?",
+            text: "Can a child with asthsma get the nasal vaccine?",
             options: answers_mapped["asthma"],
-            text2: "The nasal flu vaccine contains what distinction compared to an injectable flu vaccine?",
+            text2: "The nasal flu vaccine differs from an injectable flu vaccine in what way?",
             options2: answers_mapped["asthma2"],
 
         },
@@ -58,13 +58,13 @@ const getQuestions = () => {
             code: "sweets",
             text: "What role do non-sugar sweetners play in weight-loss?",
             options: answers_mapped["sweets"],
-            text2: "What is the effect of non-sugar sweetners on type 2 diabetes and cardiovascular diseases?",
+            text2: "What is the effect of non-sugar sweetners on type 2 diabetes and cardiovascular diseases??",
             options2: answers_mapped["sweets2"],
 
         },
         {
             code: "rsv",
-            text: "Is there an RSV vaccine available for my newborn?",
+            text: "Is there an RSV vaccine available for a newborn?",
             options: answers_mapped["rsv"],
             text2: "Very premature babies, are at higher risk of severe RSV infection. At what boundry is a very premature defined?",
             options2: answers_mapped["rsv2"], 

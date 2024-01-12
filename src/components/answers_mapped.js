@@ -139,8 +139,24 @@ const getAnswersMapped = () => {
                 { id: 3, text: "Relied mostly on the AI recommendation", },
                 { id: 4, text: "Relied entirely on the AI recommendation", }
                     ],
+            "cosleep": [
+                { id: 0, text: "Generally yes"},
+                { id: 1, text: "No"},
+                { id: 2, text: "Yes, but only with a firm mattress"},
+                { id: 3, text: "Yes, but only with close adult supervision", },
+                { id: 4, text: "Unsure", }
+
+                    ],
+            "cosleep2": [
+                { id: 0, text: "Ideally 3 months"},
+                { id: 1, text: "Ideally 6 months"},
+                { id: 2, text: "Ideally 12 months"},
+                { id: 3, text: "Ideally 18 months", },
+                { id: 4, text: "Unsure", }
+                    ],
                 
             }
+
     return answers_mapped
 }
 

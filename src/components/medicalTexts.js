@@ -231,6 +231,50 @@ const getPrompts = () => {
 
     
                 ]},
+
+
+                {
+                    code: "cosleep",
+                    prompt: "When is it safe to sleep with a baby in the same bed?",
+                    text: [
+    
+                        `The American Academy of Pediatrics (AAP) recommends that 
+                        infants sleep in the same room as their parents but on a separate sleep
+                         surface, such as a crib or bassinet, for at least the first six months
+                          of life and ideally for the first year. This practice is associated with 
+                          a lower risk of sudden infant death syndrome (SIDS).`,
+
+                        `Bed-sharing, where the baby sleeps in the same bed as the parents, 
+                        is not recommended due to safety concerns. Bed-sharing 
+                        increases the risk of SIDS and other sleep-related risks,
+                         such as accidental suffocation or strangulation.`,
+                        
+                        `However, if parents choose to bed-share, there are certain precautions that can be taken to reduce the risk:`,
+                        
+                        `1. **Firm mattress:** Ensure that the mattress is firm, and there are 
+                        no soft bedding materials around the baby.`,
+                        
+                        `2. **No soft bedding:** Avoid using soft bedding, such as pillows, 
+                        blankets, or stuffed animals, in the bed.`,
+                        
+                        `3. **No smoking:** Avoid smoking in the vicinity of the baby,
+                         as exposure to smoke is a significant risk factor for SIDS.`,
+                        
+                        `4. **Alcohol and drugs:** Avoid bed-sharing if either parent
+                         has consumed alcohol, used drugs, or is excessively tired.`,
+                        
+                        `5. **Supervision:** Keep a close eye on the baby during sleep and ensure
+                         that the baby has enough space and is not at risk of being trapped or suffocated.`,
+                        
+                        `It's important to note that while some families may choose to bed-share, 
+                        the safest sleep environment for a baby is on a separate sleep surface in the 
+                        same room as the parents. Always discuss your sleeping arrangements with your
+                         pediatrician, and make decisions based on what is safest for your baby's well-being.`,
+    
+                     ``,
+    
+        
+                    ]},
     ] 
     return QAPrompts;
 }
