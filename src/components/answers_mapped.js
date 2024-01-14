@@ -18,7 +18,7 @@ const getAnswersMapped = () => {
                 { id: 5, text: "Unsure", }
                     ],
             "asthma": [
-                { id: 0, text: "No, they cannot due to the fact they have Athsma",},
+                { id: 0, text: "No, they cannot due to the fact they have athsma",},
                 { id: 1, text: "Yes, there is no issue",},
                 { id: 2, text: "Yes, but only in a supervised setting like hospital or clinic."},
                 { id: 3, text: "Yes, but only if they are over the age of four and have not any history of wheezing in the past year.",},

@@ -312,8 +312,7 @@ const getRAGTexts = () => {
     
                      `Sources`,
 
-                     `(1) Co-sleeping hazards: Why co-sleeping with your newborn isn't safe :
-                      https://www.babycenter.com`,
+                     `(1) Co-sleeping hazards: Why co-sleeping with your newborn isn't safe : https://www.babycenter.com`,
                     `(2) Co-Sleeping With a Toddler: Is It Safe? - WebMD. https://www.webmd.com`,
                     `(3) Is co-sleeping safe for babies? We asked the experts – TODAY. https://www.today.com`,
                     `(4) Co-Sleeping With Your Baby | Sleep Foundation. https://www.sleepfoundation.org`,

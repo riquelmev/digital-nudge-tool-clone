@@ -70,6 +70,15 @@ const getQuestions = () => {
             options2: answers_mapped["rsv2"], 
 
         },
+
+        {
+            code: "cosleep",
+            text: "At what age can I sleep with my baby in the same bed?",
+            options: answers_mapped["cosleep"],
+            text2: "How long should babies sleep in the same room as parents?",
+            options2: answers_mapped["cosleep2"], 
+
+        },
         
     ] 
     return questions;
