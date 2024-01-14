@@ -1,6 +1,6 @@
 // server/index.js
 const sqlite3 = require('sqlite3').verbose();
-const password = encodeURIComponent("mzRtKCb9bUe7hzH0");
+const password = encodeURIComponent("nOrGl73icv0Aea3O");
 const username = encodeURIComponent("realizelab");
 var bodyParser = require('body-parser')
 const cors = require("cors");
