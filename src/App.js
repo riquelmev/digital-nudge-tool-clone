@@ -516,7 +516,7 @@ function App({group, chatgpt, popup, rag}) {
     <div className="App">
       {/* 1. Header  */}
       <div className="title-box" id="title">
-        <h1 className='title'> AI for Medical Information Study </h1>
+        <h1 className='title'> AI Perception Study </h1>
       </div>
 
 
