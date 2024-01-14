@@ -707,8 +707,11 @@ function App({group, chatgpt, popup, rag}) {
 
                       <div>
                         <div className="page-box">
+                        <h1 className="page-title">POST SURVEY DISCLAIMER SHEET</h1>
+                         <h2 className="page-subtitle">University of Michigan HUM#00243219</h2>
+
                           <h2 className="page-subtitle">
-                            Please read the following in its entirety.
+                            Please read the following in its entirety. 
                           </h2>
                           <div className="page-text-box">
                             <MultiLineText className="page-body-text" text={post_disclaimer} medText={false}></MultiLineText>
