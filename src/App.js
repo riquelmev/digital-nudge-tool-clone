@@ -43,7 +43,7 @@ function App({group, chatgpt, popup, rag}) {
   // console.log(searchParams.get("name"));
   const id = searchParams.get("PROLIFIC_PID")
 
-  console.log(id, group)
+  // console.log(id, group)
 
   // console.log(id)
 
@@ -85,7 +85,7 @@ function App({group, chatgpt, popup, rag}) {
   }
   const prompts = whichPrompt(rag);
 
-  console.log(prompts)
+  // console.log(prompts)
 
   const post_disclaimer = getDisclaimer();
 
@@ -158,7 +158,7 @@ function App({group, chatgpt, popup, rag}) {
     React.useEffect(function() {
     setRandomArray(shuffleArray(order))
     setStartTime([Date.now()])
-    console.log(startTime)
+    // console.log(startTime)
     }, [])
 
 
@@ -179,7 +179,7 @@ function App({group, chatgpt, popup, rag}) {
   };
 
   
-  console.log(randomArray)
+  // console.log(randomArray)
   
   const start_disclaimer = `I am not a doctor, but I can offer some general information that may help you learn more about the subject 
    and perhaps make an informed decision`
@@ -203,8 +203,8 @@ function App({group, chatgpt, popup, rag}) {
     // console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndexLikert].text });
 
     setTime(time => [...time, Date.now()]);
-    console.log(time);
-    console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
+    // console.log(time);
+    // console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
     // console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
     localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
     localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndexLikert].text);
