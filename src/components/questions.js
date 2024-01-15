@@ -10,7 +10,7 @@ const getQuestions = () => {
     const questions = [
         {
             code: "texas",
-            text: "What is the latest week that it is legal to get an abortion in Texas?",
+            text: "What is the latest week that it is legal to get an abortion in South Carolina?",
             options: answers_mapped["texas"],
             text2: "What is this passage about?",
             options2: answers_mapped["texas2"],

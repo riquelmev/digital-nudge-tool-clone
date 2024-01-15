@@ -4,30 +4,25 @@ const getRAGTexts = () => {
     const RAGTexts = [
         {
             code: "texas",
-            prompt: "Tell me about the state of abortion policy in Texas.",
+            prompt: "Tell me about the state of abortion policy in South Carolina.",
             text: [
                 
-            `As of my last update in September 2021, the legal status of abortion in Texas was subject to change.
-            However, based on the information
-            available up to that point, abortion was legal in Texas under the land-
-            mark Supreme Court decision in Roe v. Wade, which established a
-            woman’s constitutional right to choose to have an abortion. The Roe
-            v. Wade decision allowed abortions to be performed in the United
-            States up until the point of viability, which is generally considered to
-            be around 24 weeks of pregnancy.`,
+            
+            `As of my last knowledge update in January 2022, South Carolina has various regulations and restrictions on abortion, including gestational limits. 
+            
+            As of my last knowledge update, South Carolina law generally allows abortion up to approximately 20 weeks of gestation. 
+            However, specific requirements and restrictions, such as waiting periods and counseling, may apply.`,
 
-            `However, it’s important to note that individual states can enact their
-            own laws and regulations related to abortion. As of September 2021,
-            Texas had implemented several restrictions on abortion access, in-
-            cluding mandatory waiting periods, parental consent requirements
-            for minors seeking abortion, and limitations on abortion after 20
-            weeks of pregnancy.`,
-   
+            `Abortion providers Planned Parenthood and Greenville Women’s Clinic have filed a lawsuit
+            challenging the state’s ban and seeking a temporary restraining order that would prevent enforcement of the law `,
 
             `Sources:`,
-            `(1) How new regulations impact abortion and birth control access in Texas: texastribune.org`,
-            `(2) Abortion in Texas: wikipedia.org `,
-            `(3) Is abortion illegal in Texas? - Frequently Asked Legal Questions: texas.gov`,
+            
+            `(1) South Carolina 6-week abortion ban signed into law, providers file .... :  https://abcnews.go.com`,
+            `(2) Abortion in South Carolina - Wikipedia. https://en.wikipedia.org`,
+            `(3) How abortion now works in South Carolina - Charleston City Paper : https://charlestoncitypaper.com `, 
+            `(4) South Carolina House approves total abortion ban with exceptions. https://www.pbs.org `,
+            `(5) Code of Laws - Title 44 - South Carolina Legislature Online. https://www.scstatehouse.gov`,    
 
             ]},
         {

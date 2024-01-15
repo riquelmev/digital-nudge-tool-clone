@@ -135,9 +135,9 @@ const getAnswersMapped = () => {
             "outside": [
                 { id: 0, text: "Relied entirely on outside knowledge to answer"},
                 { id: 1, text: "Relied mostly on outside knowledge to answer"},
-                { id: 2, text: "Relied on outside knowledge and the AI recommendation equally to answer"},
-                { id: 3, text: "Relied mostly on the AI recommendation to answer", },
-                { id: 4, text: "Relied entirely on the AI recommendation to answer", }
+                { id: 2, text: "Relied on outside knowledge and the AI conversation equally to answer"},
+                { id: 3, text: "Relied mostly on the AI conversation to answer", },
+                { id: 4, text: "Relied entirely on the AI conversation to answer", }
                     ],
             "cosleep": [
                 { id: 0, text: "Generally yes"},
