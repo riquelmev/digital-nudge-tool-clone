@@ -208,7 +208,7 @@ function App({group, chatgpt, popup, rag}) {
     // console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
     localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
     localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndexLikert].text);
-    localStorage.setItem(questions[randomArray[currentQuestion]].code + "_outside", outside_knowledge_questions.options[selectedAnswerIndexOutside].text);
+    // localStorage.setItem(questions[randomArray[currentQuestion]].code + "_outside", outside_knowledge_questions.options[selectedAnswerIndexOutside].text);
 
     if (selectedAnswerIndex2 != null){
       localStorage.setItem(questions[randomArray[currentQuestion]].code + "_2", questions[randomArray[currentQuestion]].options2[selectedAnswerIndex2].text);
@@ -220,7 +220,7 @@ function App({group, chatgpt, popup, rag}) {
       setSelectedAnswerIndex(null); 
       setSelectedAnswerIndex2(null);
       setSelectedAnswerIndexLikert(null);
-      setSelectedAnswerIndexOutside(null);
+      // setSelectedAnswerIndexOutside(null);
 
     } else {
       setShowResults(true);
@@ -259,7 +259,7 @@ function App({group, chatgpt, popup, rag}) {
       setSelectedAnswerIndex(null);
       setSelectedAnswerIndex2(null);
       setSelectedAnswerIndexLikert(null);
-      setSelectedAnswerIndexOutside(null);
+      // setSelectedAnswerIndexOutside(null);
 
 
     } else {
@@ -267,7 +267,7 @@ function App({group, chatgpt, popup, rag}) {
       setSelectedAnswerIndex(null);
       setSelectedAnswerIndex2(null);
       setSelectedAnswerIndexLikert(null);
-      setSelectedAnswerIndexOutside(null);
+      // setSelectedAnswerIndexOutside(null);
 
     }
   } 
@@ -290,7 +290,7 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
-    setSelectedAnswerIndexOutside(null);
+    // setSelectedAnswerIndexOutside(null);
 
 
   }
@@ -300,7 +300,7 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
-    setSelectedAnswerIndexOutside(null);
+    // setSelectedAnswerIndexOutside(null);
 
 
   }
@@ -311,7 +311,7 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
-    setSelectedAnswerIndexOutside(null);
+    // setSelectedAnswerIndexOutside(null);
 
   }
   const endSurvey = () => {
@@ -319,7 +319,7 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
-    setSelectedAnswerIndexOutside(null);
+    // setSelectedAnswerIndexOutside(null);
 
 
   }
@@ -784,7 +784,7 @@ function App({group, chatgpt, popup, rag}) {
                         })}
                       </ul>
 
-                      <h3 className="question-text">{"To what extent did you rely on prior knowledge when answering the above questions?"}</h3>
+                      {/* <h3 className="question-text">{"To what extent did you rely on prior knowledge when answering the above questions?"}</h3>
 
                       <ul>
                         {outside_knowledge_questions.options.map((option) => {
@@ -792,7 +792,7 @@ function App({group, chatgpt, popup, rag}) {
                             <AnswerButtonOutside id={"outside"} option={option} />
                           );
                         })}
-                      </ul>
+                      </ul> */}
                       <h3 className="question-text">{"How would you rate the trustworthyness of the above passage?"}</h3>
 
           
@@ -805,13 +805,13 @@ function App({group, chatgpt, popup, rag}) {
                       </ul>
                       
                       <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
-                      In this section section, you'll see conversation with an AI Agent,
+                      In this section, you'll see conversation with an AI Agent,
                       followed by some questions. The conversation shown contains AI generated information. 
                       Please answer the questions to the best of your ability and outside knowledge.`} ></PopupAlert>
 
                       <div className="button-box">
                       <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>
-                        <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null || selectedAnswerIndexLikert === null || selectedAnswerIndexOutside === null}> Next </button>
+                        <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null || selectedAnswerIndexLikert === null }> Next </button>
                       </div>
                     </div>
                   ])}
