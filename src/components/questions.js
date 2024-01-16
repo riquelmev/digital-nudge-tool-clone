@@ -42,7 +42,7 @@ const getQuestions = () => {
             code: "lung",
             text: "Who should get screened for lung cancer annually? ",
             options: answers_mapped["lung"],
-            text2: "Should smokers who quit 20 years ago get screened for lung cancer?",
+            text2: "Should a 55 year old smoker, who has smoked 30 pack-years, but who quit 20 years ago get screened for lung cancer?",
             options2: answers_mapped["lung2"],
 
         },
@@ -58,7 +58,7 @@ const getQuestions = () => {
             code: "sweets",
             text: "What role do non-sugar sweetners play in weight-loss?",
             options: answers_mapped["sweets"],
-            text2: "What is the effect of non-sugar sweetners on type 2 diabetes and cardiovascular diseases??",
+            text2: "What is this passage about?",
             options2: answers_mapped["sweets2"],
 
         },
@@ -75,7 +75,7 @@ const getQuestions = () => {
             code: "cosleep",
             text: "At what age can I sleep with my baby in the same bed?",
             options: answers_mapped["cosleep"],
-            text2: "How long should babies sleep in the same room as parents?",
+            text2: "At what age are babies recommended to start sleeping in a different room as parents?",
             options2: answers_mapped["cosleep2"], 
 
         },
