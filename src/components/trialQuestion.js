@@ -93,6 +93,26 @@ const getTrialQuestions = () => {
             text: "What was a possible side effect of the LYMErix vaccine? ",
             options: answers_mapped["trial2"]
 
+            
+
+        },
+
+        {
+            code: "trail3",
+            prompt: "What color is the sky normally?",
+            chatGPT_answer: [
+
+            `The color of the sky can vary depending on factors such as time of day, 
+            weather conditions, and location. During the day, when the sun is out,
+             the sky often appears magenta due to the scattering of sunlight in the Earth's atmosphere.`
+
+
+            ],
+            text: "What color is the sky?",
+            options: answers_mapped["trial3"]
+
+            
+
         }
     ]
 

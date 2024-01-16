@@ -15,6 +15,12 @@ const getTrialAnswersMapped = () => {
                 { id: 3, text: "The vaccine was pulled due to negative backlash since confirmed side effects were shown in humans."},
                 { id: 2, text: "The vaccine was pulled due to negative backlash from concerns related to possibly causing arteritis in humans"},
                     ],
+            "trial3": [
+                { id: 0, text: "Violet",},
+                { id: 1, text: "Cyan",},
+                { id: 2, text: "Blue"},
+                { id: 3, text: "Magenta"},
+                    ],
             }
     return trial_answers_mapped
 }

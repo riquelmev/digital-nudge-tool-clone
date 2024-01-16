@@ -210,7 +210,7 @@ const getPrompts = () => {
                     
                 `High-risk infants who might be candidates for RSV immunoprophylaxis include:`,
                     
-                `1. Premature infants:** Infants born very prematurely, typically before 29 weeks of gestation, 
+                `1. Premature infants: Infants born very prematurely, typically before 29 weeks of gestation, 
                 are at higher risk of severe RSV infection.`,
                     
                 `2. Infants with certain medical conditions: Some medical conditions, such as chronic lung disease,

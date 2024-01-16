@@ -18,9 +18,9 @@ const getAnswersMapped = () => {
             "asthma": [
                 { id: 0, text: "No, they cannot due to the fact they have athsma",},
                 { id: 1, text: "Yes, there is no precuation necessary",},
-                { id: 2, text: "Yes, but only in a supervised setting like hospital or clinic."},
+                { id: 2, text: "Yes, but only in a supervised setting such as a hospital or clinic."},
                 { id: 3, text: "Yes, but only if they are over the age of four and have not any history of wheezing in the past year.",},
-                { id: 4, text: "No, children should not recieve that nasal spray ever.",},
+                { id: 4, text: "No, children should not recieve a flu nasal spray ever",},
                 { id: 5, text: "Unsure", }
                     ],
             

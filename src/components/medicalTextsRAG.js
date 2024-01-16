@@ -18,11 +18,11 @@ const getRAGTexts = () => {
 
             `Sources:`,
             
-            `(1) South Carolina 6-week abortion ban signed into law, providers file .... :  https://abcnews.go.com`,
-            `(2) Abortion in South Carolina - Wikipedia. https://en.wikipedia.org`,
-            `(3) How abortion now works in South Carolina - Charleston City Paper : https://charlestoncitypaper.com `, 
-            `(4) South Carolina House approves total abortion ban with exceptions. https://www.pbs.org `,
-            `(5) Code of Laws - Title 44 - South Carolina Legislature Online. https://www.scstatehouse.gov`,    
+            `(1) South Carolina 6-week abortion ban signed into law, providers file .... :  www.abcnews.go.com`,
+            `(2) Abortion in South Carolina - Wikipedia. en.wikipedia.org`,
+            `(3) How abortion now works in South Carolina - Charleston City Paper : www.charlestoncitypaper.com `, 
+            `(4) South Carolina House approves total abortion ban with exceptions. www.pbs.org `,
+            `(5) Code of Laws - Title 44 - South Carolina Legislature Online. www.scstatehouse.gov`,    
 
             ]},
         {
@@ -56,10 +56,10 @@ const getRAGTexts = () => {
                   breast cancer risk.`,
                 
                 `Sources`,
-                `(1) Menopausal Hormone Therapy and Cancer Risk: cancer.org ` ,
-                `(2) Menopause and Breast Cancer: Connection, Risk, Treatment - Verywell Health: verywellhealth.com  `,
-                `(3) Can hormone replacement therapy (HRT) cause breast cancer?: medicalnewstoday.com.`,
-                `(4) Wikipedia: wikipedia.org`,
+                `(1) Menopausal Hormone Therapy and Cancer Risk: www.cancer.org ` ,
+                `(2) Menopause and Breast Cancer: Connection, Risk, Treatment - Verywell Health: www.verywellhealth.com  `,
+                `(3) Can hormone replacement therapy (HRT) cause breast cancer?: www.medicalnewstoday.com.`,
+                `(4) Wikipedia: www.wikipedia.org`,
         ]},        
     {
         code: "asthma",
@@ -75,11 +75,11 @@ const getRAGTexts = () => {
             individuals with asthma.`,
 
             `Sources`,
-            `(1) Live Attenuated Influenza Vaccine [LAIV] (The Nasal Spray Flu Vaccine ... : cdc.gov`,
-            `(2) Using Nasal Spray Flu Vaccine in Children with Asthma. : emjreviews.com`, 
-            `(3) Live nasal spray flu vaccine is safe for kids with asthma, says study. : medicalxpress.com`,
-            `(4) Nasal Spray Flu Vaccine No Problem for Kids With Asthma. : medpagetoday.com`,
-            `(5) Flu & People with Asthma | CDC - Centers for Disease Control and Prevention. : cdc.gov`,
+            `(1) Live Attenuated Influenza Vaccine [LAIV] (The Nasal Spray Flu Vaccine ... : www.cdc.gov`,
+            `(2) Using Nasal Spray Flu Vaccine in Children with Asthma. : www.emjreviews.com`, 
+            `(3) Live nasal spray flu vaccine is safe for kids with asthma, says study. : www.medicalxpress.com`,
+            `(4) Nasal Spray Flu Vaccine No Problem for Kids With Asthma. : www.medpagetoday.com`,
+            `(5) Flu & People with Asthma | CDC - Centers for Disease Control and Prevention. : www.cdc.gov`,
 
         ]},
     
@@ -116,11 +116,11 @@ const getRAGTexts = () => {
 
 
             `Sources`,
-            `(1) How Much Milk Should a Toddler Drink? Nutrition and More : healthline.com`,
+            `(1) How Much Milk Should a Toddler Drink? Nutrition and More : www.healthline.com`,
             `(2) Milk for Toddlers: When Can Toddlers Have Milk? : www.happiestbaby.com`,
-            `(3) Toddler Formula vs. Milk: Experts Debunk What's Best : parents.com`,
-            `(4) Best Milk for Toddlers : yummytoddlerfood.com`,
-            `(5) Toddler Milk Isn’t Nutritious And Is Unnecessary For... : forbes.com`,
+            `(3) Toddler Formula vs. Milk: Experts Debunk What's Best : www.parents.com`,
+            `(4) Best Milk for Toddlers : www.yummytoddlerfood.com`,
+            `(5) Toddler Milk Isn’t Nutritious And Is Unnecessary For... : www.forbes.com`,
         ]},
 
         {
@@ -150,9 +150,9 @@ const getRAGTexts = () => {
                  positives and unnecessary procedures, may outweigh the benefits.`,
                 
                  `Sources`,
-                `(1) Lung Cancer Screening Guidelines | American Cancer Society. : cancer.org `, 
-                `(2) American Cancer Society Updates Lung Cancer Screening Guideline: Nearly ... :  pressroom.cancer.org/  `,
-                `(3) Lung Cancer Early Detection | Lung Cancer Screening. cancer.org `,
+                `(1) Lung Cancer Screening Guidelines | American Cancer Society. : www.cancer.org `, 
+                `(2) American Cancer Society Updates Lung Cancer Screening Guideline: Nearly ... :  www.pressroom.cancer.org  `,
+                `(3) Lung Cancer Early Detection | Lung Cancer Screening. www.cancer.org `,
         ]},
 
         // {
@@ -225,11 +225,11 @@ const getRAGTexts = () => {
 
                 `Sources:`,
 
-                `(1) Want to Lose Weight? The WHO Says Avoid These Non-Sugar Sweeteners. : healthline.com `,
-                `(2) Artificial Sweeteners and a Diabetic/Low-Glycemic Diet. : msn.com `, 
-                `(3) Everything You Need to Know About Artificial Sweeteners. : everydayhealth.com `, 
-                `(4) Diwali: No-sugar desserts to maintain diabetes, weight. : dnaindia.com `,
-                `(5) You Won’t Lose Weight With Zero-Calorie Sweeteners : eatthis.com/ `,
+                `(1) Want to Lose Weight? The WHO Says Avoid These Non-Sugar Sweeteners. : www.healthline.com `,
+                `(2) Artificial Sweeteners and a Diabetic/Low-Glycemic Diet. : www.msn.com `, 
+                `(3) Everything You Need to Know About Artificial Sweeteners. : www.everydayhealth.com `, 
+                `(4) Diwali: No-sugar desserts to maintain diabetes, weight. : www.dnaindia.com `,
+                `(5) You Won’t Lose Weight With Zero-Calorie Sweeteners : www.eatthis.com `,
 
             ]},
 
@@ -258,10 +258,10 @@ const getRAGTexts = () => {
                      taking into consideration the infant's specific risk factors and health status.`,
                     
                 `Sources`,
-                `(1) RSV Vaccination: What Parents Should Know | CDC. : cdc.gov`,
-                `(2) The new RSV shot for babies: What parents need to know. : health.harvard.edu`,
-                `(3) Should I get the RSV vaccine during pregnancy? | ACOG. : acog.org`,
-                `(4) RSV (Respiratory Syncytial Virus) Immunizations | CDC. : cdc.gov`,
+                `(1) RSV Vaccination: What Parents Should Know | CDC. : www.cdc.gov`,
+                `(2) The new RSV shot for babies: What parents need to know. : www.health.harvard.edu`,
+                `(3) Should I get the RSV vaccine during pregnancy? | ACOG. : www.acog.org`,
+                `(4) RSV (Respiratory Syncytial Virus) Immunizations | CDC. : www.cdc.gov`,
     
 
 
@@ -307,10 +307,10 @@ const getRAGTexts = () => {
     
                      `Sources`,
 
-                     `(1) Co-sleeping hazards: Why co-sleeping with your newborn isn't safe : https://www.babycenter.com`,
-                    `(2) Co-Sleeping With a Toddler: Is It Safe? - WebMD. https://www.webmd.com`,
-                    `(3) Is co-sleeping safe for babies? We asked the experts – TODAY. https://www.today.com`,
-                    `(4) Co-Sleeping With Your Baby | Sleep Foundation. https://www.sleepfoundation.org`,
+                     `(1) Co-sleeping hazards: Why co-sleeping with your newborn isn't safe : www.babycenter.com`,
+                    `(2) Co-Sleeping With a Toddler: Is It Safe? - WebMD. www.webmd.com`,
+                    `(3) Is co-sleeping safe for babies? We asked the experts – TODAY. www.today.com`,
+                    `(4) Co-Sleeping With Your Baby | Sleep Foundation. www.sleepfoundation.org`,
 
 
                     ]},

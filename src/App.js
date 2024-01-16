@@ -118,12 +118,24 @@ function App({group, chatgpt, popup, rag}) {
   const [leftTab, setLeftTab] = useState(false)
   const [trialQuestion, setShowTrialQuestion] = useState(false)
   const [useTrialPopup, setUseTrialPopup] = useState(false)
+  const [useTrialPopup2, setUseTrialPopup2] = useState(false)
   const [showFirstConfirmationPopup, setFirstConfirmationPopup] = useState(false)
   const [showSecondConfirmationPopup, setSecondConfirmationPopup] = useState(false)
+  const [showThirdConfirmationPopup, setThirdConfirmationPopup] = useState(false)
   const [currentTrialQuestion, setCurrentTrialQuestion] = useState(0)
 
   const handleCloseTrial = () => setUseTrialPopup(false);
-  const handleCloseSecond = () =>  {
+  const handleCloseTrial2 = () => setUseTrialPopup2(false);
+
+
+  const handleCloseSecond = () => {
+    setCurrentTrialQuestion(currentTrialQuestion + 1)
+    setFirstConfirmationPopup(false)
+    setSecondConfirmationPopup(false)
+
+  }
+
+  const handleCloseThird = () =>  {
     setTime(time => [...time, Date.now()]);
     setDemographics(false);
     setSelectedAnswerIndex(null); 
@@ -182,10 +194,10 @@ function App({group, chatgpt, popup, rag}) {
   // console.log(randomArray)
   
   const start_disclaimer = `I am not a doctor, but I can offer some general information that may help you learn more about the subject 
-   and perhaps make an informed decision`
+   and perhaps make an informed decision. `
   const disclaimer = `Keep in mind that guidelines and recommendations can change, and healthcare decisions 
-  should be made in consultation with a qualified medical professional who is familiar with your specific health profile. ChatGPT is not a 
-  a medical provider and is not qualified to give medical advice.`
+  should be made in consultation with a qualified medical professional who is familiar with your specific health profile. ChatGPT is not 
+  a medical provider and is not qualified to give medical advice. ChatGPT can make mistakes.`
 
 
   const demo_questions = getDemographicQuestions();
@@ -280,12 +292,20 @@ function App({group, chatgpt, popup, rag}) {
       if (currentTrialQuestion === 0){
         setFirstConfirmationPopup(true)
       }
-      else{
+      else if (currentTrialQuestion === 1){
         setSecondConfirmationPopup(true)
+      }
+      else{
+        setThirdConfirmationPopup(true)
       }
     }
     else{
-      setUseTrialPopup(true)
+      if (currentTrialQuestion === 2){
+        setUseTrialPopup2(true)
+      }
+      else{
+        setUseTrialPopup(true)
+      }
     }
     setSelectedAnswerIndex(null)
     setSelectedAnswerIndex2(null);
@@ -589,7 +609,7 @@ function App({group, chatgpt, popup, rag}) {
                       <div className="main-box">
                         <div className={styles.gptBox}>
                           <div className="scenario-box">
-                            <h2 className="scenario-text">Trial Question {currentTrialQuestion+1} out of 2</h2>
+                            <h2 className="scenario-text">Trial Question {currentTrialQuestion+1} out of 3</h2>
                           </div>
                           <div className="prompt-box">
                             <div className="text-box">
@@ -602,7 +622,7 @@ function App({group, chatgpt, popup, rag}) {
                               <div className="gpt-image"> <img src={require("./GPT-logo.jpeg")} alt="gpt Logo" style={{ maxWidth: 50 }}></img></div>
                               {/* {UseChatGPTDisclaimer ? (<h3 className="gpt-text">{prompts[currentQuestion].text}{disclaimer} </h3>) : (<h3 className="gpt-text">{prompts[currentQuestion].text}</h3>)} */}
                               <div>
-                                <MultiLineText className="text-chunk" text={trial_questions[currentTrialQuestion].chatGPT_answer} medText={true} />
+                                <MultiLineText className="text-chunk" text={trial_questions[currentTrialQuestion].chatGPT_answer} medText={false} />
                               </div>
                             </div>
                           </div>
@@ -642,11 +662,14 @@ function App({group, chatgpt, popup, rag}) {
                       </div>
                     
                       <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again."}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup2} closeModal={handleCloseTrial2} openModal={handleShow} text={"Even though the conversation stated that the sky is magenta, as an AI model, it sometimes gets things wrong. Make sure to make your decision using both the conversation at hand and outside knowledge. "}></PopupAlert>
 
                         
-                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. There's one more trial question."} ></PopupAlert>
+                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. This next one is a little harder."} ></PopupAlert>
   
-                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey."} ></PopupAlert>
+                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. There's one more trial question."} ></PopupAlert>
+
+                      <PopupAlert showPopupMode={showThirdConfirmationPopup} closeModal={handleCloseThird} openModal={handleShow} text={`Nice Job. As you saw in the previous example, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and outside knowledge. \n Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey.`} ></PopupAlert>
 
                     </div>
                    
@@ -656,7 +679,7 @@ function App({group, chatgpt, popup, rag}) {
                     // Finished Demographics
                   <div className="page-box mini-box">
                     <h2 className="page-subtitle">Thank you for filling out the demographic portion of the survey. In the following section, you'll see conversation with an AI Agent,
-                      followed by some questions. The conversation shown contains AI generated information. Please fill out the questions to the best of your ability and outside knowledge. There will be 2 practice questions to help you get acclimated.</h2>
+                      followed by some questions. The conversation shown contains AI generated information. Please fill out the questions to the best of your ability and outside knowledge. There will be 3 practice questions to help you get acclimated.</h2>
                     <div>
                       <button className="next-button" style={{ margin: 0 }} onClick={showTrialQuestion} > Next </button>
                     </div>
