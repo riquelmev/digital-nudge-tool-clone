@@ -314,6 +314,143 @@ const getRAGTexts = () => {
 
 
                     ]},
+                
+                    {
+                        code: "papsmear",
+                        prompt: "How often do I need to get a pap-smear?",
+                        text: [
+        
+                            `Traditionally, annual Pap smears were recommended for cervical
+                             cancer screening. However, in recent years, guidelines in many 
+                             countries have shifted towards less frequent screening for certain age groups and risk profiles.`,
+        
+                            `In the United States, for example, the United States
+                             Preventive Services Task Force (USPSTF) and the American
+                              Cancer Society (ACS) updated their recommendations to include:`,
+                            
+                            `1. **Age and Frequency:**`,
+                               `- For individuals aged 21 to 29: Pap smears every three years.`,
+                               `- For individuals aged 30 to 65: Pap smears every three years or a combination 
+                               of Pap smear and HPV testing (co-testing) every five years.`,
+                            
+                           ` 2. **HPV Testing:**`,
+                               `- HPV testing alone every five years is an option for those aged 30 to 65.`,
+                            
+                            `3. **Discontinuation of Screening:**`,
+                               `- After age 65, for individuals with a history of adequate prior screening and low risk, screening may be discontinued.`,
+                            
+                            `These guidelines may vary, and certain individual factors, such as a history of 
+                            abnormal Pap smears or HPV infections, may influence the screening frequency. 
+                            Additionally, some healthcare providers may recommend more frequent screening for 
+                            specific populations. Regular gynecological check-ups are still crucial, even if
+                             Pap smears are not done annually, as they allow for the discussion of
+                              overall health and any concerns or symptoms you may be experiencing.`,
+        
+                             ` Sources: `,
+                            `(1) Pap Smear Guidelines: Here’s How Often You Actually Need a Pap Smear.www.self.com `,
+                            `(2) Cervical Cancer Screening | ACOG. www.acog.org`,
+                              `(3) How Often Should You Get a Pap Smear? Guidelines and More - Healthline. www.healthline.com `,
+                              `(4) Pap smear - Mayo Clinic. www.mayoclinic.org`,
+                             
+
+        
+            
+                        ]},
+                    {
+                        code: "mammogram",
+                        prompt: "What is the recommended screening schedule for mammograms?",
+                        text: [
+        
+                            `The recommended screening schedule for mammograms can vary based
+                             on different guidelines and individual health factors. However, 
+                             general recommendations from organizations such as the American Cancer 
+                             Society (ACS) and the U.S. Preventive Services Task Force (USPSTF) include:`,
+        
+                        `Age 40-44: Women have the option to start annual mammograms if they choose to do so.`,
+        
+                        `Age 45-54: Women should have a mammogram every year.`,
+        
+                        `Age 55 and older: Women can switch to mammograms every two years, or they can
+                         choose to continue annual screening.`,
+        
+                        `If you are in good health and have a longer life expectancy, you may
+                         continue with mammograms. Some guidelines suggest considering 
+                         mammograms up to age 75 or 85, depending on the organization.`,
+        
+                         `Sources:`,
+                         `(1) ACS Breast Cancer Screening Guidelines | American Cancer Society. www.cancer.org`,
+                         `(2) Cancer Screening Guidelines | Detecting Cancer Early. www.cancer.org`,
+                         `(3) When to Get a Mammogram: Age and Recommendations - Verywell Health. www.verywellhealth.com`,
+                         `(4) Mammogram Screening Guidelines 2024 - Breastcancer.org. www.breastcancer.org`,
+        
+            
+                        ]},
+                        {
+                            code: "IUD",
+                            prompt: "Do IUDs cause infertility?",
+                            text: [
+            
+                                `No, in general, the use of an intrauterine device (IUD) is not
+                                 associated with long-term infertility. IUDs are considered 
+                                 highly effective and safe methods of contraception. Once the IUD 
+                                 is removed, fertility usually returns to its previous level relatively quickly.`,
+        
+                                `The two main types of IUDs are hormonal IUDs, which release a small amount of 
+                                progestin, and copper IUDs, which do not contain hormones. Both types of IUDs 
+                                prevent pregnancy by affecting sperm movement and survival, as well as
+                                 altering the uterine lining to prevent implantation.`,
+        
+                                `If you decide to become pregnant or wish to discontinue using an IUD for any reason,
+                                 your healthcare provider can remove the IUD during a routine office visit.
+                                  Fertility typically returns quickly after removal, allowing you to 
+                                  conceive if there are no other underlying fertility issues.`,
+        
+                                `It's important to note that while IUDs are highly effective
+                                 at preventing pregnancy, no contraceptive method is 100% foolproof. `,
+            
+                                 `Sources:`,
+                                 `(1) IUD Risks and Complications. www.verywellhealth.com`,
+                                 `(2) Does Birth Control Impact Your Fertility? – Cleveland Clinic. wwww.health.clevelandclinic.org`,
+                                 `(3) Could using an IUD have harmed my fertility? | BabyCentre. www.babycentre.co.uk`,
+                                 `(4) Does the IUD Cause PID and Infertility? - Verywell Health. www.verywellhealth.com`,
+            
+                
+                    ]},
+                    {
+                        code: "breastfeed",
+                        prompt: "How long should a child be breastfed?",
+                        text: [
+        
+                            `The recommended duration for breastfeeding can vary, but many health organizations, 
+                            including the World Health Organization (WHO) and the American Academy 
+                            of Pediatrics (AAP), provide guidelines on optimal breastfeeding duration. 
+                            Here are the general recommendations:`,
+        
+                            `Exclusive Breastfeeding for the First 6 Months: Both WHO and AAP 
+                            recommend exclusive breastfeeding for the first six months of a baby's life.
+                             This means providing only breast milk (no other liquids or solids) during this period.`,
+        
+                            `Continued Breastfeeding with Complementary Foods: After the first six months,
+                             breastfeeding is recommended to continue along with the introduction of complementary foods. 
+                             Complementary foods are gradually introduced while breastfeeding continues for up to 2 years or longer.`,
+        
+                            `Extended Breastfeeding: WHO recommends breastfeeding up to 2 years or beyond, 
+                            as long as it is mutually desired by the mother and child. The AAP also encourages
+                             continued breastfeeding as long as both the mother and child wish to do so.`,
+        
+                            `It's important to note that breastfeeding duration is a personal choice and 
+                            can depend on individual circumstances, preferences, and the needs of both 
+                            the mother and the child. Some mothers may choose to breastfeed for a shorter 
+                            or longer duration based on various factors.`,
+        
+                            `Sources:`,
+                            `(1) Length of Time - La Leche League International. www.llli.org.`,
+                            `(2) Breastfeeding FAQs: How Much and How Often (for Parents) - Cook Children's. www.kidshealth.org`,
+                            `(3) How Long Should You Breastfeed and When To Wean. https://health.clevelandclinic.org`,
+                            `(4) AAP Update Recommends Breastfeeding For 2 Years or More - Verywell Family. www.verywellfamily.com`,
+        
+            
+                        ]},
 
     ] 
     return RAGTexts;

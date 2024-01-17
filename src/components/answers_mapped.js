@@ -121,15 +121,15 @@ const getAnswersMapped = () => {
                 { id: 0, text: "6 Months"},
                 { id: 1, text: "12 Months"},
                 { id: 2, text: "5 years"},
-                { id: 3, text: "10 years", },
-                { id: 4, text: "12 years", },
-                { id: 5, text: "Unsure", }
+                { id: 3, text: "10 years"},
+                { id: 4, text: "12 years"},
+                { id: 5, text: "Unsure"}
                     ],
             "sweets2": [
                 { id: 0, text: "Sugar in food"},
                 { id: 1, text: "Non sugar sweetners for weight loss"},
                 { id: 2, text: "Weight loss techniques"},
-                { id: 3, text: "Healthy diets", },
+                { id: 3, text: "Healthy diets"},
                 { id: 4, text: "Cardiovascular diseases", },
 
                     ],
@@ -137,14 +137,14 @@ const getAnswersMapped = () => {
                 { id: 0, text: "Relied entirely on outside knowledge to answer"},
                 { id: 1, text: "Relied mostly on outside knowledge to answer"},
                 { id: 2, text: "Relied on outside knowledge and the AI conversation equally to answer"},
-                { id: 3, text: "Relied mostly on the AI conversation to answer", },
+                { id: 3, text: "Relied mostly on the AI conversation to answer"},
                 { id: 4, text: "Relied entirely on the AI conversation to answer", }
                     ],
             "cosleep": [
                 { id: 0, text: "Generally yes"},
                 { id: 1, text: "No, it is not safe"},
                 { id: 2, text: "Yes, but only with a firm mattress"},
-                { id: 3, text: "Yes, but only with close adult supervision", },
+                { id: 3, text: "Yes, but only with close adult supervision"},
                 { id: 4, text: "Unsure", }
 
                     ],
@@ -152,9 +152,70 @@ const getAnswersMapped = () => {
                 { id: 0, text: "Ideally 3 months"},
                 { id: 1, text: "Ideally 6 months"},
                 { id: 2, text: "Ideally 12 months"},
-                { id: 3, text: "Ideally 18 months", },
+                { id: 3, text: "Ideally 18 months"},
                 { id: 4, text: "Unsure", }
                     ],
+            "papsmear": [
+                { id: 0, text: "Every year"},
+                { id: 1, text: "Every two years"},
+                { id: 2, text: "Every three years"},
+                { id: 3, text: "Every five years"},
+                { id: 4, text: "Unsure", }
+                    ],
+            "papsmear2": [
+                { id: 0, text: "21"},
+                { id: 1, text: "30"},
+                { id: 2, text: "65"},
+                { id: 3, text: "75"},
+                { id: 4, text: "Unsure", }
+                    ],
+
+            "mammogram": [
+                { id: 0, text: "40"},
+                { id: 1, text: "45"},
+                { id: 2, text: "55"},
+                { id: 3, text: "75"},
+                { id: 4, text: "Unsure", }
+                    ],
+
+            "mammogram2": [
+                { id: 0, text: "Age 65"},
+                { id: 1, text: "Age 75"},
+                { id: 2, text: "Age 85"},
+                { id: 3, text: "When a person is in poor health and does not expect to live more than 10 years"},
+                { id: 4, text: "Unsure", }
+                    ],
+
+            "IUD": [
+                { id: 0, text: "IUDs have no effect on contraception"},
+                { id: 1, text: "IUDs do not cause long term infertility"},
+                { id: 2, text: "IUDs are associated with long term infertility"},
+                { id: 3, text: "Unsure", }
+                    ],
+            "IUD2": [
+                { id: 0, text: "Progestin"},
+                { id: 1, text: "Estrogen"},
+                { id: 2, text: "Oxytocin"},
+                { id: 3, text: "Thyroxine"},
+                { id: 4, text: "Unsure", }
+                    ],
+
+            "breastfeed": [
+                { id: 0, text: "6 months"},
+                { id: 1, text: "12 months"},
+                { id: 2, text: "18 months"},
+                { id: 3, text: "24 months"},
+                { id: 4, text: "Unsure", }
+                    ],
+
+            "breastfeed2": [
+                { id: 0, text: "3 months"},
+                { id: 1, text: "6 months"},
+                { id: 2, text: "12 months"},
+                { id: 3, text: "24 months"},
+                { id: 4, text: "Unsure", }
+                    ],
+
                 
             }
 

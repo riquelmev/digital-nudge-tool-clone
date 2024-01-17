@@ -79,6 +79,43 @@ const getQuestions = () => {
             options2: answers_mapped["cosleep2"], 
 
         },
+
+        {
+            code: "papsmear",
+            text: "How often should a 40 year old get pap-smear and HPV co-test done?",
+            options: answers_mapped["papsmear"],
+            text2: "At what age does solo HPV testing become an option?",
+            options2: answers_mapped["papsmear2"], 
+
+        },
+
+        {
+            code: "mammogram",
+            text: "What is the youngest recommended age that a person could begin mammogram screenings every two years?",
+            options: answers_mapped["mammogram"],
+            text2: "When might someone stop recieving mammograms?",
+            options2: answers_mapped["mammogram2"], 
+
+        },
+
+        {
+            code: "IUD",
+            text: "Do IUDs cause infertility?",
+            options: answers_mapped["IUD"],
+            text2: "What hormone, found in hormonal IUDs, limits sprerm movement and survival?",
+            options2: answers_mapped["IUD2"], 
+
+        },
+
+        {
+            code: "breastfeed",
+            text: "How long is the recommended time to breastfeed a child for?",
+            options: answers_mapped["breastfeed"],
+            text2: "At what age is it recommended to introduce complimentary foods?",
+            options2: answers_mapped["breastfeed2"], 
+
+        },
+
         
     ] 
     return questions;
