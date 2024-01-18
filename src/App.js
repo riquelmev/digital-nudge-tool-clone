@@ -17,14 +17,18 @@ import { isVisible } from "dom-helpers";
 import getRAGTexts from "./components/medicalTextsRAG";
 import getTrialQuestions from "./components/trialQuestion";
 import getAnswersMapped from "./components/answers_mapped";
+import { nullLiteral } from "@babel/types";
 // import { BrowserRouter as Router } from 'react-router-dom';
 
 
-function App({group, chatgpt, popup, rag}) {
+function App({group, chatgpt, popup, rag, priming}) {
 
 
   const [UsePopups, setUsePopups] = useState(popup);
   const [UseChatGPTDisclaimer, setUseChatGPTDisclaimer] = useState(chatgpt);
+  const [primed,setPrimed] = useState(priming) 
+  const [trial_primed,setTrialPrimed] = useState(false) 
+
 
   // const handleChatGPT = () => setUseChatGPTDisclaimer(true)
   // const handlePopup = () => setUsePopups(true);
@@ -64,6 +68,8 @@ function App({group, chatgpt, popup, rag}) {
   const [selectedAnswerIndex2, setSelectedAnswerIndex2] = useState(null)
   const [selectedAnswerIndexLikert, setSelectedAnswerIndexLikert] = useState(null)
   const [selectedAnswerIndexOutside, setSelectedAnswerIndexOutside] = useState(null)
+
+  const [primed_example, setPrimedExample] = useState(false)
 
 
   const [acceptedOrNot, setAcceptedOrNot] = useState(false)
@@ -119,6 +125,9 @@ function App({group, chatgpt, popup, rag}) {
   const [trialQuestion, setShowTrialQuestion] = useState(false)
   const [useTrialPopup, setUseTrialPopup] = useState(false)
   const [useTrialPopup2, setUseTrialPopup2] = useState(false)
+  const [useTrialPopup3, setUseTrialPopup3] = useState(false)
+  const [useTrialPopup4, setUseTrialPopup4] = useState(false)
+
   const [showFirstConfirmationPopup, setFirstConfirmationPopup] = useState(false)
   const [showSecondConfirmationPopup, setSecondConfirmationPopup] = useState(false)
   const [showThirdConfirmationPopup, setThirdConfirmationPopup] = useState(false)
@@ -126,12 +135,17 @@ function App({group, chatgpt, popup, rag}) {
 
   const handleCloseTrial = () => setUseTrialPopup(false);
   const handleCloseTrial2 = () => setUseTrialPopup2(false);
+  const handleCloseTrial3 = () => setUseTrialPopup3(false);
+  const handleCloseTrial4 = () => setUseTrialPopup4(false);
+
 
 
   const handleCloseSecond = () => {
     setCurrentTrialQuestion(currentTrialQuestion + 1)
     setFirstConfirmationPopup(false)
     setSecondConfirmationPopup(false)
+    handleCloseTrial3()
+    setTrialPrimed(true)
 
   }
 
@@ -142,11 +156,16 @@ function App({group, chatgpt, popup, rag}) {
     setSelectedAnswerIndex2(null);
     setSelectedAnswerIndexLikert(null);
     setSelectedAnswerIndexOutside(null);
+    if (primed === true){
+      setPrimedExample(true)
+    }
+
 
   }
   const handleCloseFirst = () => {
     setCurrentTrialQuestion(currentTrialQuestion + 1)
     setFirstConfirmationPopup(false)
+    setTrialPrimed(true)
   }
 
   const trialQuestions = getTrialQuestions();
@@ -202,6 +221,48 @@ function App({group, chatgpt, popup, rag}) {
 
   const demo_questions = getDemographicQuestions();
 
+  const scrollToTopPrimedTrial = () => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+    onClickNextPrimedTrial()
+  }
+
+  const onClickNextPrimedTrial = () => {
+  
+
+    setTime(time => [...time, Date.now()]);   
+    setSelectedAnswerIndex(null); 
+    setSelectedAnswerIndex2(null);
+    setSelectedAnswerIndexLikert(null);
+    setTrialPrimed(false)
+      // setSelectedAnswerIndexOutside(null);
+
+
+  }
+
+  const scrollToTopPrimed = () => {
+    console.log("scrolled")
+    window.scrollTo({ top: 0, behavior: "instant" });
+    onClickNextPrimed()
+  };
+
+  const onClickNextPrimed = () => {
+  
+
+    setTime(time => [...time, Date.now()]);
+    console.log(questions[randomArray[currentQuestion]].code + "_inital", questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text)
+    localStorage.setItem(questions[randomArray[currentQuestion]].code + "_inital", questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
+
+   
+    handleShow();
+    setSelectedAnswerIndex(null); 
+    setSelectedAnswerIndex2(null);
+    setSelectedAnswerIndexLikert(null);
+    setPrimedExample(false)
+      // setSelectedAnswerIndexOutside(null);
+
+
+  }
+
 
   const scrollToTop = () => {
     console.log("scrolled")
@@ -211,16 +272,11 @@ function App({group, chatgpt, popup, rag}) {
 
   // TODO: Change this func to record string of answer instead of id.
   const onClickNext = () => {
-    // console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
-    // console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndexLikert].text });
+  
 
     setTime(time => [...time, Date.now()]);
-    // console.log(time);
-    // console.log({ question_id: currentQuestion, answer_key: questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text });
-    // console.log({ question_id: currentQuestion, answer_key: likert_questions.options[selectedAnswerIndex2].text });
     localStorage.setItem(questions[randomArray[currentQuestion]].code, questions[randomArray[currentQuestion]].options[selectedAnswerIndex].text);
     localStorage.setItem(questions[randomArray[currentQuestion]].code + "_likert", likert_questions.options[selectedAnswerIndexLikert].text);
-    // localStorage.setItem(questions[randomArray[currentQuestion]].code + "_outside", outside_knowledge_questions.options[selectedAnswerIndexOutside].text);
 
     if (selectedAnswerIndex2 != null){
       localStorage.setItem(questions[randomArray[currentQuestion]].code + "_2", questions[randomArray[currentQuestion]].options2[selectedAnswerIndex2].text);
@@ -233,9 +289,14 @@ function App({group, chatgpt, popup, rag}) {
       setSelectedAnswerIndex2(null);
       setSelectedAnswerIndexLikert(null);
       // setSelectedAnswerIndexOutside(null);
+      
 
     } else {
       setShowResults(true);
+    }
+
+    if (primed === true){
+      setPrimedExample(true)
     }
   }
 
@@ -255,7 +316,7 @@ function App({group, chatgpt, popup, rag}) {
 
 
   const scrollToTopDemo = () => {
-    console.log("scrolled")
+    console.log("scrolled_demo")
     window.scrollTo({ top: 0, behavior: "instant" });
     onClickNextDemo()
   };
@@ -288,7 +349,7 @@ function App({group, chatgpt, popup, rag}) {
   const showSurvey = (answer) => {
     console.log("scrolled")
     window.scrollTo({ top: 0, behavior: "instant" });
-    if (answer===true){
+    if (answer===2){
       if (currentTrialQuestion === 0){
         setFirstConfirmationPopup(true)
       }
@@ -299,7 +360,14 @@ function App({group, chatgpt, popup, rag}) {
         setThirdConfirmationPopup(true)
       }
     }
+    else if (answer === 4 && currentTrialQuestion ===1) {
+      setUseTrialPopup3(true)
+    }
+    else if (answer === 0 && currentTrialQuestion ===2) {
+      setUseTrialPopup4(true)
+    }
     else{
+
       if (currentTrialQuestion === 2){
         setUseTrialPopup2(true)
       }
@@ -603,6 +671,45 @@ function App({group, chatgpt, popup, rag}) {
                 {showMiddlePage ? (
                   <div>
                   {trialQuestion ? (
+
+
+                    <div>
+                    {trial_primed ? (
+                      
+                      
+                      <div className="question-card">
+                      {/* Trial Primed */}
+                      <h2 className="question-text">
+                        Question: {currentTrialQuestion + 1} out of {trial_questions.length}
+                      </h2>
+
+                      <h3 className="question-text">{trial_questions[currentTrialQuestion].text}</h3>
+
+                      {/* List of possible answers  */}
+                      <ul>
+                        {trial_questions[currentTrialQuestion].options.map((option) => {
+                          return (
+                            <AnswerButton option={option} />
+                          );
+                        })}
+                      </ul>
+      
+                      <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
+                            In this section, you'll first be asked a question about a topic. After answering, you will be shown a conversation with an AI agent
+                            about that topic, followed by some questions. You may then update your previous answer or put down the same answer again. The conversation shown contains AI generated information. 
+                            Please answer the questions to the best of your ability and outside knowledge.`} ></PopupAlert>
+      
+                      <div className="button-box">
+                            <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>
+                              <button className="next-button" onClick={scrollToTopPrimedTrial} disabled={selectedAnswerIndex === null}> Next </button>
+                            </div>
+      
+                      </div>
+                      
+                      ):
+                    
+                    
+                  (
                     // Trial Question
                   [
                     <div className="Main">
@@ -647,6 +754,7 @@ function App({group, chatgpt, popup, rag}) {
                           );
                         })}
                       </ul>
+
                       <h3 className="question-text">{"How would you rate the trustworthyness of the above passage?"}</h3>
 
                       <ul>
@@ -658,14 +766,16 @@ function App({group, chatgpt, popup, rag}) {
                       </ul>
 
                       <div className="button-box">
-                        <button className="next-button" onClick={() => showSurvey(selectedAnswerIndex === 2)} disabled={selectedAnswerIndex === null || selectedAnswerIndexLikert === null}> Next </button>
+                        <button className="next-button" onClick={() => showSurvey(selectedAnswerIndex)} disabled={selectedAnswerIndex === null || selectedAnswerIndexLikert === null}> Next </button>
                       </div>
                     
-                      <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again."}></PopupAlert>
-                      <PopupAlert showPopupMode={useTrialPopup2} closeModal={handleCloseTrial2} openModal={handleShow} text={"Even though the conversation stated that the sky is magenta, as an AI model, it sometimes gets things wrong. Make sure to make your decision using both the conversation at hand and outside knowledge. "}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again. It's okay to put Unsure if you don't know the answer."}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup2} closeModal={handleCloseTrial2} openModal={handleShow} text={"Even though the conversation stated that a fever begins at 104 degrees Fahrenheit, as an AI model, it sometimes gets things wrong. Make sure to make your decision using both the conversation at hand and outside knowledge. "}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup3} closeModal={handleCloseSecond} openModal={handleShow} text={"It's okay to be unsure! Please put unsure if you don't know the answer."}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup4} closeModal={handleCloseThird} openModal={handleShow} text={"It's okay to be unsure! Please put unsure if you don't know the answer. As you may have noticed, AI models sometimes make mistakes. \n Make sure to make your decision using both the conversation at hand and outside knowledge. \n Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey."}></PopupAlert>
 
                         
-                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. This next one is a little harder."} ></PopupAlert>
+                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. This next one will ask you a question before showing you the text. It's okay to put unsure if you do not know the answer."} ></PopupAlert>
   
                       <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. There's one more trial question."} ></PopupAlert>
 
@@ -673,17 +783,23 @@ function App({group, chatgpt, popup, rag}) {
 
                     </div>
                    
-                  ]
+                  ])
+
+                }
+                </div>
 
                   ) : (
                     // Finished Demographics
                   <div className="page-box mini-box">
-                    <h2 className="page-subtitle">Thank you for filling out the demographic portion of the survey. In the following section, you'll see conversation with an AI Agent,
-                      followed by some questions. The conversation shown contains AI generated information. Please fill out the questions to the best of your ability and outside knowledge. There will be 3 practice questions to help you get acclimated.</h2>
+
+                    <h2 className="page-subtitle">Thank you for filling out the demographic portion of the survey. In the following section, you'll see a conversation with an AI Agent,
+                      followed by some questions. You may also be asked a question to gauge your understanding of a topic prior to being shown the conversation. The conversation shown contains AI generated information. Please fill out the questions to the best of your ability and outside knowledge. There will be 3 practice questions to help you get acclimated.</h2>
                     <div>
                       <button className="next-button" style={{ margin: 0 }} onClick={showTrialQuestion} > Next </button>
                     </div>
-                  </div>) }
+                  </div>
+                  
+                  )} 
 
                   </div>
                 
@@ -751,6 +867,47 @@ function App({group, chatgpt, popup, rag}) {
 
                   </div>
                 ) : (
+
+                <div>
+
+                
+                {primed_example ?  (
+                  //New Primed questions
+                <div className="question-card">
+                {/* Current Question  */}
+                <h2 className="question-text">
+                  Question: {currentQuestion + 1} out of {prompts.length}
+                  {console.log(primed_example)}
+
+                </h2>
+
+
+                {/* Question 1 */}
+                <h3 className="question-text">{questions[randomArray[currentQuestion]].text}</h3>
+
+                {/* List of possible answers  */}
+                <ul>
+                  {questions[randomArray[currentQuestion]].options.map((option) => {
+                    return (
+                      <AnswerButton id={"comp"} option={option} />
+                    );
+                  })}
+                </ul>
+
+                <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
+                      In this section, you'll first be asked a question about a topic. After answering, you will be shown a conversation with an AI agent
+                      about that topic, followed by some questions. You may then update your previous answer or put down the same answer again. The conversation shown contains AI generated information. 
+                      Please answer the questions to the best of your ability and outside knowledge.`} ></PopupAlert>
+
+                <div className="button-box">
+                      <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>
+                        <button className="next-button" onClick={scrollToTopPrimed} disabled={selectedAnswerIndex === null}> Next </button>
+                      </div>
+
+                </div>)
+                :
+
+                  ( //new
                   [
                     <div className="Main">
                       <div className="main-box">
@@ -781,7 +938,7 @@ function App({group, chatgpt, popup, rag}) {
                     <div className="question-card">
                       {/* Current Question  */}
                       <h2 className="question-text">
-                        Question: {currentQuestion + 1} out of {prompts.length}
+                        {/* Question: {currentQuestion + 1} out of {prompts.length} */}
                       </h2>
 
 
@@ -828,7 +985,7 @@ function App({group, chatgpt, popup, rag}) {
                       </ul>
                       
                       <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
-                      In this section, you'll see conversation with an AI Agent,
+                      In this section, you'll see a conversation with an AI Agent,
                       followed by some questions. The conversation shown contains AI generated information. 
                       Please answer the questions to the best of your ability and outside knowledge.`} ></PopupAlert>
 
@@ -837,16 +994,25 @@ function App({group, chatgpt, popup, rag}) {
                         <button className="next-button" onClick={scrollToTop} disabled={selectedAnswerIndex === null || selectedAnswerIndex2 === null || selectedAnswerIndexLikert === null }> Next </button>
                       </div>
                     </div>
-                  ])}
+
+                  ]
+
+                ) //new
+                  
+                 } 
+                 </div>
+                 )
+                  
+                }
 
                 {UsePopups ?
                   (<PopupAlert title={"Alert"}  showPopupMode={showPopups} closeModal={handleClose} openModal={handleShow} text={"ChatGPT sometimes writes plausible-sounding but incorrect answers. Does this information seem accurate?"} />
                   ) : (null)}
               </div>
 
-            )
 
-            }
+
+            )}
 
           </div>)}
 

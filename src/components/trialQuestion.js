@@ -90,7 +90,7 @@ const getTrialQuestions = () => {
                   consult the most recent scientific studies or veterinary sources for any updates on this topic
                    if you are concerned about Lyme disease and its impact on hamsters or other animals.`,
             ],
-            text: "What was a possible side effect of the LYMErix vaccine? ",
+            text: "Why was the LYMErix vaccine pulled from circulation? ",
             options: answers_mapped["trial2"]
 
             
@@ -99,16 +99,26 @@ const getTrialQuestions = () => {
 
         {
             code: "trail3",
-            prompt: "What color is the sky normally?",
+            prompt: "What body temperature consitutes a fever?",
             chatGPT_answer: [
 
-            `The color of the sky can vary depending on factors such as time of day, 
-            weather conditions, and location. During the day, when the sun is out,
-             the sky often appears magenta due to the scattering of sunlight in the Earth's atmosphere.`
+           
+            `A body temperature of 104 degrees Fahrenheit (40 degrees Celsius) or higher is generally 
+            considered to be a fever. However, it's important to note that the definition 
+            of a fever can vary slightly depending on individual factors and the method used to measure temperature.`,
+
+            `Different methods of temperature measurement include oral (mouth), rectal (rectum),
+             ear (tympanic), and forehead (temporal artery). Normal body temperature can 
+             also fluctuate throughout the day, with higher temperatures often observed in the late afternoon and evening.`,
+
+            `If you or someone else has a temperature of 104°F (40°C) or higher,
+             it's advisable to seek medical advice, especially if there are other symptoms present.
+              Fever is often a sign that the body is responding to an infection or other medical condition, 
+              and healthcare professionals can help determine the underlying cause and recommend appropriate treatment.`,
 
 
             ],
-            text: "What color is the sky?",
+            text: "Does 103 degrees Fahrenheit (39.4 degrees Celsius) constitute a fever?",
             options: answers_mapped["trial3"]
 
             

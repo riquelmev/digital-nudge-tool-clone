@@ -28,6 +28,13 @@ const getDemoAnswersMapped = () => {
                 { id: 3, text: "Strongly Disagree",},
                 { id: 4, text: "Disagree", }
                     ],
+            "ai_familiarity": [
+                { id: 0, text: "I am involved with designing AI systems or engage in AI research",},
+                { id: 1, text: "I actively use AI systems on a regular basis",},
+                { id: 2, text: "I have used ChatGPT a few times or have read about AI a fair amount"},
+                { id: 3, text: "I have seen a couple article headlines about AI",},
+                { id: 4, text: "I have little to no knowledge about AI", }
+                    ],
             "hispanic": [
                 { id: 0, text: "Yes",},
                 { id: 1, text: "No",},

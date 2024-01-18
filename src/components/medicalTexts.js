@@ -7,9 +7,9 @@ const getPrompts = () => {
             prompt: "Tell me about the state of abortion policy in South Carolina.",
             text: [
                 
-                `As of my last knowledge update in January 2022, South Carolina has various regulations and restrictions on abortion, including gestational limits. 
+                `As of my last knowledge update in January 2022, South Carolina has various regulations and restrictions on abortion, including gestational limits.`,
             
-                As of my last knowledge update, South Carolina law generally allows abortion up to approximately 20 weeks of gestation. 
+                `As of my last knowledge update, South Carolina law generally allows abortion up to approximately 20 weeks of gestation. 
                 However, specific requirements and restrictions, such as waiting periods and counseling, may apply.`,
     
                 `Abortion providers Planned Parenthood and Greenville Women’s Clinic have filed a lawsuit

@@ -17,14 +17,14 @@ const getQuestions = () => {
         },
         {
             code: "hrt",
-            text: "How does combined HRT affect your chance of developing breast cancer?",
+            text: "How does taking combined estrogen and progestin Hormone Replacement Therapy (HRT) affect your chance of developing breast cancer?",
             options: answers_mapped["hrt"],
-            text2: "How does estrogen only HRT affect your chance of developing breast cancer?",
+            text2: "How does estrogen only Hormone Replacement Therapy (HRT) affect your chance of developing breast cancer?",
             options2: answers_mapped["hrt2"],
         },
         {
             code: "asthma",
-            text: "Can a child with asthsma get the nasal vaccine?",
+            text: "Can a child with asthma get the nasal vaccine?",
             options: answers_mapped["asthma"],
             text2: "The nasal flu vaccine differs from an injectable flu vaccine in what way?",
             options2: answers_mapped["asthma2"],
@@ -40,7 +40,7 @@ const getQuestions = () => {
         },
         {
             code: "lung",
-            text: "Who should get screened for lung cancer annually? ",
+            text: "Which of the following profiles should get screened for lung cancer annually?",
             options: answers_mapped["lung"],
             text2: "Should a 55 year old smoker, who has smoked 30 pack-years, but who quit 20 years ago get screened for lung cancer?",
             options2: answers_mapped["lung2"],
@@ -64,7 +64,7 @@ const getQuestions = () => {
         },
         {
             code: "rsv",
-            text: "Is there an RSV vaccine available for a newborn?",
+            text: "Is there an RSV (Respiratory Syncytial Virus) vaccine available for a newborn?",
             options: answers_mapped["rsv"],
             text2: "Very premature babies, are at higher risk of severe RSV infection. At what boundry is a very premature defined?",
             options2: answers_mapped["rsv2"], 
@@ -73,7 +73,7 @@ const getQuestions = () => {
 
         {
             code: "cosleep",
-            text: "At what age can I sleep with my baby in the same bed?",
+            text: "Is it safe to sleep in the same bed as your baby at 6 months?",
             options: answers_mapped["cosleep"],
             text2: "At what age are babies recommended to start sleeping in a different room as parents?",
             options2: answers_mapped["cosleep2"], 
@@ -82,9 +82,9 @@ const getQuestions = () => {
 
         {
             code: "papsmear",
-            text: "How often should a 40 year old get pap-smear and HPV co-test done?",
+            text: "How often should a 40 year old get pap-smear and HPV (Human papillomavirus) co-test done?",
             options: answers_mapped["papsmear"],
-            text2: "At what age does solo HPV testing become an option?",
+            text2: "At what age does solo HPV (Human papillomavirus) testing become an option?",
             options2: answers_mapped["papsmear2"], 
 
         },
@@ -100,7 +100,7 @@ const getQuestions = () => {
 
         {
             code: "IUD",
-            text: "Do IUDs cause infertility?",
+            text: "Do IUDs (Intrauterine Devices) cause infertility?",
             options: answers_mapped["IUD"],
             text2: "What hormone, found in hormonal IUDs, limits sprerm movement and survival?",
             options2: answers_mapped["IUD2"], 

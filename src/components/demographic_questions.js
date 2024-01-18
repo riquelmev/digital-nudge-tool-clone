@@ -35,6 +35,12 @@ const getDemographicQuestions = () => {
 
         },
         {
+            code: "ai_familiarity",
+            text: "How familiar are you with artificial intelligence?",
+            options: demo_answers_mapped["ai_familiarity"]
+
+        },
+        {
             code: "employment",
             text: "Which of the following best describes your current employment status?",
             options: demo_answers_mapped["employment"]

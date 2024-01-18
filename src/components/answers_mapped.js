@@ -41,7 +41,7 @@ const getAnswersMapped = () => {
             "likert": [
                 { id: 0, text: "Very Trustworthy"},
                 { id: 1, text: "Somewhat Trustworthy"},
-                { id: 2, text: "Unsure"},
+                { id: 2, text: "Neither Trustworthy nor Untrustworthy"},
                 { id: 3, text: "Somewhat Untrustworthy", },
                 { id: 4, text: "Not Trustworthy", }
                     ],
