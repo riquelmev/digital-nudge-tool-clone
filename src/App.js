@@ -771,13 +771,13 @@ function App({group, chatgpt, popup, rag, priming}) {
                     
                       <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again. It's okay to put Unsure if you don't know the answer."}></PopupAlert>
                       <PopupAlert showPopupMode={useTrialPopup2} closeModal={handleCloseTrial2} openModal={handleShow} text={"Even though the conversation stated that a fever begins at 104 degrees Fahrenheit, as an AI model, it sometimes gets things wrong. Make sure to make your decision using both the conversation at hand and outside knowledge. "}></PopupAlert>
-                      <PopupAlert showPopupMode={useTrialPopup3} closeModal={handleCloseSecond} openModal={handleShow} text={"It's okay to be unsure! Please put unsure if you don't know the answer."}></PopupAlert>
-                      <PopupAlert showPopupMode={useTrialPopup4} closeModal={handleCloseThird} openModal={handleShow} text={"It's okay to be unsure! Please put unsure if you don't know the answer. As you may have noticed, AI models sometimes make mistakes. \n Make sure to make your decision using both the conversation at hand and outside knowledge. \n Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey."}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup3} closeModal={handleCloseSecond} openModal={handleShow} text={"It's okay to be unsure! In this study, please answer Unsure if you don't know the answer."}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup4} closeModal={handleCloseThird} openModal={handleShow} text={"It's okay to be unsure! In this study, please answer Unsure if you don't know the answer. As you may have noticed, AI models sometimes make mistakes. \n Make sure to make your decision using both the conversation at hand and outside knowledge. \n Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey."}></PopupAlert>
 
                         
-                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. This next one will ask you a question before showing you the text. It's okay to put unsure if you do not know the answer."} ></PopupAlert>
+                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. This next example will ask you a question before showing you the full conversation. It is okay to select Unsure if you do not know the answer."} ></PopupAlert>
   
-                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. There's one more trial question."} ></PopupAlert>
+                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. There's one more trial question. As a reminder, if you ever feel that you don't know the correct answer, it is okay to answer Unsure."} ></PopupAlert>
 
                       <PopupAlert showPopupMode={showThirdConfirmationPopup} closeModal={handleCloseThird} openModal={handleShow} text={`Nice Job. As you saw in the previous example, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and outside knowledge. \n Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey.`} ></PopupAlert>
 
@@ -793,7 +793,8 @@ function App({group, chatgpt, popup, rag, priming}) {
                   <div className="page-box mini-box">
 
                     <h2 className="page-subtitle">Thank you for filling out the demographic portion of the survey. In the following section, you'll see a conversation with an AI Agent,
-                      followed by some questions. You may also be asked a question to gauge your understanding of a topic prior to being shown the conversation. The conversation shown contains AI generated information. Please fill out the questions to the best of your ability and outside knowledge. There will be 3 practice questions to help you get acclimated.</h2>
+                      followed by some questions. You may also be asked a question to gauge your understanding of a topic prior to being shown the conversation. The conversation shown contains AI generated information. 
+                      Please fill out the questions as accurately as possible. There will be 3 practice questions to help you get acclimated.</h2>
                     <div>
                       <button className="next-button" style={{ margin: 0 }} onClick={showTrialQuestion} > Next </button>
                     </div>
