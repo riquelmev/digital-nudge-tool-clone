@@ -81,15 +81,6 @@ function App({group, chatgpt, popup, rag, priming}) {
   // const prompts = getRAGTexts();
   // const prompts = getPrompts();
 
-  const whichPrompt = (rag) => {
-    if (rag){
-      return getRAGTexts();
-    }
-    else{
-      return getPrompts();
-    }
-  }
-  const prompts = whichPrompt(rag);
 
   // console.log(prompts)
 
@@ -184,15 +175,43 @@ function App({group, chatgpt, popup, rag, priming}) {
   const [startTime, setStartTime] = useState([]);
   const [time, setTime] = useState([]);
 
+
+  const whichPrompt = (rag) => {
+    if (rag){
+      if (rndInt === 0){
+        return getRAGTexts();
+      }
+      else if (rndInt === 1){
+        return getRAGTexts();
+      }
+      else{
+        return getRAGTexts();
+      }
+    }
+    else{
+      return getPrompts();
+    }
+  }
+  const prompts = whichPrompt(rag);
+
+  var rndInt = 0
+  React.useEffect(function() {
+    if (rag){
+      rndInt = Math.floor(Math.random() * 3)
+    }
+    console.log(rndInt)
+    }, [])
+
+  
+
   const order = Array.from(Array(prompts.length).keys())
   const [randomArray, setRandomArray] = React.useState([])
     React.useEffect(function() {
     setRandomArray(shuffleArray(order))
     setStartTime([Date.now()])
     // console.log(startTime)
+    
     }, [])
-
-
 
 
   const likert_questions = 
@@ -695,9 +714,8 @@ function App({group, chatgpt, popup, rag, priming}) {
                       </ul>
       
                       <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
-                            In this section, you'll first be asked a question about a topic. After answering, you will be shown a conversation with an AI agent
-                            about that topic, followed by some questions. You may then update your previous answer or put down the same answer again. The conversation shown contains AI generated information. 
-                            Please answer the questions to the best of your ability and outside knowledge.`} ></PopupAlert>
+                            In this section, you'll see a conversation with an AI Agent, along with questions both before and after.  You may update your previous answer or put down the same answer again. Please answer the questions to the best of your ability and outside knowledge. Please try to answer the questions as accurately as possible, based on the passage and your own outside knowledge.
+                            `} ></PopupAlert>
       
                       <div className="button-box">
                             <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>
@@ -766,20 +784,26 @@ function App({group, chatgpt, popup, rag, priming}) {
                       </ul>
 
                       <div className="button-box">
+                      <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>
                         <button className="next-button" onClick={() => showSurvey(selectedAnswerIndex)} disabled={selectedAnswerIndex === null || selectedAnswerIndexLikert === null}> Next </button>
                       </div>
+
+                      <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
+                      In this section, you'll see a conversation with an AI Agent, followed by some questions. 
+                      Please try to answer the questions as accurately as possible, based on the passage and your own outside knowledge.
+                      `} ></PopupAlert>
                     
-                      <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again. It's okay to put Unsure if you don't know the answer."}></PopupAlert>
-                      <PopupAlert showPopupMode={useTrialPopup2} closeModal={handleCloseTrial2} openModal={handleShow} text={"Even though the conversation stated that a fever begins at 104 degrees Fahrenheit, as an AI model, it sometimes gets things wrong. Make sure to make your decision using both the conversation at hand and outside knowledge. "}></PopupAlert>
-                      <PopupAlert showPopupMode={useTrialPopup3} closeModal={handleCloseSecond} openModal={handleShow} text={"It's okay to be unsure! In this study, please answer Unsure if you don't know the answer."}></PopupAlert>
-                      <PopupAlert showPopupMode={useTrialPopup4} closeModal={handleCloseThird} openModal={handleShow} text={"It's okay to be unsure! In this study, please answer Unsure if you don't know the answer. As you may have noticed, AI models sometimes make mistakes. \n Make sure to make your decision using both the conversation at hand and outside knowledge. \n Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey."}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again. Select Unsure if you don't know the answer."}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup2} closeModal={handleCloseTrial2} openModal={handleShow} text={"Even though the conversation stated that a fever begins at 104 degrees Fahrenheit, as an AI model, it sometimes gets things wrong. Make sure to make your decision using both the conversation at hand and your own outside knowledge."}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup3} closeModal={handleCloseSecond} openModal={handleShow} text={"It's okay to be unsure! In this study, please select `Unsure` if you don't know the answer."}></PopupAlert>
+                      <PopupAlert showPopupMode={useTrialPopup4} closeModal={handleCloseThird} openModal={handleShow} text={"It's okay to be unsure! In this study, please answer Unsure if you don't know the answer. As you may have noticed, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and outside knowledge. Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey."}></PopupAlert>
 
                         
-                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. This next example will ask you a question before showing you the full conversation. It is okay to select Unsure if you do not know the answer."} ></PopupAlert>
+                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. This next example will ask you a question before showing you the full conversation. Select Unsure if you don't know the answer."} ></PopupAlert>
   
-                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. There's one more trial question. As a reminder, if you ever feel that you don't know the correct answer, it is okay to answer Unsure."} ></PopupAlert>
+                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. There's one more trial question. As a reminder, if you don't know the answer, select Unsure."} ></PopupAlert>
 
-                      <PopupAlert showPopupMode={showThirdConfirmationPopup} closeModal={handleCloseThird} openModal={handleShow} text={`Nice Job. As you saw in the previous example, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and outside knowledge. \n Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey.`} ></PopupAlert>
+                      <PopupAlert showPopupMode={showThirdConfirmationPopup} closeModal={handleCloseThird} openModal={handleShow} text={`Nice Job. As you saw in the previous example, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and your own outside knowledge. Click continue to begin the survey. Note there will be no confirmation pop up in the actual survey.`} ></PopupAlert>
 
                     </div>
                    
@@ -792,9 +816,10 @@ function App({group, chatgpt, popup, rag, priming}) {
                     // Finished Demographics
                   <div className="page-box mini-box">
 
-                    <h2 className="page-subtitle">Thank you for filling out the demographic portion of the survey. In the following section, you'll see a conversation with an AI Agent,
-                      followed by some questions. You may also be asked a question to gauge your understanding of a topic prior to being shown the conversation. The conversation shown contains AI generated information. 
-                      Please fill out the questions as accurately as possible. There will be 3 practice questions to help you get acclimated.</h2>
+                    <h2 className="page-subtitle">Thank you for filling out the demographic portion of the survey. 
+                    In the following section, you'll see a conversation with an AI Agent, along with questions both before and after.
+                    Please try to answer the questions as accurately as possible, based on the passage and your own outside knowledge. 
+                    There will be 3 practice questions to help you get acclimated.</h2>
                     <div>
                       <button className="next-button" style={{ margin: 0 }} onClick={showTrialQuestion} > Next </button>
                     </div>
@@ -824,6 +849,7 @@ function App({group, chatgpt, popup, rag, priming}) {
                       })}
                     </ul>
                     <div className="button-box">
+                      
                       <button className="next-button" onClick={scrollToTopDemo} disabled={selectedAnswerIndex === null}> Next </button>
                     </div>
                   </div>
@@ -895,10 +921,14 @@ function App({group, chatgpt, popup, rag, priming}) {
                   })}
                 </ul>
 
-                <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
-                      In this section, you'll first be asked a question about a topic. After answering, you will be shown a conversation with an AI agent
-                      about that topic, followed by some questions. You may then update your previous answer or put down the same answer again. The conversation shown contains AI generated information. 
-                      Please answer the questions to the best of your ability and outside knowledge.`} ></PopupAlert>
+                <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={
+                  `In this section, you'll see a conversation with an AI Agent, 
+                  along with questions both before and after.  
+                  You may update your previous answer or put down the same answer again.
+                   Please answer the questions to the best of your ability and outside knowledge.
+                    Please try to answer the questions as accurately as possible, based on the passage 
+                    and your own outside knowledge.
+                      .`} ></PopupAlert>
 
                 <div className="button-box">
                       <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>
@@ -986,9 +1016,9 @@ function App({group, chatgpt, popup, rag, priming}) {
                       </ul>
                       
                       <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
-                      In this section, you'll see a conversation with an AI Agent,
-                      followed by some questions. The conversation shown contains AI generated information. 
-                      Please answer the questions to the best of your ability and outside knowledge.`} ></PopupAlert>
+                      In this section, you'll see a conversation with an AI Agent, followed by some questions. 
+                      Please try to answer the questions as accurately as possible, based on the passage and your own outside knowledge.
+                      `} ></PopupAlert>
 
                       <div className="button-box">
                       <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>

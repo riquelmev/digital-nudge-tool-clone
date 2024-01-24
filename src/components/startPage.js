@@ -23,9 +23,8 @@ const getStartPage = () => {
 and stop at any time. You may choose not to continue with the survey or ask
  for your answers to not be used for data analysis for any reason.`,
 
-`As part of the research, we may mislead you or we may not tell you everything 
-about the purpose of the research or research procedures.  
-At the conclusion of the study, we will provide you with that information.`,
+`We will withhold some information about our research purposes until the end of the study. 
+We will then disclose all research purposes at the end of the study.`,
 
 `Information collected in this project may be shared with other researchers, but we will not
  share nor collect any information that could identify you.`,
