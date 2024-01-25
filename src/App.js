@@ -178,15 +178,7 @@ function App({group, chatgpt, popup, rag, priming}) {
 
   const whichPrompt = (rag) => {
     if (rag){
-      if (rndInt === 0){
-        return getRAGTexts();
-      }
-      else if (rndInt === 1){
-        return getRAGTexts();
-      }
-      else{
-        return getRAGTexts();
-      }
+      return getRAGTexts();
     }
     else{
       return getPrompts();
@@ -194,13 +186,13 @@ function App({group, chatgpt, popup, rag, priming}) {
   }
   const prompts = whichPrompt(rag);
 
-  var rndInt = 0
-  React.useEffect(function() {
-    if (rag){
-      rndInt = Math.floor(Math.random() * 3)
-    }
-    console.log(rndInt)
-    }, [])
+  // var rndInt = 0
+  // React.useEffect(function() {
+  //   if (rag){
+  //     rndInt = Math.floor(Math.random() * 3)
+  //   }
+  //   console.log(rndInt)
+  //   }, [])
 
   
 
