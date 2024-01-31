@@ -5,10 +5,9 @@ const getDemoAnswersMapped = () => {
             "ethnicity": [
               { id: 0, text: "White",},
               { id: 1, text: "Black",},
-              { id: 2, text: "Latino"},
               { id: 3, text: "Asian",},
               { id: 4, text: "2 or more races", },
-              { id: 5, text: "Other", }
+              { id: 2, text: "Other", }
                 ],
             "gender": [
                 { id: 0, text: "Male",},

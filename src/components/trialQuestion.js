@@ -126,7 +126,7 @@ const getTrialQuestions = () => {
         }
     ]
 
-    console.log(questions)
+    // console.log(questions)
 
 
         return questions;

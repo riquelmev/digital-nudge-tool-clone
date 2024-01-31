@@ -82,7 +82,7 @@ const getQuestions = () => {
 
         {
             code: "papsmear",
-            text: "How often should a 40 year old get pap-smear and HPV (Human papillomavirus) co-test done?",
+            text: "How often should a 40 year old woman get a pap-smear and HPV (Human papillomavirus) co-test done?",
             options: answers_mapped["papsmear"],
             text2: "At what age does solo HPV (Human papillomavirus) testing become an option?",
             options2: answers_mapped["papsmear2"], 
