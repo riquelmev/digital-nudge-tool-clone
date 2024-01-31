@@ -27,7 +27,7 @@ const getAnswersMapped = () => {
             "formula": [
                 { id: 0, text: "After one year of age"},
                 { id: 1, text: "Around one year of age if your child is smaller than expected"},
-                { id: 2, text: "One your child begins to teeth, between 1-3 years of age"},
+                { id: 2, text: "Once your child begins to teethe, between 1-3 years of age"},
                 { id: 3, text: "Never, it is not recommeded by the CDC", },
                 { id: 4, text: "Unsure", }
                     ],
@@ -49,7 +49,7 @@ const getAnswersMapped = () => {
                 { id: 0, text: "There is no routinely recommended RSV vaccine for infants."},
                 { id: 1, text: "There is an emergency use RSV immunoprophylaxis for babies deemed at risk"},
                 { id: 2, text: "There is an RSV vaccine recommended for all babies under 8 months "},
-                { id: 3, text: "Maternal vaccination before birth"},
+                { id: 3, text: "There is a maternal vaccination recommended for the mother before birth"},
                 { id: 4, text: "Unsure", },
                     ],
             "covid-vax": [
