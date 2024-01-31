@@ -60,6 +60,7 @@ function App({group, chatgpt, popup, rag, priming}) {
   const [showPopups, setShowPopup] = useState(true);
   const [showConfirmPopupAccept, setShowConfirmPopupAccept] = useState(false);
   const [showConfirmPopupDecline, setShowConfirmPopupDecline] = useState(false);
+  const [showEndTrial,setShowEndTrial] = useState(false)
 
   // const [key] = useState(0);
   // const responses = [];
@@ -140,7 +141,7 @@ function App({group, chatgpt, popup, rag, priming}) {
 
   }
 
-  const handleCloseThird = () =>  {
+const handleStartSurveyAfterTrial = () => {
     setTime(time => [...time, Date.now()]);
     setDemographics(false);
     setSelectedAnswerIndex(null); 
@@ -150,7 +151,15 @@ function App({group, chatgpt, popup, rag, priming}) {
     if (primed === true){
       setPrimedExample(true)
     }
+}
 
+  const handleCloseThird = () =>  {
+    setTime(time => [...time, Date.now()]);
+    setSelectedAnswerIndex(null); 
+    setSelectedAnswerIndex2(null);
+    setSelectedAnswerIndexLikert(null);
+    setSelectedAnswerIndexOutside(null);
+    setShowEndTrial(true)
 
   }
   const handleCloseFirst = () => {
@@ -716,90 +725,108 @@ function App({group, chatgpt, popup, rag, priming}) {
       
                       </div>
                       
-                      ):
-                    
-                    
-                  (
-                    // Trial Question
-                  [
-                    <div className="Main">
-                      <div className="main-box">
-                        <div className={styles.gptBox}>
-                          <div className="scenario-box">
-                            <h2 className="scenario-text">Trial Question {currentTrialQuestion+1} out of 3</h2>
-                          </div>
-                          <div className="prompt-box">
-                            <div className="text-box">
-                              <h2 className="gpt-text">{trial_questions[currentTrialQuestion].prompt}</h2>
-                            </div>
-                            <div className="gpt-image"> <img src={require("./Person-bubble.jpeg")} alt="Person" style={{ maxWidth: 60 }}></img></div>
-                          </div>
-                          <div className="answer-box">
-                            <div className="medical-text-box">
-                              <div className="gpt-image"> <img src={require("./GPT-logo.jpeg")} alt="gpt Logo" style={{ maxWidth: 50 }}></img></div>
-                              {/* {UseChatGPTDisclaimer ? (<h3 className="gpt-text">{prompts[currentQuestion].text}{disclaimer} </h3>) : (<h3 className="gpt-text">{prompts[currentQuestion].text}</h3>)} */}
+                      ):(
+                    // End of Trial Questions
+                      
+                    <div>
+                    {showEndTrial ? (
+                          [
+                            <div className="page-box mini-box">
+                              <h2 className="page-subtitle"> 
+                              As you saw in the previous example, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and your own outside knowledge. If you don't know the answer, it is okay to click "Unsure".
+                              Click next to begin the actual survey. Note there will be no confirmation pop up in the actual survey.</h2>
                               <div>
-                                <MultiLineText className="text-chunk" text={trial_questions[currentTrialQuestion].chatGPT_answer} medText={false} />
+                                <button className="next-button" style={{ margin: 0 }} onClick={() => handleStartSurveyAfterTrial()}>Next</button>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>,
+                          ]
+                          ):(
+                        // Trial Question
+                        [
+                          [
+                            <div className="Main">
+                              <div className="main-box">
+                                <div className={styles.gptBox}>
+                                  <div className="scenario-box">
+                                    <h2 className="scenario-text">Trial Question {currentTrialQuestion+1} out of 3</h2>
+                                  </div>
+                                  <div className="prompt-box">
+                                    <div className="text-box">
+                                      <h2 className="gpt-text">{trial_questions[currentTrialQuestion].prompt}</h2>
+                                    </div>
+                                    <div className="gpt-image"> <img src={require("./Person-bubble.jpeg")} alt="Person" style={{ maxWidth: 60 }}></img></div>
+                                  </div>
+                                  <div className="answer-box">
+                                    <div className="medical-text-box">
+                                      <div className="gpt-image"> <img src={require("./GPT-logo.jpeg")} alt="gpt Logo" style={{ maxWidth: 50 }}></img></div>
+                                      {/* {UseChatGPTDisclaimer ? (<h3 className="gpt-text">{prompts[currentQuestion].text}{disclaimer} </h3>) : (<h3 className="gpt-text">{prompts[currentQuestion].text}</h3>)} */}
+                                      <div>
+                                        <MultiLineText className="text-chunk" text={trial_questions[currentTrialQuestion].chatGPT_answer} medText={false} />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>,
+        
+                            /* 5. Question Card  */
+                            <div className="question-card">
+                              {/* Current Question  */}
+                              <h2 className="question-text">
+                                Question: {currentTrialQuestion + 1} out of {trial_questions.length}
+                              </h2>
+                              {/* EDIT HERE TO ADD PARARGRAPHS FOR EACH STR IN ARR */}
+                              <h3 className="question-text">{trial_questions[currentTrialQuestion].text}</h3>
+        
+                              {/* List of possible answers  */}
+                              <ul>
+                                {trial_questions[currentTrialQuestion].options.map((option) => {
+                                  return (
+                                    <AnswerButton option={option} />
+                                  );
+                                })}
+                              </ul>
+        
+                              <h3 className="question-text">{"How would you rate the trustworthyness of the above passage?"}</h3>
+        
+                              <ul>
+                                {likert_questions.options.map((option) => {
+                                  return (
+                                    <AnswerButtonLikert id={"trust"} option={option} />
+                                  );
+                                })}
+                              </ul>
+        
+                              <div className="button-box">
+                              <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>
+                                <button className="next-button" onClick={() => showSurvey(selectedAnswerIndex)} disabled={selectedAnswerIndex === null || selectedAnswerIndexLikert === null}> Next </button>
+                              </div>
+        
+                              <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
+                              In this section, you'll see a conversation with an AI Agent, followed by some questions. 
+                              Please try to answer the questions as accurately as possible, based on the passage and your own outside knowledge.
+                              `} ></PopupAlert>
+                            
+                              <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again. Select Unsure if you don't know the answer."}></PopupAlert>
+                              <PopupAlert showPopupMode={useTrialPopup2} closeModal={handleCloseTrial2} openModal={handleShow} text={"Even though the conversation stated that a fever begins at 104 degrees Fahrenheit, as an AI model, it sometimes gets things wrong. Make sure to make your decision using both the conversation at hand and your own outside knowledge."}></PopupAlert>
+                              <PopupAlert showPopupMode={useTrialPopup3} closeModal={handleCloseSecond} openModal={handleShow} text={"It's okay to be unsure! In this study, please select `Unsure` if you don't know the answer."}></PopupAlert>
+                              <PopupAlert showPopupMode={useTrialPopup4} closeModal={handleCloseThird} openModal={handleShow} text={"It's okay to be unsure! In this study, please answer Unsure if you don't know the answer. As you may have noticed, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and outside knowledge. Click continue to begin the survey."}></PopupAlert>
+        
+                                
+                              <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. This next example will ask you a question before showing you the full conversation. Select Unsure if you don't know the answer."} ></PopupAlert>
+          
+                              <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. There's one more trial question. As a reminder, if you don't know the answer, select Unsure."} ></PopupAlert>
+        
+                              <PopupAlert showPopupMode={showThirdConfirmationPopup} closeModal={handleCloseThird} openModal={handleShow} text={`Nice Job. As you saw in the previous example, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and your own outside knowledge. Click continue to begin the survey. Note there will be no confirmation pop up in the actual survey.`} ></PopupAlert>
+        
+                            </div>
+                           
+                          ]
+                        ])
 
-                    /* 5. Question Card  */
-                    <div className="question-card">
-                      {/* Current Question  */}
-                      <h2 className="question-text">
-                        Question: {currentTrialQuestion + 1} out of {trial_questions.length}
-                      </h2>
-                      {/* EDIT HERE TO ADD PARARGRAPHS FOR EACH STR IN ARR */}
-                      <h3 className="question-text">{trial_questions[currentTrialQuestion].text}</h3>
-
-                      {/* List of possible answers  */}
-                      <ul>
-                        {trial_questions[currentTrialQuestion].options.map((option) => {
-                          return (
-                            <AnswerButton option={option} />
-                          );
-                        })}
-                      </ul>
-
-                      <h3 className="question-text">{"How would you rate the trustworthyness of the above passage?"}</h3>
-
-                      <ul>
-                        {likert_questions.options.map((option) => {
-                          return (
-                            <AnswerButtonLikert id={"trust"} option={option} />
-                          );
-                        })}
-                      </ul>
-
-                      <div className="button-box">
-                      <button className="instruction-button" onClick={handleShowInstructions}> Instructions </button>
-                        <button className="next-button" onClick={() => showSurvey(selectedAnswerIndex)} disabled={selectedAnswerIndex === null || selectedAnswerIndexLikert === null}> Next </button>
-                      </div>
-
-                      <PopupAlert title={"Instructions"} showPopupMode={showInstructions} closeModal={handleCloseInstructions} openModal={handleShowInstructions} text={`
-                      In this section, you'll see a conversation with an AI Agent, followed by some questions. 
-                      Please try to answer the questions as accurately as possible, based on the passage and your own outside knowledge.
-                      `} ></PopupAlert>
-                    
-                      <PopupAlert showPopupMode={useTrialPopup} closeModal={handleCloseTrial} openModal={handleShow} text={"Hmm, that doesn't seem quite right. Please try again. Select Unsure if you don't know the answer."}></PopupAlert>
-                      <PopupAlert showPopupMode={useTrialPopup2} closeModal={handleCloseTrial2} openModal={handleShow} text={"Even though the conversation stated that a fever begins at 104 degrees Fahrenheit, as an AI model, it sometimes gets things wrong. Make sure to make your decision using both the conversation at hand and your own outside knowledge."}></PopupAlert>
-                      <PopupAlert showPopupMode={useTrialPopup3} closeModal={handleCloseSecond} openModal={handleShow} text={"It's okay to be unsure! In this study, please select `Unsure` if you don't know the answer."}></PopupAlert>
-                      <PopupAlert showPopupMode={useTrialPopup4} closeModal={handleCloseThird} openModal={handleShow} text={"It's okay to be unsure! In this study, please answer Unsure if you don't know the answer. As you may have noticed, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and outside knowledge. Click continue to begin the survey. Please note there will be no confirmation pop up in the actual survey."}></PopupAlert>
-
-                        
-                      <PopupAlert showPopupMode={showFirstConfirmationPopup} closeModal={handleCloseFirst} openModal={handleShow} text={"Nice Job. This next example will ask you a question before showing you the full conversation. Select Unsure if you don't know the answer."} ></PopupAlert>
-  
-                      <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. There's one more trial question. As a reminder, if you don't know the answer, select Unsure."} ></PopupAlert>
-
-                      <PopupAlert showPopupMode={showThirdConfirmationPopup} closeModal={handleCloseThird} openModal={handleShow} text={`Nice Job. As you saw in the previous example, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and your own outside knowledge. Click continue to begin the survey. Note there will be no confirmation pop up in the actual survey.`} ></PopupAlert>
-
-                    </div>
-                   
-                  ])
+                        }
+                        </div> 
+                  )
 
                 }
                 </div>
