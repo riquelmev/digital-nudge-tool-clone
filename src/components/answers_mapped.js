@@ -5,37 +5,37 @@ const getAnswersMapped = () => {
             "texas": [
               { id: 0, text: "6 Weeks",},
               { id: 1, text: "12 Weeks",},
-              { id: 2, text: "16 Weeks"},
+              { id: 2, text: "20 Weeks"},
               { id: 3, text: "24 Weeks",},
-              { id: 4, text: "Unsure", }
+              { id: 4, text: "27 Weeks",},
+              { id: 5, text: "Unsure", }
                 ],
             "hrt": [
-                { id: 0, text: "Slightly increase the risk of cancer",},
-                { id: 1, text: "Slightly decrease the risk of cancer"},
-                { id: 2, text: "No effect", },
+                { id: 0, text: "Increase the risk of developing breast cancer",},
+                { id: 1, text: "Decrease the risk of developing breast cancer"},
+                { id: 2, text: "No effect"},
                 { id: 3, text: "Unsure", }
                     ],
             "asthma": [
-                { id: 0, text: "No, they cannot due to the fact they have athsma",},
-                { id: 1, text: "Yes, athsma is not a disqualifying factor",},
-                { id: 2, text: "Yes, but only if they are in supervised setting such as a hospital or clinic for the next 24 hours."},
-                { id: 3, text: "Yes, but only if they are over the age of four and have not any history of wheezing in the past year.",},
-                { id: 4, text: "No, children should not recieve a flu nasal spray ever",},
-                { id: 5, text: "Unsure", }
+                { id: 0, text: "Yes, but only if the child with asthma is over the age of 2 years",},
+                { id: 1, text: "Yes, but only if they haven't had a history of wheezing within the last 12 months",},
+                { id: 2, text: "Yes, but only if the child with asthma is 5 years and older."},
+                { id: 3, text: "No, children with asthma cannot get the nasal vaccine.",},
+                { id: e, text: "Unsure", }
                     ],
             
             "formula": [
                 { id: 0, text: "After one year of age"},
-                { id: 1, text: "Around one year of age if your child is smaller than expected"},
-                { id: 2, text: "Once your child begins to teethe, between 1-3 years of age"},
-                { id: 3, text: "Never, it is not recommeded by the CDC", },
+                { id: 1, text: "After one year of age if you have stopped breastfeeding your child"},
+                { id: 2, text: "One your child begins to teethe, between 1-3 years of age"},
+                { id: 3, text: "Never, toddler formulas are not needed to meet nutriontional needs of young children", },
                 { id: 4, text: "Unsure", }
                     ],
             "lung": [
                 { id: 0, text: "Anyone aged 50 - 80."},
-                { id: 1, text: "Anyone who's smoked at least 20 pack-years of cigarettes and are between 50 -80 years of age."},
-                { id: 2, text: "People aged 50-80, who've smoked 20 pack-years, and are either currently smoking or have quit in the past 15 years"},
-                { id: 3, text: "People aged 50-80, who have smoked 20 pack-years, regardless of when they quit." },
+                { id: 1, text: "Anyone who's smoked at least 20 pack years of cigarettes and are between 50 - 80 years of age."},
+                { id: 2, text: "People aged 50-80, smoked 20 pack years, and is currently smoking or has quit in the past 15 years."},
+                { id: 3, text: "People aged 50-80, who have smoked 20 pack years, regardless of when they quit." },
                 { id: 4, text: "Unsure", }
                     ],
             "likert": [
@@ -46,11 +46,11 @@ const getAnswersMapped = () => {
                 { id: 4, text: "Not Trustworthy", }
                     ],
             "rsv": [
-                { id: 0, text: "There is no routinely recommended RSV vaccine for infants."},
-                { id: 1, text: "There is an emergency use RSV immunoprophylaxis for babies deemed at risk"},
-                { id: 2, text: "There is an RSV vaccine recommended for all babies under 8 months "},
-                { id: 3, text: "There is a maternal vaccination recommended for the mother before birth"},
-                { id: 4, text: "Unsure", },
+                { id: 0, text: "There is no routinely recommended RSV vaccine for infants"},
+                { id: 1, text: "There is an emergancy use RSV immunoprophylaxis for babies deemed at risk during RSV season"},
+                { id: 2, text: "There is an RSV vaccine recommended for all babies under 8 months born in RSV season"},
+                { id: 3, text: "There is a maternal vaccination that protects infants from RSV once born"},
+                { id: 4, text: "Unsure"},
                     ],
             "covid-vax": [
                 { id: 0, text: "6 Months"},
@@ -75,30 +75,29 @@ const getAnswersMapped = () => {
                     ],  
             "hrt2": [
                 { id: 0, text: "No effect",},
-                { id: 1, text: "Slightly increase risk of cancer",},
-                { id: 2, text: "Slightly decrease risk of cancer "},
-                { id: 3, text: "No effect", },
-                { id: 4, text: "Unsure", }
+                { id: 1, text: "Increase the risk of cancer",},
+                { id: 2, text: "Decrease the risk of cancer "},
+                { id: 3, text: "Unsure", }
                     ],
             "asthma2": [
-                { id: 0, text: "Activated flu viruses",},
-                { id: 1, text: "Inactivated flu viruses",},
-                { id: 2, text: "A mixture of active and inactive flu viruses"},
+                { id: 0, text: "The nasal flu vaccine contains activated flu viruses",},
+                { id: 1, text: "The nasal flu vaccine contains inactive flu viruses",},
+                { id: 2, text: "The nasal flu vaccine contains a mixture of active and inactive flu viruses"},
                 { id: 3, text: "Unsure",},
                     ],
 
-            
             "formula2": [
-                { id: 0, text: "Includes all nutrients needed for toddler development past the age of 12 months."},
-                { id: 1, text: "Contains no nutrital advantage over a well-balanced diet that includes human milk and/or cow milk"},
-                { id: 2, text: "Contains certain nutrients needed for a well-balanced diet for toddler under 12 months and should be introduced in combination with regular breastfeeding."},
+                { id: 0, text: "Toddler formula includes all nutrients needed under FDA regulation for toddler development past the age of 12 months."},
+                { id: 1, text: "Toddler formula does not provide a nutritional advantage over a well-balanced diet that includes cows milk"},
+                { id: 2, text: "Toddler formula contains certain nutrients needed for a well-balanced diet for toddlers under 12 months and should be introduced in combination with regular breastfeeding."},
                 { id: 3, text: "Unsure", }
                     ],
+
             "lung2": [
                 { id: 0, text: "Yes, every year."},
                 { id: 1, text: "Yes, every few years"},
                 { id: 2, text: "No, they should wait until 25 years since quitting to begin "},
-                { id: 3, text: "No, they should not get screened because they don't meet all criteria"},
+                { id: 3, text: "No, they should not get screened because they do not meet all the criteria"},
                 { id: 4, text: "Unsure", }
                     ],
             "likert2": [
@@ -109,13 +108,12 @@ const getAnswersMapped = () => {
                 { id: 4, text: "Not Trustworthy", }
                     ],
             "rsv2": [
-                { id: 0, text: "27 weeks"},
-                { id: 1, text: "28 weeks"},
-                { id: 2, text: "29 weeks"},
-                { id: 3, text: "30 weeks", },
-                { id: 4, text: "31 weeks", },
+                { id: 0, text: "Pneumonia"},
+                { id: 1, text: "Immunodeficiencies"},
+                { id: 2, text: "Decreased bone mass"},
+                { id: 3, text: "Decreased muscle mass", },
+                { id: 4, text: "Cistic Fibrosis", },
                 { id: 5, text: "Unsure", },
-
                     ],
             "covid-vax2": [
                 { id: 0, text: "6 Months"},
@@ -165,8 +163,8 @@ const getAnswersMapped = () => {
             "papsmear2": [
                 { id: 0, text: "21"},
                 { id: 1, text: "30"},
-                { id: 2, text: "65"},
-                { id: 3, text: "75"},
+                { id: 2, text: "40"},
+                { id: 3, text: "65"},
                 { id: 4, text: "Unsure", }
                     ],
 
@@ -201,10 +199,10 @@ const getAnswersMapped = () => {
                     ],
 
             "breastfeed": [
-                { id: 0, text: "6 months"},
-                { id: 1, text: "12 months"},
-                { id: 2, text: "18 months"},
-                { id: 3, text: "24 months"},
+                { id: 0, text: "Only breastmilk"},
+                { id: 1, text: "Water and breastmilk"},
+                { id: 2, text: "Baby formula and breastmilk"},
+                { id: 3, text: "Baby formula, water, and breastmilk"},
                 { id: 4, text: "Unsure", }
                     ],
 
