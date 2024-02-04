@@ -21,7 +21,7 @@ const getAnswersMapped = () => {
                 { id: 1, text: "Yes, but only if they haven't had a history of wheezing within the last 12 months",},
                 { id: 2, text: "Yes, but only if the child with asthma is 5 years and older."},
                 { id: 3, text: "No, children with asthma cannot get the nasal vaccine.",},
-                { id: e, text: "Unsure", }
+                { id: 4, text: "Unsure", }
                     ],
             
             "formula": [
