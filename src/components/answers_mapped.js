@@ -19,7 +19,7 @@ const getAnswersMapped = () => {
             "asthma": [
                 { id: 0, text: "Yes, but only if the child with asthma is over the age of 2 years",},
                 { id: 1, text: "Yes, but only if they haven't had a history of wheezing within the last 12 months",},
-                { id: 2, text: "Yes, but only if the child with asthma is 5 years and older."},
+                { id: 2, text: "Yes, but only if the child with asthma is at least 5 years old."},
                 { id: 3, text: "No, children with asthma cannot get the nasal vaccine.",},
                 { id: 4, text: "Unsure", }
                     ],
@@ -111,8 +111,8 @@ const getAnswersMapped = () => {
                 { id: 0, text: "Pneumonia"},
                 { id: 1, text: "Immunodeficiencies"},
                 { id: 2, text: "Decreased bone mass"},
-                { id: 3, text: "Decreased muscle mass", },
-                { id: 4, text: "Cistic Fibrosis", },
+                { id: 3, text: "Nearsightedness", },
+                { id: 4, text: "Cystic Fibrosis", },
                 { id: 5, text: "Unsure", },
                     ],
             "covid-vax2": [

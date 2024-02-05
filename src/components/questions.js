@@ -19,7 +19,7 @@ const getQuestions = () => {
             code: "hrt",
             text: "How does taking combined estrogen and progestin Hormone Replacement Therapy (HRT) affect a healthy woman's chance of developing breast cancer?",
             options: answers_mapped["hrt"],
-            text2: "How does estrogen only Hormone Replacement Therapy (HRT) affect a healthy womans chance of developing cancer?",
+            text2: "How does estrogen only Hormone Replacement Therapy (HRT) affect a healthy woman's chance of developing cancer?",
             options2: answers_mapped["hrt2"],
         },
         {
@@ -110,7 +110,7 @@ const getQuestions = () => {
             code: "breastfeed",
             text: "What kind of liquids can a 3 month old baby safely drink?",
             options: answers_mapped["breastfeed"],
-            text2: "At what age is it recommended to introduce an infant to complimentary foods?",
+            text2: "At what age is it recommended to introduce complimentary foods into an infant's diet?",
             options2: answers_mapped["breastfeed2"], 
 
         },
