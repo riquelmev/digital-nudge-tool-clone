@@ -108,7 +108,7 @@ const getQuestions = () => {
 
         {
             code: "breastfeed",
-            text: "What kind of liquids can you give a 3 month old baby??",
+            text: "What kind of liquids can a 3 month old baby safely drink?",
             options: answers_mapped["breastfeed"],
             text2: "At what age is it recommended to introduce an infant to complimentary foods?",
             options2: answers_mapped["breastfeed2"], 

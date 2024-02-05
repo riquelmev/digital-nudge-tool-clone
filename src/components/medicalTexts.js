@@ -143,56 +143,56 @@ const getPrompts = () => {
 
         //     ]},
 
-        {
-            code: "sweets",
-            prompt: "Do non-sugar sweeteners help with long term weight loss?",
-            text: [
+        // {
+        //     code: "sweets",
+        //     prompt: "Do non-sugar sweeteners help with long term weight loss?",
+        //     text: [
                 
-                `Non-sugar sweeteners, often referred to as artificial sweeteners or sugar substitutes, can be useful
-                 tools in a weight loss or weight management plan for some people, but their effectiveness in
-                  achieving long-term weight loss depends on various factors.`,
+        //         `Non-sugar sweeteners, often referred to as artificial sweeteners or sugar substitutes, can be useful
+        //          tools in a weight loss or weight management plan for some people, but their effectiveness in
+        //           achieving long-term weight loss depends on various factors.`,
 
-                `Here are some considerations:`,
+        //         `Here are some considerations:`,
                 
-                `1. Reducing Caloric Intake: Non-sugar sweeteners are typically lower in
-                 calories than sugar, which can be advantageous when trying to 
-                 reduce overall calorie intake. Replacing sugar with artificial
-                  sweeteners in beverages and foods can help people lower their 
-                  calorie consumption, which is essential for weight loss.`,
+        //         `1. Reducing Caloric Intake: Non-sugar sweeteners are typically lower in
+        //          calories than sugar, which can be advantageous when trying to 
+        //          reduce overall calorie intake. Replacing sugar with artificial
+        //           sweeteners in beverages and foods can help people lower their 
+        //           calorie consumption, which is essential for weight loss.`,
                 
-                `2. Reducing Sugar Intake: Sugar substitutes can be beneficial for people who are looking 
-                to cut down on sugar consumption, which can be an effective strategy for weight 
-                loss, as high sugar intake is linked to weight gain and various health issues.`,
+        //         `2. Reducing Sugar Intake: Sugar substitutes can be beneficial for people who are looking 
+        //         to cut down on sugar consumption, which can be an effective strategy for weight 
+        //         loss, as high sugar intake is linked to weight gain and various health issues.`,
                 
-                `3. Satiety and Cravings: Some research suggests that artificial sweeteners may not 
-                provide the same level of satiety as real sugar, which could lead to increased cravings
-                 for sweet foods. It's important to be mindful of portion control and overall dietary choices.`,
+        //         `3. Satiety and Cravings: Some research suggests that artificial sweeteners may not 
+        //         provide the same level of satiety as real sugar, which could lead to increased cravings
+        //          for sweet foods. It's important to be mindful of portion control and overall dietary choices.`,
                 
-                `4. Individual Variability: People's responses to non-sugar sweeteners can vary.
-                 Some individuals may find that artificial sweeteners help them manage their 
-                 weight and sugar intake effectively, while others may experience cravings or other adverse effects.`,
+        //         `4. Individual Variability: People's responses to non-sugar sweeteners can vary.
+        //          Some individuals may find that artificial sweeteners help them manage their 
+        //          weight and sugar intake effectively, while others may experience cravings or other adverse effects.`,
                 
-                `5. Balanced Diet: While sugar substitutes can be part of a weight management strategy, 
-                it's important to focus on overall dietary quality. Weight loss and
-                 maintenance are more successful when combined with a balanced diet that includes 
-                 a variety of nutrient-rich foods.`,
+        //         `5. Balanced Diet: While sugar substitutes can be part of a weight management strategy, 
+        //         it's important to focus on overall dietary quality. Weight loss and
+        //          maintenance are more successful when combined with a balanced diet that includes 
+        //          a variety of nutrient-rich foods.`,
                 
-                `6. Psychological Factors: The perception of sweetness without calories can lead some people 
-                to consume more calories from other sources, potentially negating the benefits of using artificial sweeteners.`,
+        //         `6. Psychological Factors: The perception of sweetness without calories can lead some people 
+        //         to consume more calories from other sources, potentially negating the benefits of using artificial sweeteners.`,
                 
-                `7. Research and Long-Term Studies: Long-term studies on the impact of non-sugar
-                 sweeteners on weight loss and maintenance are limited, and more research is needed to
-                  determine their effects over extended periods.`,
+        //         `7. Research and Long-Term Studies: Long-term studies on the impact of non-sugar
+        //          sweeteners on weight loss and maintenance are limited, and more research is needed to
+        //           determine their effects over extended periods.`,
                 
-                `In summary, non-sugar sweeteners can be a helpful tool for reducing calorie 
-                and sugar intake in the short term, which can contribute to weight loss.
-                 However, the long-term effectiveness of artificial sweeteners in maintaining 
-                 weight loss varies from person to person and may depend on various factors,
-                  including individual preferences, dietary habits, and psychological factors.`,
+        //         `In summary, non-sugar sweeteners can be a helpful tool for reducing calorie 
+        //         and sugar intake in the short term, which can contribute to weight loss.
+        //          However, the long-term effectiveness of artificial sweeteners in maintaining 
+        //          weight loss varies from person to person and may depend on various factors,
+        //           including individual preferences, dietary habits, and psychological factors.`,
                 
-                  ``,
+        //           ``,
 
-            ]},
+        //     ]},
 
         {
             code: "rsv",
