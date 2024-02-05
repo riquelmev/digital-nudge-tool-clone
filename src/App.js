@@ -817,7 +817,7 @@ const handleStartSurveyAfterTrial = () => {
           
                               <PopupAlert showPopupMode={showSecondConfirmationPopup} closeModal={handleCloseSecond} openModal={handleShow} text={"Nice Job. There's one more trial question. As a reminder, if you don't know the answer, select Unsure."} ></PopupAlert>
         
-                              <PopupAlert showPopupMode={showThirdConfirmationPopup} closeModal={handleCloseThird} openModal={handleShow} text={`Nice Job. As you saw in the previous example, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and your own outside knowledge. Click continue to begin the survey. Note there will be no confirmation pop up in the actual survey.`} ></PopupAlert>
+                              <PopupAlert showPopupMode={showThirdConfirmationPopup} closeModal={handleCloseThird} openModal={handleShow} text={`Nice Job. As you saw in the previous example, AI models sometimes make mistakes. Make sure to make your decision using both the conversation at hand and your own outside knowledge.`} ></PopupAlert>
         
                             </div>
                            
