@@ -19,12 +19,12 @@ const getQuestions = () => {
             code: "hrt",
             text: "How does taking combined estrogen and progestin Hormone Replacement Therapy (HRT) affect a healthy woman's chance of developing breast cancer?",
             options: answers_mapped["hrt"],
-            text2: "How does estrogen only Hormone Replacement Therapy (HRT) affect a healthy woman's chance of developing cancer?",
+            text2: "How does estrogen only Hormone Replacement Therapy (HRT) affect a healthy woman's chance of developing any form of cancer?",
             options2: answers_mapped["hrt2"],
         },
         {
             code: "asthma",
-            text: "What is the youngest age a child with athsma can get a nasal flu vaccine?",
+            text: "Can a child with athsma can get a nasal flu vaccine?",
             options: answers_mapped["asthma"],
             text2: "The nasal flu vaccine differs from an injectable flu vaccine in what way?",
             options2: answers_mapped["asthma2"],
@@ -65,7 +65,7 @@ const getQuestions = () => {
             code: "rsv",
             text: "What is the best way to prevent RSV in infants born during RSV season?",
             options: answers_mapped["rsv"],
-            text2: "RSV in infants can be a serious condition. Which of the following are infants more at risk of developing if they are infected with RSV?",
+            text2: "RSV in infants can be a serious condition. Infants with RSV are more likely to develop which of the following conditions?",
             options2: answers_mapped["rsv2"], 
 
         },
@@ -90,7 +90,7 @@ const getQuestions = () => {
 
         {
             code: "mammogram",
-            text: "What is the earliest age a woman could begin mammography?",
+            text: "At what age could someone begin mammography?",
             options: answers_mapped["mammogram"],
             text2: "When might someone stop recieving mammograms??",
             options2: answers_mapped["mammogram2"], 
