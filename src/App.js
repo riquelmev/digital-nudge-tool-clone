@@ -627,7 +627,7 @@ const handleStartSurveyAfterTrial = () => {
     <div className="App">
       {/* 1. Header  */}
       <div className="title-box" id="title">
-        <h1 className='title'> AI Perception Study </h1>
+        <h1 className='title'> AI Recommendations Under Different Contexts Study</h1>
       </div>
 
 
