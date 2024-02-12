@@ -171,7 +171,10 @@ const handleStartSurveyAfterTrial = () => {
   const trialQuestions = getTrialQuestions();
 
 
-  const completionCode = "46934"
+  const completionCodeAccepted = "C14XT22F"
+  const completionCodeNotAccepted = "CXCBPSGM"
+  const completionCodeNotStarted = "CEJOCP4S"
+
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -640,7 +643,7 @@ const handleStartSurveyAfterTrial = () => {
           {endEarly ? (
             // End Screen
             <div>
-              <h2 className="page-subtitle">You have chosen to not participate. Good day.</h2>
+              <h2 className="page-subtitle">You have chosen to not participate. Good day. As you have indicated that you do not consent to participate in this study please return this submission on Prolific by selecting the 'stop without completing' button'.</h2>
             </div>
           ) : (
 
@@ -885,8 +888,8 @@ const handleStartSurveyAfterTrial = () => {
                     {showEndScreen ? (
                       <div className="page-box">
                         <h1 className="page-title">Thank you for taking the survey!</h1>
-                        {acceptedOrNot ? (<h2 className="page-subtitle"> You have chosen to accept the terms and your response has been recorded. Your completion code is {completionCode}</h2>
-                        ) : (<h2 className="page-subtitle">You have chosen to not accept the terms. Your answers have not been recorded. Your completion code is {completionCode}</h2>)}
+                        {acceptedOrNot ? (<h2 className="page-subtitle"> You have chosen to accept the terms and your response has been recorded. Your completion code is {completionCodeAccepted}</h2>
+                        ) : (<h2 className="page-subtitle">You have chosen to not accept the terms. Your answers have not been recorded. Your completion code is {completionCodeNotAccepted}</h2>)}
                       </div>
                     ) : (
 
