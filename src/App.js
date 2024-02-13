@@ -593,7 +593,7 @@ const handleStartSurveyAfterTrial = () => {
     localStorage.setItem("accepted", true);
     localStorage.setItem("group", group );
     localStorage.setItem("start_time",startTime);
-    localStorage.setItem("question times", time);
+    localStorage.setItem("question_times", time);
     localStorage.setItem("order", randomArray);
 
 

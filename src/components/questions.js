@@ -92,7 +92,7 @@ const getQuestions = () => {
             code: "mammogram",
             text: "At what age could someone begin mammography?",
             options: answers_mapped["mammogram"],
-            text2: "When might someone stop recieving mammograms??",
+            text2: "What is this passage most closely about?",
             options2: answers_mapped["mammogram2"], 
 
         },

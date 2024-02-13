@@ -176,10 +176,10 @@ const getAnswersMapped = () => {
                     ],
 
             "mammogram2": [
-                { id: 0, text: "Age 65"},
-                { id: 1, text: "Age 75"},
-                { id: 2, text: "Age 85"},
-                { id: 3, text: "When a person is in poor health and does not expect to live more than 10 years"},
+                { id: 0, text: "Cancer"},
+                { id: 1, text: "Mammograms"},
+                { id: 2, text: "Aging"},
+                { id: 3, text: "The USPSTF"},
                 { id: 4, text: "Unsure", }
                     ],
 
