@@ -10,8 +10,8 @@ const getDisclaimer = () => {
 // ``,``,``,
         
 
-`As mentioned earlier, we have withheld important infromation about this study. 
-We have mislead you about the purpose of the research or research procedures. 
+`As mentioned earlier, we have withheld important information about this study. 
+We have misled you about the purpose of the research or research procedures. 
 Since this is the conclusion of the study, we will now provide you with that information.`,
 
 `The information that you were provided with in this study contained misinformation. 

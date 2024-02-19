@@ -177,7 +177,7 @@ const handleStartSurveyAfterTrial = () => {
 
   const completionCodeAccepted = "C14XT22F"
   const completionCodeNotAccepted = "CXCBPSGM"
-  const completionCodeNotStarted = "CEJOCP4S"
+  const completionCodeNotStarted = "C1CK1U46"
 
 
   function shuffleArray(array) {
@@ -655,7 +655,7 @@ const handleStartSurveyAfterTrial = () => {
           {endEarly ? (
             // End Screen
             <div>
-              <h2 className="page-subtitle">You have chosen to not participate. Good day. As you have indicated that you do not consent to participate in this study please return this submission on Prolific by selecting the 'stop without completing' button'.</h2>
+              <h2 className="page-subtitle">You have chosen to not participate. As you have indicated that you do not consent to participate in this study please return this submission on Prolific by selecting the 'stop without completing' button' or by entering the following code {completionCodeNotStarted}.</h2>
             </div>
           ) : (
 
