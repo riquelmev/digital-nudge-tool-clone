@@ -18,6 +18,8 @@ import getRAGTexts from "./components/medicalTextsRAG";
 import getTrialQuestions from "./components/trialQuestion";
 import getAnswersMapped from "./components/answers_mapped";
 import { nullLiteral } from "@babel/types";
+import GradualTextDisplay from "./components/display_gradually";
+import GradualStringList from "./components/gradual_string";
 // import { BrowserRouter as Router } from 'react-router-dom';
 
 
@@ -130,6 +132,8 @@ function App({group, chatgpt, popup, rag, priming}) {
   const handleCloseTrial3 = () => setUseTrialPopup3(false);
   const handleCloseTrial4 = () => setUseTrialPopup4(false);
 
+  // const GradualTextDisplay = ({ text }) => {
+  //   const [displayedText, setDisplayedText] = useState('');
 
 
   const handleCloseSecond = () => {
@@ -518,17 +522,25 @@ const handleStartSurveyAfterTrial = () => {
           {this.props.text.map((i, key) => {
              if (UseChatGPTDisclaimer && 0 === key && this.props.medText) {
               // TODO: Add padding
-              return <div className={this.props.className} key={key}>{start_disclaimer}{i}</div>;
+              return <div className={this.props.className} key={key}>
+              {start_disclaimer}
+              {i}
+              </div>;
             }
             else if (UseChatGPTDisclaimer && this.props.text.length - 1 === key && this.props.medText) {
               // TODO: Add padding
-              return <div className={this.props.className} key={key}>{i}{disclaimer}</div>;
+              return <div className={this.props.className} key={key}>
+                {i}{disclaimer}
+                </div>;
             }
-            return <div className={this.props.className} key={key}>{i}</div>;
+            return <div className={this.props.className} key={key}>
+             {i}
+              </div>;
           })}
         </div>);
     }
   }
+
 
   /* Resets the game back to default */
   const restartGame = () => {
@@ -667,6 +679,7 @@ const handleStartSurveyAfterTrial = () => {
 
                     <div className="page-box">
                       <div className="page-text-box">
+                        {/* <GradualStringList strings={<MultiLineText className="page-body-text" text={getStartPage()} medText={false}></MultiLineText>}/> */}
                         <MultiLineText className="page-body-text" text={getStartPage()} medText={false}></MultiLineText>
                       </div>
                     </div>
@@ -763,8 +776,10 @@ const handleStartSurveyAfterTrial = () => {
                                     <div className="medical-text-box">
                                       <div className="gpt-image"> <img src={require("./GPT-logo.jpeg")} alt="gpt Logo" style={{ maxWidth: 50 }}></img></div>
                                       {/* {UseChatGPTDisclaimer ? (<h3 className="gpt-text">{prompts[currentQuestion].text}{disclaimer} </h3>) : (<h3 className="gpt-text">{prompts[currentQuestion].text}</h3>)} */}
-                                      <div>
+                                      <div> 
                                         <MultiLineText className="text-chunk" text={trial_questions[currentTrialQuestion].chatGPT_answer} medText={false} />
+                                        {/* <MultiLineText className="text-chunk" text={<GradualTextDisplay text={trial_questions[currentTrialQuestion].chatGPT_answer}/>} medText={false} /> */}
+
                                       </div>
                                     </div>
                                   </div>

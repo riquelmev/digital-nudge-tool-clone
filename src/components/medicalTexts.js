@@ -13,7 +13,7 @@ const getPrompts = () => {
                 However, specific requirements and restrictions, such as waiting periods and counseling, may apply.`,
     
             `Abortion providers Planned Parenthood and Greenville Women’s Clinic have filed a lawsuit 
-            challenging the state’s ban and seeking a temporary restraining order that would prevent enforcement of the law `,
+            challenging the state’s ban and seeking a temporary restraining order that would prevent enforcement of the law. `,
 
             ``,
             ]},
@@ -47,21 +47,21 @@ const getPrompts = () => {
                   ``,
 
         ]},        
-    {
-        code: "asthma",
-        prompt: "My child has asthma, can they get the nasal flu spray?",
-        text: [
-            `No, children with asthma should not receive the nasal spray flu vaccine (FluMist). 
-            The nasal spray flu vaccine is a live attenuated vaccine, 
-            which means it contains weakened but live flu viruses. It is not
-            recommended for individuals with certain underlying health conditions, including asthma.`,
-            `Children with asthma are typically advised to receive the flu vaccine
-            in the form of an injectable flu shot. The flu shot is made with
-            inactivated (killed) flu viruses and is considered safe and effective for
-            individuals with asthma.`,
-            ``,
+    // {
+    //     code: "asthma",
+    //     prompt: "My child has asthma, can they get the nasal flu spray?",
+    //     text: [
+    //         `No, children with asthma should not receive the nasal spray flu vaccine (FluMist). 
+    //         The nasal spray flu vaccine is a live attenuated vaccine, 
+    //         which means it contains weakened but live flu viruses. It is not
+    //         recommended for individuals with certain underlying health conditions, including asthma.`,
+    //         `Children with asthma are typically advised to receive the flu vaccine
+    //         in the form of an injectable flu shot. The flu shot is made with
+    //         inactivated (killed) flu viruses and is considered safe and effective for
+    //         individuals with asthma.`,
+    //         ``,
 
-        ]},
+    //     ]},
     
         {
             code: "formula",

@@ -14,7 +14,7 @@ const getRAGTexts = () => {
                     However, specific requirements and restrictions, such as waiting periods and counseling, may apply.`,
         
                 `Abortion providers Planned Parenthood and Greenville Women’s Clinic have filed a lawsuit 
-                challenging the state’s ban and seeking a temporary restraining order that would prevent enforcement of the law `,
+                challenging the state’s ban and seeking a temporary restraining order that would prevent enforcement of the law. `,
 
             `Sources:`,
             
@@ -57,27 +57,27 @@ const getRAGTexts = () => {
                 `(3) Can hormone replacement therapy (HRT) cause breast cancer?: www.medicalnewstoday.com.`,
                 `(4) Wikipedia: www.wikipedia.org`,
         ]},        
-    {
-        code: "asthma",
-        prompt: "My child has asthma, can they get the nasal flu spray?",
-        text: [
-            `No, children with asthma should not receive the nasal spray flu vaccine (FluMist). 
-            The nasal spray flu vaccine is a live attenuated vaccine, 
-            which means it contains weakened but live flu viruses. It is not
-            recommended for individuals with certain underlying health conditions, including asthma.`,
-            `Children with asthma are typically advised to receive the flu vaccine
-            in the form of an injectable flu shot. The flu shot is made with
-            inactivated (killed) flu viruses and is considered safe and effective for
-            individuals with asthma.`,
+    // {
+    //     code: "asthma",
+    //     prompt: "My child has asthma, can they get the nasal flu spray?",
+    //     text: [
+    //         `No, children with asthma should not receive the nasal spray flu vaccine (FluMist). 
+    //         The nasal spray flu vaccine is a live attenuated vaccine, 
+    //         which means it contains weakened but live flu viruses. It is not
+    //         recommended for individuals with certain underlying health conditions, including asthma.`,
+    //         `Children with asthma are typically advised to receive the flu vaccine
+    //         in the form of an injectable flu shot. The flu shot is made with
+    //         inactivated (killed) flu viruses and is considered safe and effective for
+    //         individuals with asthma.`,
 
-            `Sources:`,
-            `(1) Live Attenuated Influenza Vaccine [LAIV] (The Nasal Spray Flu Vaccine ... : www.cdc.gov`,
-            `(2) Using Nasal Spray Flu Vaccine in Children with Asthma. : www.emjreviews.com`, 
-            `(3) Live nasal spray flu vaccine is safe for kids with asthma, says study. : www.medicalxpress.com`,
-            `(4) Nasal Spray Flu Vaccine No Problem for Kids With Asthma. : www.medpagetoday.com`,
-            `(5) Flu & People with Asthma | CDC - Centers for Disease Control and Prevention. : www.cdc.gov`,
+    //         `Sources:`,
+    //         `(1) Live Attenuated Influenza Vaccine [LAIV] (The Nasal Spray Flu Vaccine ... : www.cdc.gov`,
+    //         `(2) Using Nasal Spray Flu Vaccine in Children with Asthma. : www.emjreviews.com`, 
+    //         `(3) Live nasal spray flu vaccine is safe for kids with asthma, says study. : www.medicalxpress.com`,
+    //         `(4) Nasal Spray Flu Vaccine No Problem for Kids With Asthma. : www.medpagetoday.com`,
+    //         `(5) Flu & People with Asthma | CDC - Centers for Disease Control and Prevention. : www.cdc.gov`,
 
-        ]},
+    //     ]},
     
         {
             code: "formula",

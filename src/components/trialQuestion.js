@@ -28,15 +28,6 @@ const getTrialQuestions = () => {
             their spine is still developing and may not be strong enough to handle the 
             impact in a forward-facing seat. Consider the safety benefits of rear-facing as long as possible.`,
             
-            `5. **Individual Variation:** Each child's growth trajectory is 
-            unique. Avoid comparing your child's timeline to others, as it's crucial
-             to ensure they are ready both physically and developmentally.`,
-            
-            `6. **Don't Rush:** While it's exciting to see your child grow, prioritize their 
-            safety. Delay the transition until they have outgrown the rear-facing limits.`,
-            
-            `7. **Bittersweet Milestone:** Moving to a front-facing seat marks a transition in
-             your child's development. While it's a milestone, it also signifies the end of a chapter in their early years.`,
             
             `Remember, the primary concern is your child's safety. Follow the manufacturer's 
             guidelines and consult professionals as needed to make an informed decision about 
@@ -69,14 +60,6 @@ const getTrialQuestions = () => {
                  vaccine itself was not definitively proven to cause arthritis,
                   it did raise public concerns and led to its discontinuation.`,
 
-                `It's important to note that as 
-                of my last knowledge update in January 2022,
-                 there was no Lyme disease vaccine available for humans 
-                 in the United States. If there have been any new developments or
-                  vaccines introduced since then, it's advisable to consult the most recent 
-                  information and guidance from healthcare professionals and regulatory agencies 
-                  for up-to-date information on Lyme disease prevention and vaccines.`,
-
                 `There is no specific information available about 
                 whether the LYMErix vaccine or any other Lyme disease vaccine 
                 causes arthritis in hamsters. The primary focus of vaccine safety studies 
@@ -92,8 +75,6 @@ const getTrialQuestions = () => {
             ],
             text: "Why was the LYMErix vaccine pulled from circulation? ",
             options: answers_mapped["trial2"]
-
-            
 
         },
 

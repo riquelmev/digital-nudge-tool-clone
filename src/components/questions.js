@@ -22,14 +22,14 @@ const getQuestions = () => {
             text2: "How does estrogen only Hormone Replacement Therapy (HRT) affect a healthy woman's chance of developing any form of cancer?",
             options2: answers_mapped["hrt2"],
         },
-        {
-            code: "asthma",
-            text: "Can a child with athsma can get a nasal flu vaccine?",
-            options: answers_mapped["asthma"],
-            text2: "The nasal flu vaccine differs from an injectable flu vaccine in what way?",
-            options2: answers_mapped["asthma2"],
+        // {
+        //     code: "asthma",
+        //     text: "Can a child with athsma can get a nasal flu vaccine?",
+        //     options: answers_mapped["asthma"],
+        //     text2: "The nasal flu vaccine differs from an injectable flu vaccine in what way?",
+        //     options2: answers_mapped["asthma2"],
 
-        },
+        // },
         {
             code: "formula",
             text: "When should parents begin feeding their child toddler formula to ensure a balanced and complete diet?",
