@@ -15,10 +15,10 @@ const getDemoAnswersMapped = () => {
                 { id: 2, text: "Other"},
                     ],
             "kids": [
-                { id: 0, text: "0 kids",},
-                { id: 1, text: "1 kid",},
-                { id: 2, text: "2 kids"},
-                { id: 3, text: "3+ kids",},
+                { id: 0, text: "0 children",},
+                { id: 1, text: "1 child",},
+                { id: 2, text: "2 children"},
+                { id: 3, text: "3+ children",},
                     ],
             "tech": [
                 { id: 0, text: "Strongly Agree",},

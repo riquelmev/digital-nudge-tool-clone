@@ -24,7 +24,7 @@ const getDemographicQuestions = () => {
         },
         {
             code: "kids",
-            text: "Do you have any kids? If so, how many?",
+            text: "Do you have any children? If so, how many?",
             options: demo_answers_mapped["kids"]
 
         },
