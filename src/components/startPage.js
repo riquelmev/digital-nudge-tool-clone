@@ -16,7 +16,7 @@ const getStartPage = () => {
 
 `Risks and discomforts: None.`,
 
-`Compensation: $3.5 for taking the survey. Roughly $12 an hour based on a 17 minute survey completion time.`,
+`Compensation: $3.4 for taking the survey. Roughly $12 an hour based on a 17 minute survey completion time.`,
 
 
 `Participating in this study is completely voluntary.  Even if you decide to participate now, you may change your mind 
