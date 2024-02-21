@@ -17,9 +17,9 @@ const getQuestions = () => {
         },
         {
             code: "hrt",
-            text: "How does taking combined estrogen and progestin Hormone Replacement Therapy (HRT) affect a healthy woman's chance of developing breast cancer?",
+            text: "How does taking combined estrogen and progestin Hormone Replacement Therapy (HRT) affect a healthy individual's chance of developing breast cancer?",
             options: answers_mapped["hrt"],
-            text2: "How does estrogen only Hormone Replacement Therapy (HRT) affect a healthy woman's chance of developing any form of cancer?",
+            text2: "How does estrogen only Hormone Replacement Therapy (HRT) affect a healthy individual's chance of developing any form of cancer?",
             options2: answers_mapped["hrt2"],
         },
         // {
@@ -83,7 +83,7 @@ const getQuestions = () => {
             code: "papsmear",
             text: "How often should a 40 year old without any history of abnormal pap-smears get a Pap-smear and HPV co-test done?",
             options: answers_mapped["papsmear"],
-            text2: "At what age should a woman begin to get pap-smears?",
+            text2: "At what age should an individual begin to get pap-smears?",
             options2: answers_mapped["papsmear2"], 
 
         },
@@ -110,7 +110,7 @@ const getQuestions = () => {
             code: "breastfeed",
             text: "What kind of liquids can a 3 month old baby safely drink?",
             options: answers_mapped["breastfeed"],
-            text2: "At what age is it recommended to introduce complimentary foods into an infant's diet?",
+            text2: "At what age is it recommended to introduce complementary foods into an infant's diet?",
             options2: answers_mapped["breastfeed2"], 
 
         },

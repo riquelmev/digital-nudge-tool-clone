@@ -805,7 +805,7 @@ const handleStartSurveyAfterTrial = () => {
                                 })}
                               </ul>
         
-                              <h3 className="question-text">{"How would you rate the trustworthyness of the above passage?"}</h3>
+                              <h3 className="question-text">{"How would you rate the trustworthiness of the above passage?"}</h3>
         
                               <ul>
                                 {likert_questions.options.map((option) => {
@@ -1041,7 +1041,7 @@ const handleStartSurveyAfterTrial = () => {
                           );
                         })}
                       </ul> */}
-                      <h3 className="question-text">{"How would you rate the trustworthyness of the above passage?"}</h3>
+                      <h3 className="question-text">{"How would you rate the trustworthiness of the above passage?"}</h3>
 
           
                       <ul>
