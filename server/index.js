@@ -7,6 +7,7 @@ const cors = require("cors");
 
 
 collec = "pilot";
+collec2 = "realstudy"
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 let uri =
@@ -35,7 +36,7 @@ async function update(client, id, answers){
             user_id: id ,
             answers: answers,
         }
-        const result = await client.db("aitool").collection(collec).replaceOne(
+        const result = await client.db("aitool").collection(collec2).replaceOne(
             {"user_id": id},
             {"user_id": id, "answers": answers},
             {upsert: true});
