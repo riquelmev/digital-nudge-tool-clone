@@ -7,7 +7,7 @@ const cors = require("cors");
 
 
 collec = "pilot";
-collec2 = "realstudy"
+collec2 = "real_study_group_3"
 collec3 = "test"
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
