@@ -71,7 +71,7 @@ app.post('/api/sql', (req, res) => {
 
 app.get('/api/completion', (req, res) => {
   // console.log(req.url);
-  res.status(200).send("C14XT22F")
+  res.status(200).send({code:"C14XT22F"})
 });
 
 app.listen(PORT, () => {
