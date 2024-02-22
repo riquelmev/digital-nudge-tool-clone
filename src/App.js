@@ -596,7 +596,9 @@ const handleStartSurveyAfterTrial = () => {
 
   }
 
-
+  function delay (ms) {
+    return new Promise(res => setTimeout(res, ms));
+  }
 
   const RETRY_COUNT = 5;
 
@@ -620,23 +622,67 @@ const handleStartSurveyAfterTrial = () => {
     const api_base_url='https://digital-nudge-server.onrender.com'
 
     let count = RETRY_COUNT;
-    while (count > 0) {
 
-      try{
-        const response = await fetch(`${api_base_url}/api/sql`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          },
-          body: JSON.stringify([id, history])
-          });
+    var response = null;
+    try{
+        response = await fetch(`${api_base_url}/api/sql`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify([id, history])
+      });
+    }
+
+    catch {
+      console.log("failed");
+      var succeed = false;
+      while (count > 0 && !succeed)
+        await delay(500)
+          {
+            try{
+            response = await fetch(`${api_base_url}/api/sql`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+              },
+              body: JSON.stringify([id, history])
+            });
+            succeed = true;
+            }
+            catch{
+              console.log(count)
+              count -=1
+              succeed = false;
+            }
+          }
+      if (succeed){
+        console.log("succeeded")
       }
-      catch (error){
-        count -= 1;
+      else{
+        console.log("too many retries")
       }
     }
-    console.log("too many retries")
+
+    // if (response.status != 200){
+    //   while (count > 0){
+    //     response = await fetch(`${api_base_url}/api/sql`, {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         'Access-Control-Allow-Origin': '*'
+    //       },
+    //       body: JSON.stringify([id, history])
+    //     });
+    //     count -=1
+    //   }
+    // }
+    // console.log(response)
+    // if (count === 0){
+    //   console.log("too many retries")
+    // } 
 
 
     // const body = await response.text();
@@ -909,7 +955,7 @@ const handleStartSurveyAfterTrial = () => {
 
               <div>
                 {showResults ? (
-                  storeHistory(),
+                  // storeHistory(),
                   /* 3. Final Results */
                   <div /* className="final-results"*/ >
                     {showEndScreen ? (
