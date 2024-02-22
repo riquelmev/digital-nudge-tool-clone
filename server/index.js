@@ -69,6 +69,11 @@ app.post('/api/sql', (req, res) => {
     res.send("logged")
 });
 
+app.get('/api/completion', (req, res) => {
+  // console.log(req.url);
+  res.status(200).send("C14XT22F")
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
