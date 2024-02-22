@@ -104,7 +104,7 @@ app.get('/api/completion', (req, res) => {
 });
 
 
-app.get('/api/test', (req, res) => {
+app.post('/api/test', (req, res) => {
   // console.log(req.url);
   console.log(req.url);
   update_initial(client, req.body[0],req.body[1])
