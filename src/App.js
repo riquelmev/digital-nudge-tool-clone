@@ -109,7 +109,7 @@ function App({group, chatgpt, popup, rag, priming}) {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         },
-        body: JSON.stringify([id, "test"])
+        body: JSON.stringify([id, group])
       });
     }
     catch {
