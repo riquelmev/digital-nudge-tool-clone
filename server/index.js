@@ -8,6 +8,7 @@ const cors = require("cors");
 
 collec = "pilot";
 collec2 = "realstudy"
+collec3 = "test"
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 let uri =
@@ -50,6 +51,34 @@ async function update(client, id, answers){
     }
     }
 
+  async function update_initial(client, id, answers){
+
+      try {
+          // Connect to the MongoDB cluster
+          await client.connect();
+  
+          // Make the appropriate DB calls
+  
+          // Create a single new listing
+  
+          const new_user = {
+              user_id: id ,
+              answers: answers,
+          }
+          const result = await client.db("aitool").collection("test").replaceOne(
+              {"user_id": id},
+              {"user_id": id, "answers": answers},
+              {upsert: true});
+          console.log(`New initial test for: ${id}`);
+          
+      } 
+      finally {
+          // Close the connection to the MongoDB cluster
+          await client.close();
+          console.log("connection closed")
+      }
+      }
+
 
 const express = require("express");
 
@@ -72,6 +101,14 @@ app.post('/api/sql', (req, res) => {
 app.get('/api/completion', (req, res) => {
   // console.log(req.url);
   res.status(200).send({code:"C14XT22F"})
+});
+
+
+app.get('/api/test', (req, res) => {
+  // console.log(req.url);
+  console.log(req.url);
+  update_initial(client, req.body[0],req.body[1])
+  res.send("logged")
 });
 
 app.listen(PORT, () => {

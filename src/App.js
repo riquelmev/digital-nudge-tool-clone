@@ -93,6 +93,30 @@ function App({group, chatgpt, popup, rag, priming}) {
   const handleClose = () => setShowPopup(false);
   const handleShow = () => setShowPopup(true);
 
+  const handleStart = () =>{
+    setShowSecondPage(true);
+    makeTestCall();
+  }
+
+  const makeTestCall = async() => {
+    const api_base_url='https://digital-nudge-server.onrender.com'
+
+
+    try{
+      const response = await fetch(`${api_base_url}/api/test`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify([id, "test"])
+      });
+    }
+    catch {
+      console.log("failed");
+  }
+}
+
   const [showInstructions, setShowInstructions] = useState(false);
   const handleShowInstructions = () => setShowInstructions(true);
   const handleCloseInstructions = () => setShowInstructions(false);
@@ -600,6 +624,31 @@ const handleStartSurveyAfterTrial = () => {
     return new Promise(res => setTimeout(res, ms));
   }
 
+//   const get_code = async () => {
+    
+//   const api_base_url='https://digital-nudge-server.onrender.com'
+//   await fetch(`${api_base_url}/api/completion`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Access-Control-Allow-Origin': '*'
+//     },
+//   }).then((response) => response.json()) //2
+// .then((code) => {
+// // console.log(code);
+// return code; //3
+// });
+// console.log(response.code)
+
+
+// console.log(response.json())
+// const printAddress = async () => {
+//   const a = await address;
+//   console.log(a);
+// };
+// }
+// printAddress();
+
   const RETRY_COUNT = 5;
 
   const storeHistory = async () => {
@@ -624,6 +673,7 @@ const handleStartSurveyAfterTrial = () => {
     let count = RETRY_COUNT;
 
     var response = null;
+
     try{
         response = await fetch(`${api_base_url}/api/sql`, {
         method: 'POST',
@@ -712,6 +762,7 @@ const handleStartSurveyAfterTrial = () => {
 
           {endEarly ? (
             // End Screen
+            // console.log(get_code()),
             <div>
               <h2 className="page-subtitle">You have chosen to not participate. As you have indicated that you do not consent to participate in this study please return this submission on Prolific by selecting the 'stop without completing' button' or by entering the following code {completionCodeNotStarted}.</h2>
             </div>
@@ -743,7 +794,7 @@ const handleStartSurveyAfterTrial = () => {
                     </div>
                   </div>,
                   <div>
-                    <button className="restart-button accept-button" onClick={() => setShowSecondPage(true)}>I accept</button>
+                    <button className="restart-button accept-button" onClick={() => handleStart()}>I accept</button>
                     <button className="restart-button reject-button" onClick={() => endSurvey()}>I don't accept </button>
                   </div>
 
