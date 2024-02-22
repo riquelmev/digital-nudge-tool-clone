@@ -593,10 +593,12 @@ const handleStartSurveyAfterTrial = () => {
       },
       body: JSON.stringify([id, history])
     });
+
   }
 
 
 
+  const RETRY_COUNT = 5;
 
   const storeHistory = async () => {
 
@@ -616,16 +618,26 @@ const handleStartSurveyAfterTrial = () => {
     console.log("api call")
 
     const api_base_url='https://digital-nudge-server.onrender.com'
-    const response = await fetch(`${api_base_url}/api/sql`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify([id, history])
-    });
 
-    console.log(response)
+    let count = RETRY_COUNT;
+    while (count > 0) {
+
+      try{
+        return await fetch(`${api_base_url}/api/sql`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          },
+          body: JSON.stringify([id, history])
+          });
+      }
+      catch (error){
+        count -= 1;
+      }
+      console.log("too many retries")
+    }
+
 
     // const body = await response.text();
 
@@ -897,7 +909,7 @@ const handleStartSurveyAfterTrial = () => {
 
               <div>
                 {showResults ? (
-                  // storeHistory(),
+                  storeHistory(),
                   /* 3. Final Results */
                   <div /* className="final-results"*/ >
                     {showEndScreen ? (
