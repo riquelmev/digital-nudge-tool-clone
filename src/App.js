@@ -623,7 +623,7 @@ const handleStartSurveyAfterTrial = () => {
     while (count > 0) {
 
       try{
-        return await fetch(`${api_base_url}/api/sql`, {
+        const response = await fetch(`${api_base_url}/api/sql`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -635,8 +635,8 @@ const handleStartSurveyAfterTrial = () => {
       catch (error){
         count -= 1;
       }
-      console.log("too many retries")
     }
+    console.log("too many retries")
 
 
     // const body = await response.text();
